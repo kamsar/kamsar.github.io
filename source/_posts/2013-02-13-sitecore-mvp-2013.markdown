@@ -1,0 +1,8 @@
+---
+layout: post
+title: "Sitecore MVP 2013"
+date: 2013-02-13 12:09:23 -0800
+comments: true
+categories: Sitecore
+---
+It's been announced that I was selected as a Sitecore MVP for 2013! Some of the folks at the office whipped up <a href="http://www.isitedesign.com/sitecore/2013/02/13/2013-sitecore-mvps-official-list-and-infographic/" target="_blank">a neat infographic</a> showing where all the MVPs this year are from - check it out.

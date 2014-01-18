@@ -3,7 +3,7 @@ layout: post
 title: "Using MVC 5 with Sitecore 7.1"
 date: 2013-12-26 20:52:05 -0800
 comments: true
-categories: 
+categories: Sitecore MVC
 ---
 If you're using something that is already on ASP.NET MVC 5, for example the latest release of Blade, and want to upgrade to Sitecore 7.1 you may be worried that as of 7.1 Sitecore takes a dependency on ASP.NET MVC 4. Thankfully that's actually pretty simple to work around in such a way that both your MVC5 code and Sitecore's MVC4 code can work together.
 

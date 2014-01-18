@@ -3,7 +3,7 @@ layout: post
 title: "Have two web databases? Don't forget the IndexUpdateStrategy"
 date: 2014-01-13 20:12:03 -0800
 comments: true
-categories: 
+categories: Sitecore Lucene
 ---
 
 If you have two web databases in a Sitecore 7 site (e.g. for a pre-production preview or staging site) and you're using Lucene here's something to be aware of:
