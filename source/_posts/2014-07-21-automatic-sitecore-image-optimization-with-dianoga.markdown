@@ -14,4 +14,4 @@ There are some other [image](http://www.roundedcube.com/Blog/2013/building-the-p
 
 Sound like fun? Free bandwidth savings for no work other than a really difficult installation process? Just kidding - installation is as simple as a zero-configuration NuGet package that doesn't even touch your Sitecore databases. You might want to delete `App_Data/MediaCache` after install so that media is recached with optimizations, but that's all there is to it.
 
-Find Dianoga on NuGet (Sitecore 7+), or you can get the source from [GitHub](https://github.com/kamsar/Dianoga) (source works for Sitecore 6.x). There is also a [readme on GitHub](https://github.com/kamsar/Dianoga/blob/master/README.md) with additional details about logging, troublshooting, and such.
+Find Dianoga on NuGet (Sitecore 7+), or you can get the source from [GitHub](https://github.com/kamsar/Dianoga) (source works for Sitecore 6.x). There is also a [readme on GitHub](https://github.com/kamsar/Dianoga/blob/master/README.md) with additional details about logging, troubleshooting, and such.
