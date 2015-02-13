@@ -32,4 +32,10 @@ __The good news is, if you turn on `<compilation optimizeCompilations="true">` i
 
 That said, be aware that there are significant issues to be aware of when enabling optimizeCompilations. Read the MSDN article. I have not deeply tested using this setting, other than it removes the startup speed issue. If you run into problems, stopping IIS and clearing the Temporary ASP.NET files folder should clear it up. _Rebuild may not help._
 
+# Option 3: Disable the SPEAK Experience Editor
+
+A separate ticket on Sitecore support (relating to EE in Sitecore MVC) rustled up this other possible solution: disable the SPEAK-based Experience Editor, and go back to the Sheer one from previous Sitecore versions. This removes all cshtml compilation issues from the equation, and feels slightly faster in the browser to me. It has a less-polished UI appearance however, likely due to it not being a priority to reskin :)
+
+To disable the SPEAK EE, open `App_Config/Include/Sitecore.MvcExperienceEditor.config`. Locate the comment around like 33 regarding 'uncomment the page extenders below to switch to sheer' and follow the directions in the comment.
+
 Hope that helps!

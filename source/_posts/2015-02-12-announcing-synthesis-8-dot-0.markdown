@@ -37,7 +37,7 @@ This control panel uses a configurable activation URL to allow you to put it whe
 
 Synthesis 8 is [available from NuGet](https://www.nuget.org/packages/Synthesis) right now. Initial installation is as simple as installing the `Synthesis` NuGet package (and, if you want MVC support the `Synthesis.Mvc` package). There is a README that opens after installation that helps you get started and configure it.
 
-Upgrading does require merging the [current Synthesis.config](https://github.com/kamsar/Synthesis/blob/master/Source/Synthesis/Synthesis.config) with your existing one. A few settings have been added or modified in this version to support the control panel and multiple configurations. Otherwise upgrade is as simple as upgrading the NuGet package and, if appropriate, installing the MVC package.
+Upgrading does require merging the [current Synthesis.config](https://github.com/kamsar/Synthesis/blob/master/Source/Synthesis/Synthesis.config) with your existing one. A few settings have been added or modified in this version to support the control panel and multiple configurations. You will also need to remove the Synthesis HTTP handler and HTTP module from web.config if you have them registered. Otherwise upgrade is as simple as upgrading the NuGet package and, if appropriate, installing the MVC package.
 
 Synthesis 8.0 is designed for Sitecore 7.2 and later due to content search API versioning, and was primarily developed and tested on Sitecore 8.0 Update-1.
 
