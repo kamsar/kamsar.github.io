@@ -1,0 +1,31 @@
+# Header
+menu:
+  Home: /
+  Archives: /blog/archives
+
+# Content
+excerpt_link: Read More
+fancybox: false
+rss: /index.php/feed
+
+# Sidebar
+sidebar: right
+widgets:
+- recent_posts
+- category
+- tag
+thumbnail: false
+
+# Contacts
+contacts:
+  github: https://github.com/kamsar
+  twitter: https://twitter.com/kamsar
+  rss: /index.php/feed
+
+# Miscellaneous
+google_analytics: UA-62284328-1
+favicon: /favicon.png
+twitter: kamsar
+google_plus:
+fb_admins:
+fb_app_id:
