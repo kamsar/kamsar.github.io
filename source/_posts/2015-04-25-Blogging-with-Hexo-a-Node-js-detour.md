@@ -19,4 +19,4 @@ Setting up Hexo was very simple and took about 5 minutes. No really, the whole s
 
 Then I wrote this post by simply entering `hexo new post "Blogging with Hexo - a Node.js detour"` at a command prompt, opening the file in Sublime Text, and writing my Markdown. I previewed it while writing using `hexo server`, which starts a HTTP server you can see the rendered page on. When I deploy it to the blog, all I'll have to do is `hexo deploy` at a command prompt and all the git magic will be done by Hexo.
 
-Neat, huh?
+Neat, huh? And you can even [read the source](https://github.com/kamsar/kamsar.github.io/tree/source).
