@@ -10,7 +10,7 @@ Turned out to not be too hard to reduce it to one file: Sitecore itself provides
 
 {% asset_img tree.png "Multi root content tree" %}
 
-And, the code ([also as a Gist](https://gist.github.com/kamsar/33d1245ffdb630b1f126)):
+And, the code ([also as a Gist](https://gist.github.com/kamsar/33d1245ffdb630b1f126)) - tested on Sitecore 7.2 Update-3 and Sitecore 8 Update-2:
 
 	using System;
 	using System.Linq;
@@ -98,4 +98,4 @@ And, the code ([also as a Gist](https://gist.github.com/kamsar/33d1245ffdb630b1f
 		}
 	}
 
-	Have fun!
+Have fun!
