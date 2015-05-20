@@ -3,6 +3,11 @@ date: 2015-05-19 21:26:05
 categories: Sitecore
 ---
 
+### IMPORTANT NOTE:
+The information in this post unfortunately does NOT work for controller renderings as I had originally thought. It does, however enable you to use async actions outside of Sitecore contexts (e.g. in directly invoked controllers via non-Sitecore routes or Html.RenderAction() on a Sitecore rendering)
+
+
+
 For the past few years, the rest of the .NET world outside Sitecore has been adopting the new `async/await` programming model that was introduced in .NET 4.5. This model essentially allows you to free up your worker thread while you're waiting for something else to happen to continue exection. WTF does that mean?
 
 Ok, so imagine you have a very simple web server that has 20 execution threads. This more or less means you can process 20 HTTP requests at the same time before you have to start queuing incoming requests - which kills performance.
