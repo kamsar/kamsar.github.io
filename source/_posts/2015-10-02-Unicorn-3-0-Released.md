@@ -30,7 +30,7 @@ Previously Unicorn was distributed with its default example configuration direct
 
 ## New Items Only Evaluator
 
-This is an [evaluator](https://github.com/kamsar/Unicorn#evaluator) that changes the behavior of syncing to only write _new_ items from serialization into Sitecore. Existing items with the same ID or items that are not serialized are left alone. This can be useful for example if you're wanting to push some developer-initiated content items up, like metadata or lookup source items, that you want to always exist but once they have been created they become the content editor's to do with as they will. A [sample configuration](https://github.com/kamsar/Unicorn/blob/master/src/Unicorn/Standard%20Config%20Files/Unicorn.Configs.NewItemsOnly.example) that enables the NIO evaluator ships with the NuGet package. Thanks to [Nathaniel Mann](https://twitter.com/cardinal252) for the feature request.
+This is an [evaluator](https://github.com/kamsar/Unicorn#evaluator) that changes the behavior of syncing to only write _new_ items from serialization into Sitecore. Existing items with the same ID or items that are not serialized are left alone. This can be useful for example if you're wanting to push some developer-initiated content items up, like metadata or lookup source items, that you want to always exist but once they have been created they become the content editor's to do with as they will. A [sample configuration](https://github.com/kamsar/Unicorn/blob/master/src/Unicorn/Standard%20Config%20Files/Unicorn.Configs.NewItemsOnly.example) that enables the NIO evaluator ships with the NuGet package. Thanks to [Nathanael Mann](https://twitter.com/cardinal252) for the feature request.
 
 ## Visual Studio Control Panel Support
 
