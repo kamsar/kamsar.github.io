@@ -1,0 +1,49 @@
+title: "Unicorn 3.0 Released"
+date: 2015-10-02 11:00:00
+categories: Unicorn
+---
+
+![patrick you're a bloody genius](http://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/Unicorn_logo.png)
+
+It's been over a year since the last major release of Unicorn, but I haven't been bored. Today I'm happy to announce the release of Unicorn 3.0 and Rainbow 1.0.
+
+# Unicorn 101
+
+Sitecore development artifacts are both code and database items, such as rendering code and rendering items. As developers, we use serialization to write our database artifacts into source control along with our code so that we have a record of all our development artifacts. [Unicorn](https://github.com/kamsar/Unicorn) is a tool to make serializing items and sharing them across teams and deployed environments easy and fun.
+
+Unicorn 3 is the fresh off the compiler and brings with it a [huge raft of improvements](http://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/). This version brings its own [serialization format](http://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/) and [filesystem hierarchy](http://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/) that are far more friendly to source control and merge conflicts than the default Sitecore format. It's also ridiculously fast - about 50% faster overall than Unicorn 2 or Sitecore serialization APIs.
+
+# What else is new?
+
+In fact there have been several _more_ new features added to Unicorn 3 since the [what's new blog post](http://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/) was written.
+
+## Transparent Sync
+This is a feature that [demanded its own blog post]()! Transparent Sync enables Unicorn to sync the serialized items in real time, completely automatically. It does this by using its data provider to directly read the serialized items and inject them into the Sitecore content tree. The items on disk **are** the items in Sitecore: it bypasses the database entirely for transparently synced items.
+
+{% asset_img dramatic.gif "ermahgerd!" %}
+
+That more or less sums up what I felt like using it for the first time. Seriously, it's magic.
+
+## New Configuration Architecture
+
+Previously Unicorn was distributed with its default example configuration directly in `Unicorn.config`. This was suboptimal because it encouraged modifying the stock config file and making future upgrades more of a merging challenge than they needed to be. In the new order, Unicorn ships _without_ any configurations defined. There are two [example](https://github.com/kamsar/Unicorn/blob/master/src/Unicorn/Standard%20Config%20Files/Unicorn.Configs.Default.example) configuration-adding [patch files](https://github.com/kamsar/Unicorn/blob/master/src/Unicorn/Standard%20Config%20Files/Unicorn.Configs.NewItemsOnly.example) distributed with the NuGet package which you can duplicate and edit to your desires, and the [README distributed with the NuGet package](https://github.com/kamsar/Unicorn/blob/master/Build/Unicorn.nuget/readme.txt) details what you need to do to get started.
+
+## New Items Only Evaluator
+
+This is an [evaluator](https://github.com/kamsar/Unicorn#evaluator) that changes the behavior of syncing to only write _new_ items from serialization into Sitecore. Existing items with the same ID or items that are not serialized are left alone. This can be useful for example if you're wanting to push some developer-initiated content items up, like metadata or lookup source items, that you want to always exist but once they have been created they become the content editor's to do with as they will. A [sample configuration](https://github.com/kamsar/Unicorn/blob/master/src/Unicorn/Standard%20Config%20Files/Unicorn.Configs.NewItemsOnly.example) that enables the NIO evaluator ships with the NuGet package. Thanks to [Nathaniel Mann](https://twitter.com/cardinal252) for the feature request.
+
+## Visual Studio Control Panel Support
+
+Recently a [plugin for Visual Studio](https://visualstudiogallery.msdn.microsoft.com/64439022-f470-422a-b663-fbb89aaf6e86) was released that enables you to run Unicorn syncs directly within Visual Studio. Unicorn 3 supports this tool out of the box, by simply enabling the `Unicorn.Remote.config.disabled` patch file. The Unicorn Control Panel for Visual Studio was developed by [Andrii Snihyr](https://twitter.com/berserkerdotnet) - thank you for the community support!
+
+## Exclude all children with the predicate
+
+This is an unusual feature. I had a desire to be able to include a single item with a predicate and exclude ALL of its children (think including a multisite root in a shared config and the children in site configs), so I went to implement that. I realized that _it was already there!_. To exclude all children of an item simply add a trailing slash to the `<exclude>` like so:
+
+	<include database="master" path="/sitecore/content">
+		<exclude path="/sitecore/content/" />
+	</include>
+
+## Documentation
+
+The documentation in the [README](https://github.com/kamsar/Unicorn/blob/master/README.md), comments in the [stock config files](https://github.com/kamsar/Unicorn/tree/master/src/Unicorn/Standard%20Config%20Files), and verbiage in the actual control panel and logs have all been reviewed and improved. If you get confused by anything, let me know and I'll make the docs better or the error message clearer in the next release.
