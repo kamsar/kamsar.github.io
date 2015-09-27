@@ -20,9 +20,7 @@ In fact there are _lots more_ new features added to Unicorn 3 since the [what's 
 ## Transparent Sync
 This is a feature that [demanded its own blog post](http://kamsar.net/index.php/2015/10/Unicorn-Introducing-Transparent-Sync/)! Transparent Sync enables Unicorn to sync the serialized items in real time, completely automatically. It does this by using its data provider to directly read the serialized items and inject them into the Sitecore content tree. The items on disk **are** the items in Sitecore: it bypasses the database entirely for transparently synced items.
 
-{% asset_img dramatic.gif "ermahgerd!" %}
-
-That more or less sums up what I felt like using it for the first time. Seriously, it's magic.
+Seriously, it's magic. [Transparent Sync](http://kamsar.net/index.php/2015/10/Unicorn-Introducing-Transparent-Sync/) might be the best feature of Unicorn 3. You should give it a try!
 
 ## New Configuration Architecture
 
