@@ -56,4 +56,6 @@ The database is used for all reserialize operations. In a Transparent Sync confi
 
 There are warnings in the control panel if you reserialize a Transparent Sync configuration.
 
+## Anything else?
+
 I hope you have as much fun with Transparent Sync as I had making it!

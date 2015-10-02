@@ -11,6 +11,8 @@ It's been over a year since the last major release of Unicorn, but I haven't bee
 
 Sitecore development artifacts are both code and database items, such as rendering code and rendering items. As developers, we use serialization to write our database artifacts into source control along with our code so that we have a record of all our development artifacts. [Unicorn](https://github.com/kamsar/Unicorn) is a tool to make serializing items and sharing them across teams and deployed environments easy and fun.
 
+Unicorn takes advantage of keeping serialized items always up to date on the disk, which allows all merging to take place using your source control tool. Modern source control tools such as Git or SVN are capable of automatically merging the vast majority of item changes, which saves you time and reduces the chance of human error when merging.
+
 Unicorn 3 is fresh off the compiler and brings with it a [huge raft of improvements](http://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/). This version brings its own [serialization format](http://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/) and [filesystem hierarchy](http://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/) that are far more friendly to source control and merge conflicts than the default Sitecore format. It's also ridiculously fast - about 50% faster overall than Unicorn 2 or Sitecore serialization APIs.
 
 # What else is new?
@@ -44,7 +46,7 @@ This is an [evaluator](https://github.com/kamsar/Unicorn#evaluator) that changes
 
 ## Exclude all children with the predicate
 
-This is an unusual feature. I had a desire to be able to include a single item with a predicate and exclude ALL of its children (think including a multisite root in a shared config and the children in site configs), so I went to implement that. I realized that _it was already there!_. To exclude all children of an item simply add a trailing slash to the `<exclude>` like so:
+To exclude all children of an item simply add a trailing slash to the `<exclude>` like so:
 
 	<include database="master" path="/sitecore/content">
 		<exclude path="/sitecore/content/" />
@@ -73,5 +75,3 @@ The documentation in the [README](https://github.com/kamsar/Unicorn/blob/master/
 ## Thank you
 
 Unicorn is a project by and for the Sitecore community. I'd like to thank everyone who's contributed to the project in a major or minor way: without you, we wouldn't have this tool today. Thank you!
-
-Special thanks to the project's sponsor and my employer [Connective DX](https://www.connectivedx.com/) for making Unicorn's public release possible in the first place. Unicorn isn't the only trick we've got up our sleeve: if you're interested in working at an agency with an advanced technical Sitecore practice, [we are hiring](https://www.connectivedx.com/connect/careers).
