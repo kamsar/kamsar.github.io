@@ -1,6 +1,6 @@
 title: Branch Datasource Presets
 date: 2016-03-15 14:39:23
-tags: Sitecore
+categories: Sitecore
 ---
 
 Ever stored rendering component data source items under a page? For example:
