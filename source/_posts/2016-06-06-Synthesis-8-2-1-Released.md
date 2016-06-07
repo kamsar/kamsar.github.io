@@ -97,7 +97,9 @@ Synthesis now ships with `Synthesis.LocalConfig.config.example`, which is design
 
 ## Upgrading
 
-Upgrading should be as simple as a NuGet upgrade. If you have customized your Synthesis.config you may need to merge it with the default (or even better make it a patch file).
+Upgrading should be as simple as a NuGet upgrade*. If you have customized your Synthesis.config you may need to merge it with the default (or even better make it a patch file).
+
+\* as long as you are using Sitecore 8.1. As with the 8.2.0 release, it is designed only for Sitecore 8.1 due to breaking Sitecore API changes in 8.1. Sorry about that :(
 
 ## Thanks!
 
