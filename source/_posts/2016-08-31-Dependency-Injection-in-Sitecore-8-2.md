@@ -1,6 +1,6 @@
 title: Dependency Injection in Sitecore 8.2
 date: 2016-08-31 17:30:03
-categories: sitecore
+categories: Sitecore
 ---
 
 Sitecore 8.2, hot off the presses yesterday, includes built in [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection). If you've been following the internal architecture of Sitecore for very long, you've probably realized that a lot of it is uglier than it needs to be - and less extensible - thanks to the lack of system-wide DI support. It's kind of a big deal. Even if [Nat Mann](https://twitter.com/cardinal252) hates conforming containers ;)

@@ -1,6 +1,6 @@
 title: Configuring domains from patch files
 date: 2016-08-05 12:22:53
-categories: sitecore
+categories: Sitecore
 ---
 
 Sitecore domains are logical security groupings, for example the product ships with "sitecore" (backend users) and "extranet" (frontend users). But you do not have to stick with only the domains the product ships with, as usual for Sitecore you can extend and add your own.
