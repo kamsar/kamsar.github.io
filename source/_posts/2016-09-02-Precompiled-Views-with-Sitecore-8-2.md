@@ -9,7 +9,7 @@ After writing that post I learned about [RazorGenerator](https://github.com/Razo
 
 With RazorGenerator you can compile once and deploy everywhere. Getting started with it is almost stupidly simple. Seriously, I described the whole process [in one tweet](https://twitter.com/kamsar/status/684823059082027008): Install the `RazorGenerator.MsBuild` NuGet package. That's it. So what does that get you?
 
-* Compile-time view syntax checking. Every deployed a Razor file that broke at runtime after a "successful" build? Well now your builds will _fail_ if your Razor syntax is invalid. Hoorah!
+* Compile-time view syntax checking. Ever deployed a Razor file that broke at runtime after a "successful" build? Well now your builds will _fail_ if your Razor syntax is invalid. Hoorah!
 * Your Razor views are compiled into your output assembly (look at it in DotPeek and see the `ASP` namespace)
 * It's fast. You probably won't even notice the build time difference.
 
