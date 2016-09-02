@@ -55,4 +55,4 @@ If you're on Sitecore 8.2, you can get view performance gains by:
 * Registering each of those assemblies with the Sitecore precompiled view engine so that it uses your precompiled classes for view rendering
 
 
-Big thanks to [Kern](https://twitter.com/herskinduk) for setting up with MVC expert panel, without which this feature might well not exist. And we might still have [1:40 startup times](http://kamsar.net/index.php/2015/02/sitecore-8-experience-editor-performance-optimization/) after a compile. :)
+Big thanks to [Kern](https://twitter.com/herskinduk) for setting up the MVC expert panel, without which this feature might well not exist. And we might still have [1:40 startup times](http://kamsar.net/index.php/2015/02/sitecore-8-experience-editor-performance-optimization/) after a compile. :)
