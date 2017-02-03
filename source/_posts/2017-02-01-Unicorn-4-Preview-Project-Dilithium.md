@@ -58,7 +58,7 @@ Serialized items and formats are identical between Dilithium and normal, so you 
 
 If you're syncing gigabytes of media items...yes, definitely. For more normal developer and light content items, nope. DiSQL does not read blob data, so if you become RAM constrained turn off DiSerialized first.
 
-Note that the precaches are disposed off immediately after the sync completes, so memory spikes are temporary.
+Note that the precaches are disposed of immediately after the sync completes, so memory spikes are temporary.
 
 #### Let's address the 🐘 in the room, how is Unicorn 4 60% faster than 3 without Dilithium?
 
