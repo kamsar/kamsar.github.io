@@ -11,7 +11,7 @@ After all, shouldn't that be part 1? Nope, this is iterative development :)
 
 So, what is [Rainbow](https://github.com/kamsar/Rainbow)? Rainbow is designed to be a complete replacement for the Sitecore serialization format and filesystem organization, as well as enabling cross-source item comparison. It is a pure code library that comes with no UI of any kind, that is designed to be used with other libraries that use its serialization services with their own UIs. Libraries that consume Rainbow - such as [Unicorn](https://github.com/kamsar/Unicorn) - gain the ability to abstract themselves from serialization details. Libraries that extend Rainbow can add new serialization formats, new places to store serialized items, and new ways to organize them.
 
-![taste it](http://kamsar.net/nuget/rainbow/logo.png)
+![taste it](https://kamsar.net/nuget/rainbow/logo.png)
 
 ## Rainbow Features
 
@@ -20,7 +20,7 @@ So, what is [Rainbow](https://github.com/kamsar/Rainbow)? Rainbow is designed to
 Rainbow implements a set of interfaces that wrap the structure of a Sitecore item - item, version, and field. These interfaces provide a universal language that all Rainbow data stores can implement against. You could get an `IItemData` from Sitecore and write it out to disk as a YAML formatted item. You could get an `IItemData` from a web service, and deserialize it into a Sitecore database. You could construct an `IItemData` programmatically, and serialize it to a Sitecore database. Implementations of `IDataStore` provide places to store item data. It's completely universal, and everything Rainbow does revolves around these abstractions.
 
 ### [YAML-based serialization formatter](https://github.com/kamsar/Rainbow/tree/master/src/Rainbow.Storage.Yaml) improves the storage format for serialized items
-* [This post](http://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/) goes into more detail about the hows and whys of the YAML serializer
+* [This post](https://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/) goes into more detail about the hows and whys of the YAML serializer
 * The format is valid [YAML](http://yaml.org/). YAML is a language that is designed to store object graphs in a human readable fashion. It uses significant whitespace and indentation to denote data boundaries. Note: only a subset of the YAML spec is allowed for performance reasons.
 * Any type of endline support. Yes, even `\r` because one of the default Sitecore database items uses that in its text! No more [`.gitattributes`](http://seankearney.com/post/Using-Team-Development-for-Sitecore-with-GitHub) needed.
 * No more `Content-Length` on fields that requires manual recalculation after merge conflicts
@@ -29,7 +29,7 @@ Rainbow implements a set of interfaces that wrap the structure of a Sitecore ite
 * Customize how fields are stored when serialized yourself with [Field Formatters](https://github.com/kamsar/Rainbow/tree/master/src/Rainbow/Formatting/FieldFormatters)
 
 ### [Serialization File System (SFS)](https://github.com/kamsar/Rainbow/tree/master/src/Rainbow/Storage) storage hierarchy
-* [This post](http://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/) goes into more detail about SFS
+* [This post](https://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/) goes into more detail about SFS
 * Human readable file hierarchy
 * Extremely long item name support
 * Unlimited path length support
@@ -57,7 +57,7 @@ Improvements are in comparison to Sitecore serialization and the functionality i
 
 Rainbow consists of several projects:
 
-* The core `Rainbow` project contains core interfaces and components that most all serialization components might need, for example [SFS](http://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/), item comparison tools, field formatters, and item filtering
+* The core `Rainbow` project contains core interfaces and components that most all serialization components might need, for example [SFS](https://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/), item comparison tools, field formatters, and item filtering
 * `Rainbow.Storage.Yaml` implements serializing and deserializing items using a YAML-based format. This format is ridiculously easier to read and merge than standard Sitecore serialization format, lacking any content length attributes, supporting any type of newline characters, and supporting pretty-printing field values (e.g. multilists, layout) for simpler merging when conflicts occur.
 * `Rainbow.Storage.Sc` implements a data store using the Sitecore database. This can be used to read and write items to Sitecore using the `IDataStore` interface.
 

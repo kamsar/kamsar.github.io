@@ -3,7 +3,7 @@ date: 2016-01-04 20:20:35
 categories: Sitecore
 ---
 
-I'm [mildly obsessed with Sitecore performance](http://kamsar.net/index.php/2015/02/sitecore-8-experience-editor-performance-optimization/), so when I found a new trick I had to see what it could do: [`aspnet_compiler.exe`](https://msdn.microsoft.com/en-us/library/ms229863.aspx). This is a really old tool that was designed to compile your .aspx pages into an assembly - and then later your cshtml as well. This improves startup time because no dynamic compilation needs to take place at runtime.
+I'm [mildly obsessed with Sitecore performance](https://kamsar.net/index.php/2015/02/sitecore-8-experience-editor-performance-optimization/), so when I found a new trick I had to see what it could do: [`aspnet_compiler.exe`](https://msdn.microsoft.com/en-us/library/ms229863.aspx). This is a really old tool that was designed to compile your .aspx pages into an assembly - and then later your cshtml as well. This improves startup time because no dynamic compilation needs to take place at runtime.
 
 Getting `aspnet_compiler` to run against Sitecore, by which I mean executing it against an entire deployment ready web root including both your code and the `sitecore` folder, is a bit of a challenge. Because you cannot tell `aspnet_compiler` to ignore anything, and because one of the cshtml files in Sitecore 8.1 Update-1 apparently has a compiler error (for the curious, add `@using Sitecore.ListManagement.Client.Web.UI.Controls.ImportMapTo` to /sitecore/shell/client/Applications/ListManager/Controls/ContactFields/ContactFields.cshtml). You also have to comment out the `@Html.Sitecore()`s in /sitecore/shell/Templates/layout.cshtml (don't worry it's just a template used when you add a new MVC layout).
 

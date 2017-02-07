@@ -5,7 +5,7 @@ categories: Unicorn
 
 [Unicorn](https://github.com/kamsar/Unicorn) 3.0.2 (and [Rainbow](https://github.com/kamsar/Rainbow) 1.0.1) have been released to NuGet. 
 
-_This release includes some critical fixes to the serialization system, and upgrading is highly recommended for all users of [Unicorn 3](http://kamsar.net/index.php/2015/10/Unicorn-3-0-Released/)._
+_This release includes some critical fixes to the serialization system, and upgrading is highly recommended for all users of [Unicorn 3](https://kamsar.net/index.php/2015/10/Unicorn-3-0-Released/)._
 
 ## Improvements
 * Unicorn auto-publish now reports its activities to the sync console, and operates synchronously to guarantee published state for automated builds.

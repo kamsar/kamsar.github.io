@@ -11,7 +11,7 @@ I went nuts and [wrote a prototype](https://github.com/kamsar/Rhino) that did ex
 
 The prototype, nicknamed Rhino because it has a prominent horn like [certain other mythical beasts](https://en.wikipedia.org/wiki/Unicorn), actually worked fairly well. Unfortunately there are two hard problems in computer science: naming, cache invalidation, and off by one errors. Cache invalidation, specifically using the `FileSystemWatcher` to observe file changes by source control, was unreliable. Because of how core serialization is to Sitecore development practice, unreliability is not acceptable. Reluctantly, I shelved Rhino and worked on Unicorn 2 instead.
 
-![unicorn logo](http://kamsar.net/nuget/unicorn/logo.png)
+![unicorn logo](https://kamsar.net/nuget/unicorn/logo.png)
 
 The idea of Rhino stuck around. The improvements brought around in [Rainbow](https://github.com/kamsar/Rainbow), such as partial item reading and tighter control around storage, enabled working around the limitations that had precluded Rhino from being useful in production. Thus the idea returns as Transparent Sync, which might just be the best part of Unicorn 3.
 

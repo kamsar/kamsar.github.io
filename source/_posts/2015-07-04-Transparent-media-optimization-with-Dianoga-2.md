@@ -3,9 +3,9 @@ date: 2015-07-04 09:20:21
 categories: Dianoga
 ---
 
-I've pushed a significant update to [Dianoga](http://kamsar.net/index.php/2014/07/automatic-sitecore-image-optimization-with-dianoga/), my framework to transparently optimize the size of media library images, including rescaled sizes.
+I've pushed a significant update to [Dianoga](https://kamsar.net/index.php/2014/07/automatic-sitecore-image-optimization-with-dianoga/), my framework to transparently optimize the size of media library images, including rescaled sizes.
 
-My [original post on Dianoga 1.0](http://kamsar.net/index.php/2014/07/automatic-sitecore-image-optimization-with-dianoga/) explains why you'd want to use it in detail, but as an overview how does saving 5-40% overall on image bandwidth sound? All you have to do is install a [NuGet package](http://www.nuget.org/packages/Dianoga) that adds one dll and one config file to your solution. That's it. You can also find [documentation on GitHub](https://github.com/kamsar/Dianoga/blob/master/README.md).
+My [original post on Dianoga 1.0](https://kamsar.net/index.php/2014/07/automatic-sitecore-image-optimization-with-dianoga/) explains why you'd want to use it in detail, but as an overview how does saving 5-40% overall on image bandwidth sound? All you have to do is install a [NuGet package](http://www.nuget.org/packages/Dianoga) that adds one dll and one config file to your solution. That's it. You can also find [documentation on GitHub](https://github.com/kamsar/Dianoga/blob/master/README.md).
 
 ## What's new in 2.0
 

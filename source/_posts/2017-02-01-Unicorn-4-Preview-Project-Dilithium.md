@@ -5,7 +5,7 @@ categories: Unicorn
 
 Not too long ago I was considering the future of Unicorn. Rather naïvely, I couldn't think of all that much that needed fixing. I wondered if there would ever be a Unicorn 4. 
 
-Now since you've read the title of this blog post, something tells me you don't think that attitude lasted very long. It didn't. Because there's a pretty simple truth about Unicorn, even with all the [optimizations I put in to Unicorn 3](http://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/#Performance-50-more-of-it):
+Now since you've read the title of this blog post, something tells me you don't think that attitude lasted very long. It didn't. Because there's a pretty simple truth about Unicorn, even with all the [optimizations I put in to Unicorn 3](https://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/#Performance-50-more-of-it):
 
 {% asset_img tdh.jpg %}
 
@@ -78,4 +78,4 @@ Not yet, it still needs some additional testing and vetting before I call it alp
 
 Nope. I've got some more tricks up my sleeve, so stay tuned for some more preview blogs coming soon&trade;
 
-![](http://i.giphy.com/26uf80oUzpxWmuTOo.gif)
+![](https://i.giphy.com/26uf80oUzpxWmuTOo.gif)

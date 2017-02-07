@@ -3,7 +3,7 @@ date: 2015-10-02 11:00:00
 categories: Unicorn
 ---
 
-![patrick you're a bloody genius](http://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/Unicorn_logo.png)
+![patrick you're a bloody genius](https://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/Unicorn_logo.png)
 
 It's been over a year since the last major release of Unicorn, but I haven't been bored. Today I'm happy to announce the release of Unicorn 3.0 and Rainbow 1.0.
 
@@ -13,16 +13,16 @@ Sitecore development artifacts are both code and database items, such as renderi
 
 Unicorn takes advantage of keeping serialized items always up to date on the disk, which allows all merging to take place using your source control tool. Modern source control tools such as Git or SVN are capable of automatically merging the vast majority of item changes, which saves you time and reduces the chance of human error when merging.
 
-Unicorn 3 is fresh off the compiler and brings with it a [huge raft of improvements](http://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/). This version brings its own [serialization format](http://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/) and [filesystem hierarchy](http://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/) that are far more friendly to source control and merge conflicts than the default Sitecore format. It's also ridiculously fast - about 50% faster overall than Unicorn 2 or Sitecore serialization APIs.
+Unicorn 3 is fresh off the compiler and brings with it a [huge raft of improvements](https://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/). This version brings its own [serialization format](https://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/) and [filesystem hierarchy](https://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/) that are far more friendly to source control and merge conflicts than the default Sitecore format. It's also ridiculously fast - about 50% faster overall than Unicorn 2 or Sitecore serialization APIs.
 
 # What else is new?
 
-In fact there are _lots more_ new features added to Unicorn 3 since the [what's new blog post](http://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/) was written. Not just minor details either! Read on...
+In fact there are _lots more_ new features added to Unicorn 3 since the [what's new blog post](https://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/) was written. Not just minor details either! Read on...
 
 ## Transparent Sync
-This is a feature that [demanded its own blog post](http://kamsar.net/index.php/2015/10/Unicorn-Introducing-Transparent-Sync/)! Transparent Sync enables Unicorn to sync the serialized items in real time, completely automatically. It does this by using its data provider to directly read the serialized items and inject them into the Sitecore content tree. The items on disk **are** the items in Sitecore: it bypasses the database entirely for transparently synced items.
+This is a feature that [demanded its own blog post](https://kamsar.net/index.php/2015/10/Unicorn-Introducing-Transparent-Sync/)! Transparent Sync enables Unicorn to sync the serialized items in real time, completely automatically. It does this by using its data provider to directly read the serialized items and inject them into the Sitecore content tree. The items on disk **are** the items in Sitecore: it bypasses the database entirely for transparently synced items.
 
-Seriously, it's magic. [Transparent Sync](http://kamsar.net/index.php/2015/10/Unicorn-Introducing-Transparent-Sync/) might be the best feature of Unicorn 3. You should give it a try!
+Seriously, it's magic. [Transparent Sync](https://kamsar.net/index.php/2015/10/Unicorn-Introducing-Transparent-Sync/) might be the best feature of Unicorn 3. You should give it a try!
 
 ## New Configuration Architecture
 

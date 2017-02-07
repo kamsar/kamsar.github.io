@@ -3,13 +3,13 @@ date: 2015-08-05 18:16:55
 categories: Unicorn
 ---
 
-This is the second post in a series about [Rainbow](https://github.com/kamsar/Rainbow), an advanced serialization library for Sitecore. Part 1, dealing with improving the serialization file format, [can be found here](http://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/).
+This is the second post in a series about [Rainbow](https://github.com/kamsar/Rainbow), an advanced serialization library for Sitecore. Part 1, dealing with improving the serialization file format, [can be found here](https://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/).
 
 # Introducing Serialization File System
 
 Rainbow supports the idea of a _data store_, which is an abstraction of the necessary components to store and retrieve Sitecore items. A data store need not be serialized: Sitecore's database is itself implemented as a data store as far as Rainbow is concerned.
 
-This time we'll be talking about the Serialization File System data store. Serialization File System, or SFS for short, is a pattern for organizing files on disk to represent a Sitecore item tree. It's only a pattern: it depends on a _serialization formatter_, such as [the YAML formatter](http://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/), to do the actual serialization and deserialization. This means that you can use whatever format you want, without having to reimplement the whole organizational structure. Or if you can't stand SFS you can make your own data store and keep the YAML format :)
+This time we'll be talking about the Serialization File System data store. Serialization File System, or SFS for short, is a pattern for organizing files on disk to represent a Sitecore item tree. It's only a pattern: it depends on a _serialization formatter_, such as [the YAML formatter](https://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/), to do the actual serialization and deserialization. This means that you can use whatever format you want, without having to reimplement the whole organizational structure. Or if you can't stand SFS you can make your own data store and keep the YAML format :)
 
 # Why do we need SFS?
 

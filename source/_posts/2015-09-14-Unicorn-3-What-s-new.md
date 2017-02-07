@@ -4,7 +4,7 @@ categories: Unicorn
 ---
 
 
-Now that I've finished being confusing with my [last](http://kamsar.net/index.php/2015/09/Rainbow-Part-3-What-is-Rainbow/) [three](http://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/) [posts](http://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/) about [Rainbow](https://github.com/kamsar/Rainbow), let's talk about Unicorn 3.
+Now that I've finished being confusing with my [last](https://kamsar.net/index.php/2015/09/Rainbow-Part-3-What-is-Rainbow/) [three](https://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/) [posts](https://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/) about [Rainbow](https://github.com/kamsar/Rainbow), let's talk about Unicorn 3.
 
 {% asset_img Unicorn_logo.png "new logo!" %}
 
@@ -14,13 +14,13 @@ Unicorn 3 is the product of a year of thought and implementation. The design goa
 
 High on the list of annoyances with daily Unicorn usage was the difficulty of resolving merge conflicts in the Sitecore serialization format. 
 
-The only fix for this was to make a [better format](http://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/): human readable, easily mergeable, and fixing the daily annoyances of the Sitecore format. Because no tool is an island, the new serialization tools Unicorn 3 uses have been split off into their own library: [Rainbow](https://github.com/kamsar/Rainbow). Rainbow enables others to use the new serialization tools developed for Unicorn 3, without depending on Unicorn.
+The only fix for this was to make a [better format](https://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/): human readable, easily mergeable, and fixing the daily annoyances of the Sitecore format. Because no tool is an island, the new serialization tools Unicorn 3 uses have been split off into their own library: [Rainbow](https://github.com/kamsar/Rainbow). Rainbow enables others to use the new serialization tools developed for Unicorn 3, without depending on Unicorn.
 
-The details of the new format and why it exists can be found in [part 1 of my Rainbow blog series](http://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/).
+The details of the new format and why it exists can be found in [part 1 of my Rainbow blog series](https://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/).
 
 # New file organization
 
-Alongside designing the new serialization format, another problem was to resolve the longstanding limitations and bugs in the way Sitecore's built in serialization stores its file hierarchy. [This was worth a whole blog post in and of itself](http://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/), but in summary I think those limitations have been eliminated.
+Alongside designing the new serialization format, another problem was to resolve the longstanding limitations and bugs in the way Sitecore's built in serialization stores its file hierarchy. [This was worth a whole blog post in and of itself](https://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/), but in summary I think those limitations have been eliminated.
 
 The new hierarchy also alters the way the storage tree operates. Whereas Sitecore's model represents an entire database, Unicorn 3 represents a set of subtrees of the database. Depending on the depth of the root paths, this can result in much shorter filesystem paths and fewer over-length path loops.
 

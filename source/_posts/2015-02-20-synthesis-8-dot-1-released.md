@@ -46,4 +46,4 @@ Synthesis 8.1 is a NuGet upgrade away. However to cover the new configuration ch
 			<processor type="Synthesis.Pipelines.Initialize.RegisterDefaultConfiguration, Synthesis"/>
 		</initialize>
 
-- if using the `optimizeCompilations` setting to [speed up Sitecore 8 startup time](http://kamsar.net/index.php/2015/02/sitecore-8-experience-editor-performance-optimization/), turn it off temporarily after the upgrade or clear your temporary asp.net files folder, because the helper structure changed slightly during the upgrade and the cached razor files will be invalid.
+- if using the `optimizeCompilations` setting to [speed up Sitecore 8 startup time](https://kamsar.net/index.php/2015/02/sitecore-8-experience-editor-performance-optimization/), turn it off temporarily after the upgrade or clear your temporary asp.net files folder, because the helper structure changed slightly during the upgrade and the cached razor files will be invalid.

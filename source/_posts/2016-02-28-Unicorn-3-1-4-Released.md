@@ -44,7 +44,7 @@ This formatting change is completely backwards compatible and no reserialization
 
 ## Upgrading
 
-To upgrade simply update your NuGet packages. There are no other steps required for this release **unless coming from [Unicorn 3.0.x](http://kamsar.net/index.php/2016/01/Unicorn-3-1-Released/)**. 
+To upgrade simply update your NuGet packages. There are no other steps required for this release **unless coming from [Unicorn 3.0.x](https://kamsar.net/index.php/2016/01/Unicorn-3-1-Released/)**. 
 
 If you wish to completely normalize your items to the latest Rainbow 1.2 format, you may reserialize them. But it is not a requirement, as Rainbow 1.2 can parse 1.1 serialized items.
 
