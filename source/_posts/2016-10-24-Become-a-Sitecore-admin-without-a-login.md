@@ -24,6 +24,6 @@ Handy, eh?
 
 You can do a very similar thing using the "Login as administrator" option in [SIM](http://dl.sitecore.net/updater/sim/), however I often find myself in environments without SIM and this code works anywhere.
 
-<iframe src="//giphy.com/embed/Njjakmj3DC7pS" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+![bang](http://i.giphy.com/Njjakmj3DC7pS.gif)
 
 This code is also a good security reminder: if someone malicious can upload an arbitrary file somewhere in your webroot that is then executed, _they can upload this shiv-file_ and your security is gone. It doesn't matter if you have encrypted 64-character database passwords, they're in. It doesn't matter if you've locked down TLS and imposed SAML logins, they're in. Game over. So [secure your filesystem](https://doc.sitecore.net/sitecore_experience_platform/setting_up__maintaining/security_hardening/configuring/secure_the_file_upload_functionality) and be awfully wary of accepting users' uploads anywhere on disk.
