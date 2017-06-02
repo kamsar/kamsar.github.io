@@ -106,7 +106,7 @@ namespace Rhino.Sandbox.Facets
  
         public string Segment
         {
-            get => return GetAttribute<string>(nameof(Segment));
+            get => GetAttribute<string>(nameof(Segment));
             set => SetAttribute(nameof(Segment), value);
         }
          
