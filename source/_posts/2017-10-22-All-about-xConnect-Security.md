@@ -1,22 +1,22 @@
 title: All about xConnect Security
-date: 2017-10-17 08:57:18
+date: 2017-10-22 13:57:18
 categories: Sitecore
 ---
-Sitecore 9 introduces the new xConnect server layer to the ecosystem. xConnect is an abstracted service layer that Sitecore uses for all its analytics and marketing automation features. If you're using xDB, you'll need an xConnect server if you upgrade to Sitecore 9.
+Sitecore 9 introduces the new xConnect server to the ecosystem. xConnect is an abstracted service layer that Sitecore uses for all its analytics and marketing automation features. If you're using Sitecore XP (aka xDB), you'll need an xConnect server if you upgrade to Sitecore 9.
 
-xConnect is noteworthy because it introduces required client certificate authentication for the Sitecore XP server to communicate with xConnect. Certificates are a complex subject, and can fail in any number of less than helpful ways. This post aims to help you understand how certificates work in Sitecore 9, and provide you some tools to diagnose what's wrong when they are not working right. 
+xConnect is noteworthy because it introduces client certificate authentication for the Sitecore XP server to communicate with xConnect. Certificates are a complex subject, and can fail in any number of less than helpful ways. This post aims to help you understand how certificates work in Sitecore 9, and provide you some tools to diagnose what's wrong when they are not working right. 
 
 ## What is TLS?
 
-In order to understand how xConnect works, it's important to understand what's going on: [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS). Historically, TLS has also been called SSL.
+In order to understand how xConnect works, it's important to understand what's going on: [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS). You may also think of this as "SSL" or "HTTPS."
 
-TLS is a protocol for establishing secure encrypted connections between a _server_ and a _client_. Importantly, the client and server can securely exchange encryption keys in such a way that they cannot be observed by malicious parties that may be watching the exchange.
+TLS is a protocol for establishing secure encrypted connections between a _server_ and a _client_. The key aspect of TLS is that the client and server can securely exchange encryption keys in such a way that they cannot be observed by malicious parties that may be watching the exchange.
 
 ## Asymmetric vs Symmetric Encryption
 
 To understand how TLS works, it's important to understand the distinction between Asymmetric (also called Public Key) Encryption, and Symmetric Encryption.
 
-If you ever made secret codes as a kid, you've probably used [_symmetric encryption_](https://en.wikipedia.org/wiki/Symmetric-key_algorithm). This is where the sender and receiver both need to know a key to decrypt the message, for example a simple [shift cipher](https://en.wikipedia.org/wiki/Caesar_cipher) where `C` = `A`, `D` = `B`, and so forth. Posession of the secret key lets you read any encrypted message.
+If you ever made secret codes as a kid, you've probably used [_symmetric encryption_](https://en.wikipedia.org/wiki/Symmetric-key_algorithm). This is where the sender and receiver both need to know a key to decrypt the message, for example a simple [shift cipher](https://en.wikipedia.org/wiki/Caesar_cipher) where `D` = `A`, `E` = `B`, and so forth. Julius Caesar famously sent secret messages by shifting letters three places forward like this. Symmetric encryption does have one major downfall, however: posession of the secret key lets you read any encrypted message even if not the intended recipient.
 
 [Asymmetric encryption](https://en.wikipedia.org/wiki/Public-key_cryptography) on the other hand uses two different keys: a _public key_ and a _private key_. The public key can be shared with anyone without compromising anything. However a client can use the public key to encrypt a message in such a way that it can only be decrypted _with the server's private key_. In this way, you can receive private encrypted messages from clients you don't share any secrets with - but they can still send the server private messages.
 
@@ -43,13 +43,17 @@ All SSL connections go through this process, whether xConnect or otherwise. In a
 
 ### What can go wrong with server certificate negotiation
 
-The most common issues are domain mismatches and untrusted certificates. Generally you can diagnose issues with server certificates using a web browser - request the site over HTTPS and review the error shown in the browser. Specifically for xConnect make sure you request the xConnect URL, **not** the Sitecore XP URL, to diagnose this. 
+The most common issues are domain mismatches and untrusted certificates. Generally you can diagnose issues with server certificates using a web browser - request the site over HTTPS and review the error shown in the browser. Make sure you request the xConnect server URL, **not** the Sitecore XP URL if you are diagnosing an xConnect connectivity issue.
 
 #### Domain Mismatches
 
-A domain mismatch occurs when a certificate's domain does not match the domain being requested. For example, a certificate issued to `sitecore.net` will fail this validation if the site you're requesting is `https://foo.local`. Certificates may also be issued using _wildcards_ (e.g. `*.sitecore.net`). Note that wildcards apply to one level of subdomains only - so in the previous example `sitecore.net` or `foo.sitecore.net` would be valid, but `bar.foo.sitecore.net` would _not_ be. 
+A domain mismatch occurs when a certificate's domain does not match the domain being requested. For example, a certificate issued to `sitecore.net` will fail this validation if the site you're requesting is `https://foo.local`. Certificates may also be issued using _wildcards_ (e.g. `*.sitecore.net`). Note that wildcards apply to one level of subdomains only - so in the previous example `sitecore.net` or `foo.sitecore.net` would be valid, but `bar.foo.sitecore.net` would _not_ be.
+
+Domain matching is done based on the host header the server receives. For example if the xConnect server is `https://xconnect` but can also be accessed via `https://127.0.0.1`, the certificate will be invalid if the IP address is used because the certificate was not issued for `127.0.0.1`.
 
 If you have a domain mismatch issue, you will need to either get a new certificate (and update the xConnect IIS site(s) to use the new certificate) or change the domain for xConnect to one that is valid for the certificate.
+
+
 
 #### Untrusted Certificates
 
@@ -65,9 +69,11 @@ Note that to trust a certificate, only the _public key_ for the server certifica
 
 #### More esoteric errors
 
-There are some less common errors that can also cause server certificate negotiation errors. Commonly servers will be secured against supporting vulnerable [ciphers](https://en.wikipedia.org/wiki/RC4), [hash algorithms](https://en.wikipedia.org/wiki/SHA-1) or [SSL protocol versions](https://en.wikipedia.org/wiki/POODLE). This is most easily accomplished with a tool like [IISCrypto](https://www.nartac.com/Products/IISCrypto). This is a good idea, but if the server and client cannot mutually agree on a supported cipher, hash, and protocol version the connection will fail. If the certificate is trusted and has the correct domain, this would be the next thing to check.
+There are some less common issues that can also cause server certificate negotiation errors. Servers will be commonly secured against supporting vulnerable [ciphers](https://en.wikipedia.org/wiki/RC4), [hash algorithms](https://en.wikipedia.org/wiki/SHA-1) or [SSL protocol versions](https://en.wikipedia.org/wiki/POODLE). You might have heard of Heartbleed or POODLE vulnerabilities, or had to support TLS 1.2 if working with some web APIs such as SalesForce. This is a good idea, but if the server and client cannot mutually agree on a supported cipher, hash, and protocol version the connection will fail. If the certificate is trusted and has the correct domain, this would be the next thing to check.
 
-Note that the .NET HTTP client with NetFx versions prior to 4.6.2 defaults to only supporting TLS up to 1.1. Many modern security scripts will disable all TLS protocol versions except for 1.2, which will cause HTTP requests from clients with earlier versions of the .NET framework installed to fail.
+If you've never heard of this before, you can secure your IIS servers using a tool like [IISCrypto](https://www.nartac.com/Products/IISCrypto). Go do it now, this post will wait.
+
+Note that the .NET HTTP client with framework versions prior to 4.6.2 defaults to only supporting TLS up to 1.1. Many modern security scripts will disable all TLS protocol versions except for 1.2, which will cause HTTP requests from clients with earlier versions of the .NET framework installed to fail.
 
 ## SSL Client Certificate Negotiation
 
@@ -77,13 +83,13 @@ A client certificate is essentially the opposite of the server certificate. When
 
 If the client certificate is not trusted, it is rejected. The rules for validating a client certificate are up to the server and do not necessarily follow the same validation rules as a server certificate on the client. In the case of xConnect:
 
-* The domain/subject on the certificate does not seem to matter to xConnect
-* The trusting of the certificate is done using the _thumbprint_ of the certificate (a hash of the certficate which uniquely identifies it)
+* The domain/subject on the client certificate does not seem to matter to xConnect
+* The trusting of the certificate is done using the _thumbprint_ of the certificate (a hash of the certficate which uniquely identifies it). Note that the thumbprint will change when an expired certificate is renewed, so you will need to reconfigure xConnect after renewing a client certificate so that it trusts the newer thumbprint.
 * The xConnect server must trust the issuer of the client certificate
 
 ### What can go wrong with client certificate negotiation
 
-There are a lot of things that can go wrong with the client certificate, moreso than the server certificate. When troubleshooting, make your first step the Sitecore logs - they generally have some basic information about a bad client cert.
+There are a lot of things that can go wrong with the client certificate, moreso than the server certificate. When troubleshooting, make your first step the Sitecore XP logs - they generally have some basic information about a bad client cert.
 
 #### If you're receiving HTTP 4xx responses
 
@@ -105,7 +111,7 @@ This indicates one of two things:
 
 _As long as the server certificate is valid_, this message is most likely that the Sitecore XP server's IIS app pool user account does not have read access to the client certificate's private key. This access is needed so that the Sitecore XP server can encrypt communications using its client certificate.
 
-To remedy this issue, open your local machine certificates ("Manage computer certificates" in a start menu search). Find the client certificate (normally under `Personal\Certificates`). Right click it, choose `All Tasks`, then `Manage Private Keys...`. You should get a security assignment window like this:
+To remedy this issue, open the local machine certificates ("Manage computer certificates" in a start menu search) on the Sitecore XP server. Find the client certificate (normally under `Personal\Certificates`). Right click it, choose `All Tasks`, then `Manage Private Keys...`. You should get a security assignment window like this:
 
 {% asset_img pkey-security.png %}
 
@@ -125,6 +131,8 @@ Important note: You must issue a wildcard for at least two segments of domain fo
 
 Note that _client_ certificates should be unique on each site, only the server certificate should be shared.
 
+In the release version of Sitecore 9, you can also disable the requirement to use encryption with xConnect which can bypass a lot of debugging. Do not do this in production or else a herd of elephants will destroy you.
+
 ## Advanced Debugging with Wireshark
 
 It's possible to watch the SSL negotiation at a TCP/IP level using a network monitor such as [Wireshark](https://www.wireshark.org/). This can provide insights on why your setup is failing when error messages are less than optimal. For example I spent a couple days diagnosing what turned out to be private key security issues. I figured this out by using Wireshark and observing that the client was never sending its client certificate after the server requested it, and figuring out why that was.
@@ -138,5 +146,3 @@ Here is a screenshot of the Wireshark capture where I diagnosed the client certi
 {% asset_img wireshark-trace.png %}
 
 ## Good luck!
-
-Sitecore 9 introduces a lot of new competencies that are required to be an effective developer with it. Certificates are pretty easy to mess up - a single bad character in a thumbprint, or an untrusted certificate and everything can break in a hurry. Hopefully this post will save you some of the headaches I had getting myself started.
