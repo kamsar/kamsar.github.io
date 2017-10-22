@@ -81,7 +81,7 @@ ga('send', 'pageview');
   
   <div id="header-sub" class="header-sub header-inner">
     <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">36</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
   
@@ -129,6 +129,59 @@ ga('send', 'pageview');
           <a href="/archives/2014" class="archive-year">2014</a>
         </div>
     
+    <article id="post-automatic-asp-dot-net-connection-string-encryption" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2014/07/automatic-asp-dot-net-connection-string-encryption/">Automatic ASP.NET connection string encryption</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2014/07/automatic-asp-dot-net-connection-string-encryption/">
+    <time datetime="2014-07-16T00:29:06.000Z" itemprop="datePublished">July 15, 2014</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Encrypting your connection strings is a good practice as it obfuscates your database connection information from an attacker who has gained filesystem access to your web server. It’s a bit of a pain to implement if you’re wanting to keep all of your build happening on a CI server however, as encrypting it requires a executing <code>aspnet_regiis</code> on the target server because the encryption is keyed by the machine key of the destination server.</p>
+<p>The other day I was reading <a href="http://blog.istern.dk/2014/05/01/encrypting-and-securing-your-sitecore-connenction-strings/" target="_blank" rel="external">Thomas Stern’s article</a> about encrypting Sitecore connection strings and it got me to thinking of ways to make connection string encryption fully automatic with minimal configuration. Turns out it’s actually quite easy.</p>
+<p>There are actually quite nice <a href="http://www.codeproject.com/Tips/598863/EncryptionplusDecryptionplusConnectionplusStringpl" target="_blank" rel="external">C# APIs to encrypt and decrypt</a> so I set to try and make the application self-encrypt on startup using these APIs. That way you can deploy an unencrypted configuration file from CI, and as soon as the app starts up (which is immediately in my case since we run some HTTP calls to it as part of the deploy) it will encrypt itself using the local machine key.</p>
+<p>To use this code example you will need to install the <a href="https://www.nuget.org/packages/WebActivatorEx/" target="_blank" rel="external">WebActivator NuGet package</a> that allows it to register itself as an application startup task. You can also just call the <code>AutoEncrypt</code> method in <code>Global.asax</code> for the same effect, but WebActivator makes it completely self-contained.</p>
+<p>This example only runs encryption if <code>&lt;compilation debug=&quot;false&quot;&gt;</code> is in the web.config (so for local debugging you keep yourself decrypted), and the section has not already been encrypted. It is also fully compatible with the default <code>App_Config\ConnectionStrings.config</code> that Sitecore uses as the config reader is smart enough to save the right file.</p>
+<script src="//gist.github.com/ef3a9f3b7ef1f9d491d5.js"></script>
+<p>Hope that’s helpful.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2014/07/automatic-asp-dot-net-connection-string-encryption/" data-id="cj937hg0u002bdgife7a2y1c3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    
+    
     <article id="post-indexing-subcontent" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -173,7 +226,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2014/05/indexing-subcontent/" data-id="cj937ctcd0027msifs9f6n3sv" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2014/05/indexing-subcontent/" data-id="cj937hg0s0026dgifbk3ux0ch" class="article-share-link">Share</a>
       
       
     </footer>
@@ -244,7 +297,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2014/05/using-web-api-2-attribute-routing-with-sitecore/" data-id="cj937ctcc0024msifaqc03sj0" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2014/05/using-web-api-2-attribute-routing-with-sitecore/" data-id="cj937hg0r0021dgifnkxxqasc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -307,7 +360,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2014/01/have-two-web-databases-dont-forget-the-indexupdatestrategy/" data-id="cj937ctca001vmsifhxsvai2k" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2014/01/have-two-web-databases-dont-forget-the-indexupdatestrategy/" data-id="cj937hg0s0023dgif5vf749wm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -378,7 +431,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/12/using-mvc-5-with-sitecore-7-1/" data-id="cj937ctcb001zmsifikbu0rah" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/12/using-mvc-5-with-sitecore-7-1/" data-id="cj937hg0p001udgifsgbtnum2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -463,7 +516,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/11/sitecore-data-architecture/" data-id="cj937ctc9001rmsifpird6fpm" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/11/sitecore-data-architecture/" data-id="cj937hg0o001qdgifa259t5oz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -515,7 +568,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/10/make-web-forms-for-marketers-use-a-regular-connection-string/" data-id="cj937ctc7001kmsifb0497e3x" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/10/make-web-forms-for-marketers-use-a-regular-connection-string/" data-id="cj937hg0n001odgif9yh3md52" class="article-share-link">Share</a>
       
       
     </footer>
@@ -586,7 +639,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/10/sitecore-preview-mode-and-loading-jquery/" data-id="cj937ctc7001nmsifx6on0cko" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/10/sitecore-preview-mode-and-loading-jquery/" data-id="cj937hg0m001jdgiffqmtw1xb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -639,7 +692,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/09/upgrading-sitecores-password-security/" data-id="cj937ctc30018msificihi0gj" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/09/upgrading-sitecores-password-security/" data-id="cj937hg0j001cdgifyr34hd9c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -696,88 +749,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/08/editing-hidden-template-fields-in-the-page-editor/" data-id="cj937ctc4001amsifupgfqogi" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    
-    
-    <article id="post-a-subtle-error-using-system-io-path-in-a-http-context" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/index.php/2013/06/a-subtle-error-using-system-io-path-in-a-http-context/">A subtle error: using System.IO.Path in a HTTP context</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          <div class="article-date">
-  <i class="fa fa-calendar"></i>
-  <a href="/index.php/2013/06/a-subtle-error-using-system-io-path-in-a-http-context/">
-    <time datetime="2013-06-16T06:52:31.000Z" itemprop="datePublished">June 15, 2013</time>
-  </a>
-</div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Here’s a fun little issue that you might eventually run across. Suppose you’re writing some code that needs to retrieve the extension from a URL. For example, a URL rewriter or Sitecore pipeline that acts only on certain file types.</p>
-<p>You might think, as I would have, “oh, that’s built in to .NET - we’ll just use <code>System.IO.Path.GetExtension()</code>!”</p>
-<p>And that would work, almost all of the time. The only issue comes from an internal implementation detail of <code>IO.Path</code>: it checks that the path does not contain characters that are invalid in a filesystem path. Specifically, “, &lt;, &gt;, |, and ASCII unprintables (&lt; 32). Well, those characters (except perhaps the unprintables) <em>are</em> valid in a URL - so trying to get the extension of a URL path containing these characters will throw a nice fat exception:</p>
-<pre><code>System.ArgumentException: Illegal characters in path.
-   at System.IO.Path.CheckInvalidPathChars(String path)
-   at System.IO.Path.GetExtension(String path)
-</code></pre><p>Unfortunately there is no way to disable this behavior - which is logical, given the purpose of <code>IO.Path</code> as a processor for file system paths, not URLs. Not even first parsing the URL using the <code>System.Uri</code> class will fix this, as <a href="http://stackoverflow.com/questions/1105593/get-file-name-from-uri-string-in-c-sharp" target="_blank" rel="external">this StackOverflow question</a> suggests. The <code>LocalPath</code> property still includes the invalid characters that break <code>Path.GetFileName()</code> or <code>Path.GetExtension()</code>.</p>
-<p>There are a couple of ways I could see solving this problem. The first, and simplest - though possibly prone to security issues, would be to replicate what <code>Path.GetExtension()</code> does but omitting the invalid characters check. <a href="http://www.dotnetframework.org/default.aspx/4@0/4@0/untmp/DEVDIV_TFS/Dev10/Releases/RTMRel/ndp/clr/src/BCL/System/IO/Path@cs/1305376/Path@cs" target="_blank" rel="external">Reference</a>:</p>
-<pre><code>int length = path.Length;
-for (int i = length; --i &gt;= 0; )
-{
-    char ch = path[i];
-    if (ch == &apos;.&apos;)
-    {
-        if (i != length - 1)
-            return path.Substring(i, length - i);
-        else
-            return String.Empty;
-    }
-    if (ch == DirectorySeparatorChar || ch == AltDirectorySeparatorChar || ch == VolumeSeparatorChar)
-        break;
-}
-return String.Empty;
-</code></pre><p>The second would be to remove any invalid characters prior to calling <code>Path.GetExtension()</code>:</p>
-<pre><code>string url = &quot;\&quot;http://mo\&quot;nkeys/foo/bar/\&quot;&quot;;
-
-var invalidChars = Path.GetInvalidPathChars().ToHashSet();
-for (int i = url.Length - 1; i &gt;= 0; i--)
-{
-    // technically you could use a stringbuilder, but since 99% of the time this won&apos;t ever be used, this seems optimized enough
-    if (invalidChars.Contains(url[i])) url = url.Remove(i, 1);
-}
-
-var ext = Path.GetExtension(url);
-</code></pre><p>Personally I like the second solution, since you’d benefit from any upstream fixes in <code>Path.GetExtension()</code> in future framework releases.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/06/a-subtle-error-using-system-io-path-in-a-http-context/" data-id="cj937ctc0000ymsif2mizuplk" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/08/editing-hidden-template-fields-in-the-page-editor/" data-id="cj937hg0h0015dgifu8igimgg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -801,6 +773,15 @@ var ext = Path.GetExtension(url);
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
+              <p class="item-title"><a href="/index.php/2017/10/All-about-xConnect-Security/" class="title">All about xConnect Security</a></p>
+              <p class="item-date"><time datetime="2017-10-22T20:57:18.000Z" itemprop="datePublished">October 22, 2017</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -838,15 +819,6 @@ var ext = Path.GetExtension(url);
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a></p>
-              <p class="item-title"><a href="/index.php/2017/02/Unicorn-4-Preview-Part-2-5-Generating-Packages-with-SPE/" class="title">Unicorn 4 Preview Part 2.5: Generating Unicorn Packages with SPE</a></p>
-              <p class="item-date"><time datetime="2017-02-12T05:09:02.000Z" itemprop="datePublished">February 11, 2017</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -856,7 +828,7 @@ var ext = Path.GetExtension(url);
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">36</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 

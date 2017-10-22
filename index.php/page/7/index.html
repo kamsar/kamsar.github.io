@@ -114,6 +114,82 @@ ga('send', 'pageview');
 </aside>
       <section id="main">
   
+    <article id="post-a-fury-of-updates" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2013/11/a-fury-of-updates/">A Fury of Updates</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2013/11/a-fury-of-updates/">
+    <time datetime="2013-11-15T06:30:16.000Z" itemprop="datePublished">November 14, 2013</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Synthesis/">Synthesis</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Put me on a plane to the Sitecore MVP Summit and I’m going to write software! All of these updates are available on <a href="https://github.com/kamsar" target="_blank" rel="external">GitHub</a> for source and NuGet for packages.</p>
+<h1 id="Synthesis-Blade-Ninject"><a href="#Synthesis-Blade-Ninject" class="headerlink" title="Synthesis.Blade.Ninject"></a>Synthesis.Blade.Ninject</h1><p>This is an extension to Synthesis.Blade that enables automagical constructor dependency injection to any presenter using the Ninject IoC container. I previously blogged about how to do this (it’s not that complex) but now doing DI with Blade is as simple as a NuGet package. Simply wire up Ninject with your dependencies, add some dependencies to a presenter constructor, install this package, and you’re good to go. Here’s a simple example of a presenter using DI to get a repository dependency:</p>
+<pre><code>public class TestPresenter : SynthesisPresenter&lt;TestModel, ITestTemplateItem&gt;
+{
+    private readonly ITestRepository _repository;
+
+    // this constructor parameter will be automatically set by Blade via Ninject
+    public TestPresenter(ITestRepository repository)
+    {
+        _repository = repository;
+    }
+
+    public override TestModel GetModel(IView view, ITestTemplateItem item)
+    {
+        var model = new TestModel();
+
+        model.Frob = _repository.GetFrob(item);
+
+        return model;
+    }
+}
+</code></pre><p>Note: It’s trivial to implement the same constructor injection with a different IoC container, or without using Synthesis integration. Take a look at the source for Synthesis.Blade.Ninject and it should be pretty obvious what to do :)</p>
+<p>Note2: Make sure to use the above Synthesis.Blade 7.0.1 configuration file, or the installation may not work correctly and patch the wrong thing.</p>
+<h1 id="Blade-2-0-1"><a href="#Blade-2-0-1" class="headerlink" title="Blade 2.0.1"></a>Blade 2.0.1</h1><p>This is a minor release with enhancements to testability and bug fixes.</p>
+<ul>
+<li>The “Page” property on IView is now marked as obsolete, as it exposes a lot of untestable data to a presenter</li>
+<li><code>IView</code> now has a <code>ViewContext</code> property that exposes the <code>HttpContextBase</code> for the current request, enabling testable access to request and response data within presenters</li>
+<li>Fixed a bug that caused unexpected presenter resolution when using inheritance in model types (<code>IView</code> became covariant in Blade 2, which meant that <code>IView&lt;BaseClass&gt;</code> became similar to <code>IView&lt;DerivedClass&gt;</code>, and the base class presenter might be selected first in some cases) - fix courtesy of <a href="https://twitter.com/Gobiner" target="_blank" rel="external">@gobiner</a></li>
+</ul>
+<h1 id="Synthesis-7-0-1"><a href="#Synthesis-7-0-1" class="headerlink" title="Synthesis 7.0.1"></a>Synthesis 7.0.1</h1><p>This is a minor release that corrects an oversight in 7.0.0 where some of the new field type interfaces did not have setters for their values. This prevented editing items when using field type interfaces. Bug report courtesy of <a href="https://twitter.com/Gobiner" target="_blank" rel="external">@gobiner</a>.</p>
+<h1 id="Synthesis-Blade-7-0-1"><a href="#Synthesis-Blade-7-0-1" class="headerlink" title="Synthesis.Blade 7.0.1"></a>Synthesis.Blade 7.0.1</h1><p>This is a minor release that resolves an issue with the default configuration file if multiple patches were present to the Blade <code>PresenterFactory</code>. To upgrade an existing installation, simply edit Synthesis.Blade.config and change the presenter factory patch line to read like so (changing the ‘instead’ attribute):</p>
+<pre><code>&lt;presenterFactory patch:instead=&quot;*&quot; type=&quot;Synthesis.Blade.Configuration.SynthesisPresenterFactory, Synthesis.Blade&quot; /&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2013/11/a-fury-of-updates/" data-id="cj937hg0n001ldgif9h6m79ch" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-make-web-forms-for-marketers-use-a-regular-connection-string" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -154,7 +230,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/10/make-web-forms-for-marketers-use-a-regular-connection-string/" data-id="cj937ctc7001kmsifb0497e3x" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/10/make-web-forms-for-marketers-use-a-regular-connection-string/" data-id="cj937hg0n001odgif9yh3md52" class="article-share-link">Share</a>
       
       
     </footer>
@@ -223,7 +299,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/10/sitecore-preview-mode-and-loading-jquery/" data-id="cj937ctc7001nmsifx6on0cko" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/10/sitecore-preview-mode-and-loading-jquery/" data-id="cj937hg0m001jdgiffqmtw1xb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -322,7 +398,7 @@ string result = item.Object.Title.RawValue; // &quot;isn&apos;t this nice?&quot;
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/10/announcing-synthesis-7/" data-id="cj937ctc6001imsifg5zk0o2n" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/10/announcing-synthesis-7/" data-id="cj937hg0l001gdgifzop69l0n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -404,7 +480,7 @@ var model = presenter.GetModel(view.Object, item.Object);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/10/announcing-blade-2/" data-id="cj937ctc5001fmsife2ni2sk6" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/10/announcing-blade-2/" data-id="cj937hg0k001edgifa6mnowof" class="article-share-link">Share</a>
       
       
     </footer>
@@ -465,7 +541,7 @@ var model = presenter.GetModel(view.Object, item.Object);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/09/sitecore-7-update-2-and-synthesis-6/" data-id="cj937ctc5001dmsifu71l2vy5" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/09/sitecore-7-update-2-and-synthesis-6/" data-id="cj937hg0j001adgiffibktshs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -516,7 +592,7 @@ var model = presenter.GetModel(view.Object, item.Object);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/09/upgrading-sitecores-password-security/" data-id="cj937ctc30018msificihi0gj" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/09/upgrading-sitecores-password-security/" data-id="cj937hg0j001cdgifyr34hd9c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -571,7 +647,7 @@ var model = presenter.GetModel(view.Object, item.Object);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/08/editing-hidden-template-fields-in-the-page-editor/" data-id="cj937ctc4001amsifupgfqogi" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/08/editing-hidden-template-fields-in-the-page-editor/" data-id="cj937hg0h0015dgifu8igimgg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -622,7 +698,7 @@ var model = presenter.GetModel(view.Object, item.Object);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/08/synthesis-6-released/" data-id="cj937ctc30016msif8p7ktdpl" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/08/synthesis-6-released/" data-id="cj937hg0i0018dgiffhgeku0a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -670,59 +746,7 @@ var model = presenter.GetModel(view.Object, item.Object);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/07/unicorn-1-0-4-released/" data-id="cj937ctc20013msifjufbbxo8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-unicorn-1-0-3-released" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/index.php/2013/06/unicorn-1-0-3-released/">Unicorn 1.0.3 Released</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          <div class="article-date">
-  <i class="fa fa-calendar"></i>
-  <a href="/index.php/2013/06/unicorn-1-0-3-released/">
-    <time datetime="2013-06-22T06:50:09.000Z" itemprop="datePublished">June 21, 2013</time>
-  </a>
-</div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>I’ve pushed Unicorn 1.0.3 to NuGet. This release fixes a number of bugs, improves logging, and removes some annoyances:</p>
-<ul>
-<li>Deleting a whole tree could cause the app pool to be killed due to a bug in Sitecore’s serialization event handler (380479) - this fix expands on a previous workaround to cover recursive deletes</li>
-<li>Fixed an issue where if you changed an item too rapidly after saving or moving it, you could get file read errors or spurious “conflicts” reported due to the async ShadowWriter still being in process.</li>
-<li>“Inconsequential” item saves are now ignored. For example, the Template Editor gleefully changes the revision and last updated date of every template field when it saves, not merely changed ones. Those, as well as rename events where the name does not actually change (again, Template Editor ftw), are ignored and updated files are not written to disk. These fields are also ignored when calculating serialization conflicts on item save.</li>
-<li>Items deleted by Unicorn are now placed in the recycle bin instead of completely removed, so they can be restored if mistakenly deleted.</li>
-<li>Unicorn sync logs are automatically written to the Sitecore log as well (requires dependency upgrade to Kamsar.WebConsole 1.2.2 for the new TeeProgressStatus)</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/06/unicorn-1-0-3-released/" data-id="cj937ctc10011msif9r46u9al" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/07/unicorn-1-0-4-released/" data-id="cj937hg0g0013dgif9vujmbni" class="article-share-link">Share</a>
       
       
     </footer>
@@ -746,6 +770,15 @@ var model = presenter.GetModel(view.Object, item.Object);
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
+              <p class="item-title"><a href="/index.php/2017/10/All-about-xConnect-Security/" class="title">All about xConnect Security</a></p>
+              <p class="item-date"><time datetime="2017-10-22T20:57:18.000Z" itemprop="datePublished">October 22, 2017</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -783,15 +816,6 @@ var model = presenter.GetModel(view.Object, item.Object);
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a></p>
-              <p class="item-title"><a href="/index.php/2017/02/Unicorn-4-Preview-Part-2-5-Generating-Packages-with-SPE/" class="title">Unicorn 4 Preview Part 2.5: Generating Unicorn Packages with SPE</a></p>
-              <p class="item-date"><time datetime="2017-02-12T05:09:02.000Z" itemprop="datePublished">February 11, 2017</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -801,7 +825,7 @@ var model = presenter.GetModel(view.Object, item.Object);
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">36</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 

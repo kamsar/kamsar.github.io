@@ -81,7 +81,7 @@ ga('send', 'pageview');
   
   <div id="header-sub" class="header-sub header-inner">
     <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">36</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
   
@@ -128,6 +128,121 @@ ga('send', 'pageview');
           <i class="fa fa-calendar"></i>
           <a href="/archives/2017" class="archive-year">2017</a>
         </div>
+    
+    <article id="post-All-about-xConnect-Security" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2017/10/All-about-xConnect-Security/">All about xConnect Security</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2017/10/All-about-xConnect-Security/">
+    <time datetime="2017-10-22T20:57:18.000Z" itemprop="datePublished">October 22, 2017</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Sitecore 9 introduces the new xConnect server to the ecosystem. xConnect is an abstracted service layer that Sitecore uses for all its analytics and marketing automation features. If you’re using Sitecore XP (aka xDB), you’ll need an xConnect server if you upgrade to Sitecore 9.</p>
+<p>xConnect is noteworthy because it introduces client certificate authentication for the Sitecore XP server to communicate with xConnect. Certificates are a complex subject, and can fail in any number of less than helpful ways. This post aims to help you understand how certificates work in Sitecore 9, and provide you some tools to diagnose what’s wrong when they are not working right. </p>
+<h2 id="What-is-TLS"><a href="#What-is-TLS" class="headerlink" title="What is TLS?"></a>What is TLS?</h2><p>In order to understand how xConnect works, it’s important to understand what’s going on: <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security" target="_blank" rel="external">Transport Layer Security</a> (TLS). You may also think of this as “SSL” or “HTTPS.”</p>
+<p>TLS is a protocol for establishing secure encrypted connections between a <em>server</em> and a <em>client</em>. The key aspect of TLS is that the client and server can securely exchange encryption keys in such a way that they cannot be observed by malicious parties that may be watching the exchange.</p>
+<h2 id="Asymmetric-vs-Symmetric-Encryption"><a href="#Asymmetric-vs-Symmetric-Encryption" class="headerlink" title="Asymmetric vs Symmetric Encryption"></a>Asymmetric vs Symmetric Encryption</h2><p>To understand how TLS works, it’s important to understand the distinction between Asymmetric (also called Public Key) Encryption, and Symmetric Encryption.</p>
+<p>If you ever made secret codes as a kid, you’ve probably used <a href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm" target="_blank" rel="external"><em>symmetric encryption</em></a>. This is where the sender and receiver both need to know a key to decrypt the message, for example a simple <a href="https://en.wikipedia.org/wiki/Caesar_cipher" target="_blank" rel="external">shift cipher</a> where <code>D</code> = <code>A</code>, <code>E</code> = <code>B</code>, and so forth. Julius Caesar famously sent secret messages by shifting letters three places forward like this. Symmetric encryption does have one major downfall, however: posession of the secret key lets you read any encrypted message even if not the intended recipient.</p>
+<p><a href="https://en.wikipedia.org/wiki/Public-key_cryptography" target="_blank" rel="external">Asymmetric encryption</a> on the other hand uses two different keys: a <em>public key</em> and a <em>private key</em>. The public key can be shared with anyone without compromising anything. However a client can use the public key to encrypt a message in such a way that it can only be decrypted <em>with the server’s private key</em>. In this way, you can receive private encrypted messages from clients you don’t share any secrets with - but they can still send the server private messages.</p>
+<p>TLS uses <em>asymmetric encryption</em> to transfer an encryption key for <em>symmetric encryption</em>, which is used for ongoing data transfer over the encrypted connection. This is done because asymmetric encryption is much much slower than symmetric.</p>
+<p>It’s important to understand the difference between public and private keys when you set up Sitecore 9, because they need to be deployed to different servers in your infrastructure. A <em>certificate</em> generally includes both a public and private key, however it can also include only a public key.</p>
+<h2 id="xConnect-Setup"><a href="#xConnect-Setup" class="headerlink" title="xConnect Setup"></a>xConnect Setup</h2><p>xConnect uses <a href="https://en.wikipedia.org/wiki/Mutual_authentication" target="_blank" rel="external">mutual authentication</a> to secure the connections between it and the Sitecore XP server. This is accomplished using <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Client-authenticated_TLS_handshake" target="_blank" rel="external">TLS client certificates</a>.</p>
+<p>If you’ve worked with SSL certificates before, this is a stronger form of SSL where not only does the client have to trust the server, but the server also has to trust a second certificate issued to the client. In this case, the client is the Sitecore XP server, and the server is the xConnect server. Let’s take a look at how this works:</p>
+<h2 id="SSL-Server-Certificate-Negotiation"><a href="#SSL-Server-Certificate-Negotiation" class="headerlink" title="SSL Server Certificate Negotiation"></a>SSL Server Certificate Negotiation</h2><p>All SSL connections go through this process, whether xConnect or otherwise. In a standard Sitecore 9 XP installation, the xConnect server will have the <em>server certificate</em> installed. The Sitecore XP server will only have a server certificate if access to Sitecore itself, e.g. for administration, is done via SSL (in which case it will likely be a separate server certificate from xConnect’s).</p>
+<ol>
+<li>Client prepares to make a HTTPS request (e.g. you ask for <code>https://xconnect</code>)</li>
+<li>Client sends a <em>ClientHello</em> message to the server. This proposes encryption standards, among other things.</li>
+<li>The server replies with a <em>ServerHello</em> message back to the client. This includes the server’s <em>public key</em>, and the encryption standards that the server has selected from what the client proposed in the <em>ClientHello</em>.</li>
+<li>The client <em>validates</em> the server certificate (e.g. must have correct domain and trusted issuer)</li>
+<li>A symmetric encryption key is generated and exchanged using the server’s public key</li>
+<li>Now that an encrypted connection is established, a normal HTTP request is sent over the encrypted channel</li>
+</ol>
+<h3 id="What-can-go-wrong-with-server-certificate-negotiation"><a href="#What-can-go-wrong-with-server-certificate-negotiation" class="headerlink" title="What can go wrong with server certificate negotiation"></a>What can go wrong with server certificate negotiation</h3><p>The most common issues are domain mismatches and untrusted certificates. Generally you can diagnose issues with server certificates using a web browser - request the site over HTTPS and review the error shown in the browser. Make sure you request the xConnect server URL, <strong>not</strong> the Sitecore XP URL if you are diagnosing an xConnect connectivity issue.</p>
+<h4 id="Domain-Mismatches"><a href="#Domain-Mismatches" class="headerlink" title="Domain Mismatches"></a>Domain Mismatches</h4><p>A domain mismatch occurs when a certificate’s domain does not match the domain being requested. For example, a certificate issued to <code>sitecore.net</code> will fail this validation if the site you’re requesting is <code>https://foo.local</code>. Certificates may also be issued using <em>wildcards</em> (e.g. <code>*.sitecore.net</code>). Note that wildcards apply to one level of subdomains only - so in the previous example <code>sitecore.net</code> or <code>foo.sitecore.net</code> would be valid, but <code>bar.foo.sitecore.net</code> would <em>not</em> be.</p>
+<p>Domain matching is done based on the host header the server receives. For example if the xConnect server is <code>https://xconnect</code> but can also be accessed via <code>https://127.0.0.1</code>, the certificate will be invalid if the IP address is used because the certificate was not issued for <code>127.0.0.1</code>.</p>
+<p>If you have a domain mismatch issue, you will need to either get a new certificate (and update the xConnect IIS site(s) to use the new certificate) or change the domain for xConnect to one that is valid for the certificate.</p>
+<h4 id="Untrusted-Certificates"><a href="#Untrusted-Certificates" class="headerlink" title="Untrusted Certificates"></a>Untrusted Certificates</h4><p>To understand trust issues, it’s important to understand how certificates are issued. Certificates are issued by other certificates.</p>
+<img src="/index.php/2017/10/All-about-xConnect-Security/cert-issuer.jpg" alt="cert-issuer.jpg" title="">
+<p>In fact, certificates can be issued in <em>chains</em> (Xzibit would definitely approve). Trust issues occur when the certificate that issued the <em>server</em> certificate is not considered to be trusted by the <em>client</em>. On Windows, trust is established by being included in the <em>Trusted Root Certification Authorities</em> in the machine certificates:</p>
+<img src="/index.php/2017/10/All-about-xConnect-Security/trusted-certs.png" alt="trusted-certs.png" title="">
+<p>Note that to trust a certificate, only the <em>public key</em> for the server certificate must be imported here. If you’re using self-signed certificates that issued themselves - like <code>localhost</code> in the screenshot - you can add the certificate itself to the trusted root certificates by exporting it and reimporting it into the root certificates. If using a commercially issued certificate, that certification authority’s root certificates must be added to the trusted root - in most cases, they are already present.</p>
+<h4 id="More-esoteric-errors"><a href="#More-esoteric-errors" class="headerlink" title="More esoteric errors"></a>More esoteric errors</h4><p>There are some less common issues that can also cause server certificate negotiation errors. Servers will be commonly secured against supporting vulnerable <a href="https://en.wikipedia.org/wiki/RC4" target="_blank" rel="external">ciphers</a>, <a href="https://en.wikipedia.org/wiki/SHA-1" target="_blank" rel="external">hash algorithms</a> or <a href="https://en.wikipedia.org/wiki/POODLE" target="_blank" rel="external">SSL protocol versions</a>. You might have heard of Heartbleed or POODLE vulnerabilities, or had to support TLS 1.2 if working with some web APIs such as SalesForce. This is a good idea, but if the server and client cannot mutually agree on a supported cipher, hash, and protocol version the connection will fail. If the certificate is trusted and has the correct domain, this would be the next thing to check.</p>
+<p>If you’ve never heard of this before, you can secure your IIS servers using a tool like <a href="https://www.nartac.com/Products/IISCrypto" target="_blank" rel="external">IISCrypto</a>. Go do it now, this post will wait.</p>
+<p>Note that the .NET HTTP client with framework versions prior to 4.6.2 defaults to only supporting TLS up to 1.1. Many modern security scripts will disable all TLS protocol versions except for 1.2, which will cause HTTP requests from clients with earlier versions of the .NET framework installed to fail.</p>
+<h2 id="SSL-Client-Certificate-Negotiation"><a href="#SSL-Client-Certificate-Negotiation" class="headerlink" title="SSL Client Certificate Negotiation"></a>SSL Client Certificate Negotiation</h2><p>Hopefully now you have a decent idea of how <em>server</em> certificates work. But xConnect also uses <em>client certificates</em>. A client certificate enables <a href="https://en.wikipedia.org/wiki/Mutual_authentication" target="_blank" rel="external"><em>mutual authentication</em></a>. With only a server certificate, the client must decide to trust the server but the server has no way to know if it should trust the client. Enter client certificates.</p>
+<p>A client certificate is essentially the opposite of the server certificate. When using a client certificate, the negotiation works similarly to the server certificate, except that when the server sends the <code>ServerHello</code> (#3 above) it requests a client certificate in addition to sending its public key. The client then sends the public key of its <em>client certificate</em> back to the server - and then <em>the server decides whether it should trust the client certificate</em>.</p>
+<p>If the client certificate is not trusted, it is rejected. The rules for validating a client certificate are up to the server and do not necessarily follow the same validation rules as a server certificate on the client. In the case of xConnect:</p>
+<ul>
+<li>The domain/subject on the client certificate does not seem to matter to xConnect</li>
+<li>The trusting of the certificate is done using the <em>thumbprint</em> of the certificate (a hash of the certficate which uniquely identifies it). Note that the thumbprint will change when an expired certificate is renewed, so you will need to reconfigure xConnect after renewing a client certificate so that it trusts the newer thumbprint.</li>
+<li>The xConnect server must trust the issuer of the client certificate</li>
+</ul>
+<h3 id="What-can-go-wrong-with-client-certificate-negotiation"><a href="#What-can-go-wrong-with-client-certificate-negotiation" class="headerlink" title="What can go wrong with client certificate negotiation"></a>What can go wrong with client certificate negotiation</h3><p>There are a lot of things that can go wrong with the client certificate, moreso than the server certificate. When troubleshooting, make your first step the Sitecore XP logs - they generally have some basic information about a bad client cert.</p>
+<h4 id="If-you’re-receiving-HTTP-4xx-responses"><a href="#If-you’re-receiving-HTTP-4xx-responses" class="headerlink" title="If you’re receiving HTTP 4xx responses"></a>If you’re receiving HTTP 4xx responses</h4><p>Chances are your client certificate validation failed. This could mean:</p>
+<ul>
+<li>The client certificate is not installed on both the Sitecore XP server and the xConnect server (the xConnect server would only need the public key)</li>
+<li>The client certificate is not considered trusted on the xConnect server</li>
+<li>The certificate <em>thumbprint</em> configured in the xConnect server’s <code>App_Config\ConnectionStrings.config</code> is missing or incorrect. Note that the thumbprint must be all uppercase with no spaces or colons. If copied from certificate manager, an unprintable character might prefix the thumbprint - check for a hidden character there.</li>
+<li>The certificate <em>location</em> configured in the xConnect server’s <code>App_Config\ConnectionStrings.config</code> is incorrect. Normally the certificate should be stored in local machine certificates and have a connection string similar to <code>StoreName=My;StoreLocation=LocalMachine;FindType=FindByThumbprint;FindValue=THUMBPRINTVALUE</code>.</li>
+</ul>
+<h4 id="“The-certificate-was-not-found”"><a href="#“The-certificate-was-not-found”" class="headerlink" title="“The certificate was not found”"></a>“The certificate was not found”</h4><p>This indicates one of two things:</p>
+<ul>
+<li>The <em>thumbprint</em> is incorrect in the Sitecore XP server’s <code>App_Config\ConnectionStrings.config</code> file. Note that the thumbprint must be all uppercase with no spaces or colons. If copied from certificate manager, an unprintable character might prefix the thumbprint - check for a hidden character there.</li>
+<li>The certificate <em>location</em> configured in the Sitecore XP server’s <code>App_Config\ConnectionStrings.config</code> is incorrect. Normally the certificate should be stored in local machine certificates and have a connection string similar to <code>StoreName=My;StoreLocation=LocalMachine;FindType=FindByThumbprint;FindValue=THUMBPRINTVALUE</code>.</li>
+</ul>
+<h4 id="System-Net-WebException-The-request-was-aborted-Could-not-create-SSL-TLS-secure-channel"><a href="#System-Net-WebException-The-request-was-aborted-Could-not-create-SSL-TLS-secure-channel" class="headerlink" title="System.Net.WebException: The request was aborted: Could not create SSL/TLS secure channel."></a>System.Net.WebException: The request was aborted: Could not create SSL/TLS secure channel.</h4><p><em>As long as the server certificate is valid</em>, this message is most likely that the Sitecore XP server’s IIS app pool user account does not have read access to the client certificate’s private key. This access is needed so that the Sitecore XP server can encrypt communications using its client certificate.</p>
+<p>To remedy this issue, open the local machine certificates (“Manage computer certificates” in a start menu search) on the Sitecore XP server. Find the client certificate (normally under <code>Personal\Certificates</code>). Right click it, choose <code>All Tasks</code>, then <code>Manage Private Keys...</code>. You should get a security assignment window like this:</p>
+<img src="/index.php/2017/10/All-about-xConnect-Security/pkey-security.png" alt="pkey-security.png" title="">
+<p>Next, add your IIS app pool user to the ACLs and grant it <code>Read</code> permissions (as above). Remember if you’re using AppPoolIdentity (you should be, unless using a domain account for windows auth to SQL), you must select the account by choosing <code>Local Computer</code> as the search location, and enter <code>IIS APPPOOL\MyAppPoolsName</code> as the account name to find.</p>
+<p>Still having issues? Well, you can also use the security audit log to find out which account is failing to get access, then add that account in the key ACLs above:</p>
+<img src="/index.php/2017/10/All-about-xConnect-Security/key-security-audit-failure.png" alt="key-security-audit-failure.png" title="">
+<h2 id="Local-Development-Tip"><a href="#Local-Development-Tip" class="headerlink" title="Local Development Tip"></a>Local Development Tip</h2><p>If you work at a Sitecore partner and will have multiple copies of Sitecore 9 running locally, this can cause issues if you issue a dedicated SSL server certificate to each site. This is because a given TCP port (e.g. 443, the default) can only have one SSL certificate bound to it. This precludes having multiple Sitecore 9 instances running together locally <em>unless they share the same SSL certificate</em>.</p>
+<p>Wildcard certificates are perfect for this job. As long as you use the same top level suffix for all your dev sites (e.g. <code>*.local.dev</code>), you can use the same wildcard certificate for your server certificate for all dev sites. Note that IIS’ self-signed certificate generator will not create a wildcard certificate for you. You’ll have to use something else, like <a href="https://technet.microsoft.com/en-us/itpro/powershell/windows/pkiclient/new-selfsignedcertificate" target="_blank" rel="external">New-SelfSignedCertificate</a>, to create one.</p>
+<p>Important note: You must issue a wildcard for at least two segments of domain for it to be trusted. For example <code>*.dev</code> is bad, but <code>*.local.dev</code> is good.</p>
+<p>Note that <em>client</em> certificates should be unique on each site, only the server certificate should be shared.</p>
+<p>In the release version of Sitecore 9, you can also disable the requirement to use encryption with xConnect which can bypass a lot of debugging. Do not do this in production or else a herd of elephants will destroy you.</p>
+<h2 id="Advanced-Debugging-with-Wireshark"><a href="#Advanced-Debugging-with-Wireshark" class="headerlink" title="Advanced Debugging with Wireshark"></a>Advanced Debugging with Wireshark</h2><p>It’s possible to watch the SSL negotiation at a TCP/IP level using a network monitor such as <a href="https://www.wireshark.org/" target="_blank" rel="external">Wireshark</a>. This can provide insights on why your setup is failing when error messages are less than optimal. For example I spent a couple days diagnosing what turned out to be private key security issues. I figured this out by using Wireshark and observing that the client was never sending its client certificate after the server requested it, and figuring out why that was.</p>
+<p>To use Wireshark to watch SSL traffic, you’ll have to set it up to decrypt traffic. <a href="https://blogs.technet.microsoft.com/nettracer/2013/10/12/decrypting-ssltls-sessions-with-wireshark-reloaded/" target="_blank" rel="external">This guide</a> walks you through setting up decryption on Windows with an exported private key.</p>
+<p>If you’re tracing local dev traffic (e.g. from <code>localhost</code> to <code>localhost</code>, including using your machine’s DNS name) Wireshark will not capture that unless you install <a href="https://nmap.org/npcap/" target="_blank" rel="external">npcap</a> instead of the default <code>pcap</code> packet capture software. Once <code>npcap</code> is installed, tell Wireshark to bind to the <code>Npcap Loopback Adapter</code> to see local traffic.</p>
+<p>Here is a screenshot of the Wireshark capture where I diagnosed the client certificate security issue:</p>
+<img src="/index.php/2017/10/All-about-xConnect-Security/wireshark-trace.png" alt="wireshark-trace.png" title="">
+<h2 id="Good-luck"><a href="#Good-luck" class="headerlink" title="Good luck!"></a>Good luck!</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2017/10/All-about-xConnect-Security/" data-id="cj937hg1s0056dgifk6fvetbk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    
     
     <article id="post-Where-to-find-Sitecore-documentation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -177,7 +292,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/10/Where-to-find-Sitecore-documentation/" data-id="cj937ctdb0055msif6gxq5p4h" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/10/Where-to-find-Sitecore-documentation/" data-id="cj937hg1r0053dgif9n3hft0u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -289,7 +404,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/06/Unicorn-4-Released/" data-id="cj937ctda0050msifa08uljxm" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/06/Unicorn-4-Released/" data-id="cj937hg1r0051dgify3omhh1u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -349,7 +464,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/06/Simplifying-Contact-Facets-with-C-6/" data-id="cj937ctd9004ymsifdkyjbuma" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/06/Simplifying-Contact-Facets-with-C-6/" data-id="cj937hg1q004zdgifm9g47zow" class="article-share-link">Share</a>
       
       
     </footer>
@@ -430,7 +545,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Part-III-Configuration-Enhancements/" data-id="cj937ctd9004wmsife19ikctz" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Part-III-Configuration-Enhancements/" data-id="cj937hg1q004xdgif16kkdk8j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -487,7 +602,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Preview-Part-2-5-Generating-Packages-with-SPE/" data-id="cj937ctda0052msifq4nhsw1d" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Preview-Part-2-5-Generating-Packages-with-SPE/" data-id="cj937hg1p004vdgif76aop24e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -532,7 +647,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/02/Where-s-the-comments/" data-id="cj937ctd8004umsifxanyb0et" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/02/Where-s-the-comments/" data-id="cj937hg1n004rdgifw2yvujix" class="article-share-link">Share</a>
       
       
     </footer>
@@ -608,7 +723,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/" data-id="cj937ctd6004qmsif60ahejas" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/" data-id="cj937hg1o004tdgif5oaunjeg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -684,7 +799,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Preview-Project-Dilithium/" data-id="cj937ctd7004smsifnfl0yyac" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Preview-Project-Dilithium/" data-id="cj937hg1n004pdgif6mah69nx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -784,103 +899,7 @@ public ActionResult Rendering()
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/01/Controlling-Rendering-Order-in-Sitecore-MVC/" data-id="cj937ctd5004kmsifskoti5h7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    
-    
-    <article id="post-EditContext-Considered-Harmful" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/index.php/2017/01/EditContext-Considered-Harmful/">EditContext Considered Harmful</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          <div class="article-date">
-  <i class="fa fa-calendar"></i>
-  <a href="/index.php/2017/01/EditContext-Considered-Harmful/">
-    <time datetime="2017-01-13T01:52:42.000Z" itemprop="datePublished">January 12, 2017</time>
-  </a>
-</div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>If you’ve worked with Sitecore for very long, you have probably needed to update an item’s content programmatically. A pattern in common usage for this is to use the <code>EditContext</code> class, for example:</p>
-<pre><code>Item item;
-using(new EditContext(item))
-{
-    item[&quot;FieldName&quot;] = &quot;A new value&quot;;
-}
-</code></pre><p>Unfortunately, it has a fatal flaw. A fatal flaw that Jakob Christensen <a href="http://sitecore.alexiasoft.nl/2006/04/03/new-way-of-editing-items/#comment-16" target="_blank" rel="external">pointed out <em>in 2006</em></a>. Unfortunately it’s still in wide use, and is not marked as obsolete. Hopefully this post can help change that!</p>
-<p>The problem lies in the way the <code>using</code> statement works. It is effectively equivalent to this:</p>
-<pre><code>var context = new EditContext(item);
-try
-{
-    item[&quot;FieldName&quot;] = &quot;A new value&quot;;
-}
-finally
-{
-    context.Dispose();
-}
-</code></pre><p>An astute observer will notice that due to the <code>finally</code> semantic, the <code>EditContext</code> is <em>always disposed</em>, regardless of whether an exception occurs. Take this code for example:</p>
-<pre><code>Item item;
-using(new EditContext(item))
-{
-    item[&quot;FieldA&quot;] = &quot;Sample&quot;;
-    item[&quot;FieldB&quot;] = GetFieldValue();
-    item[&quot;FieldC&quot;] = &quot;A new value&quot;;
-}
-
-public string GetFieldValue() 
-{
-    throw new ArgumentException(&quot;Let&apos;s address the elephant in the room.&quot;);
-}
-</code></pre><p>In this example <code>GetFieldValue()</code> throws an exception. This will cause an immediate drop through to the <code>finally</code> of the <code>using</code> statement, which executes whether an exception is thrown or not. Which will <em>commit</em> the partial item change to <code>FieldA</code> without <code>FieldB</code> or <code>FieldC</code>, leaving the Sitecore item in an inconsistent state. Which you probably do not want.</p>
-<h2 id="So-what-should-we-use"><a href="#So-what-should-we-use" class="headerlink" title="So what should we use?"></a>So what <em>should</em> we use?</h2><p>The correct way to edit an item is with the <code>Editing</code> property, for example:</p>
-<pre><code>Item item;
-item.Editing.BeginEdit();
-item[&quot;FieldA&quot;] = &quot;Sample&quot;;
-item[&quot;FieldB&quot;] = GetFieldValue();
-item[&quot;FieldC&quot;] = &quot;A new value&quot;;
-item.Editing.EndEdit();
-</code></pre><p>Note how <code>EndEdit()</code> will <em>not</em> be called if an exception occurs. This prevents Sitecore from writing any field changes to the database (changes are queued up and committed all together when <code>EndEdit()</code> is called).</p>
-<p>This syntax is however a bit hard to read, because it is difficult to parse the code compared to the neat indentation of <code>EditContext</code>. I would like to propose an alternative syntax, taking advantage of the fact that you can use <em>arbitrary braces</em> in C#:</p>
-<pre><code>Item item;
-
-item.Editing.BeginEdit();
-{
-    item[&quot;FieldA&quot;] = &quot;Sample&quot;;
-    item[&quot;FieldB&quot;] = GetFieldValue();
-    item[&quot;FieldC&quot;] = &quot;A new value&quot;;
-}
-item.Editing.EndEdit();
-</code></pre><p>There! Now it reads nearly like <code>EditContext</code>, but does not suffer from its downsides :)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/01/EditContext-Considered-Harmful/" data-id="cj937ctd5004mmsif79ri57sp" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/01/Controlling-Rendering-Order-in-Sitecore-MVC/" data-id="cj937hg1m004ndgifqh27gzvj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -904,6 +923,15 @@ item.Editing.EndEdit();
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
+              <p class="item-title"><a href="/index.php/2017/10/All-about-xConnect-Security/" class="title">All about xConnect Security</a></p>
+              <p class="item-date"><time datetime="2017-10-22T20:57:18.000Z" itemprop="datePublished">October 22, 2017</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -941,15 +969,6 @@ item.Editing.EndEdit();
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a></p>
-              <p class="item-title"><a href="/index.php/2017/02/Unicorn-4-Preview-Part-2-5-Generating-Packages-with-SPE/" class="title">Unicorn 4 Preview Part 2.5: Generating Unicorn Packages with SPE</a></p>
-              <p class="item-date"><time datetime="2017-02-12T05:09:02.000Z" itemprop="datePublished">February 11, 2017</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -959,7 +978,7 @@ item.Editing.EndEdit();
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">36</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 

@@ -81,7 +81,7 @@ ga('send', 'pageview');
   
   <div id="header-sub" class="header-sub header-inner">
     <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">36</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
   
@@ -128,6 +128,79 @@ ga('send', 'pageview');
           <i class="fa fa-calendar"></i>
           <a href="/archives/2015" class="archive-year">2015</a>
         </div>
+    
+    <article id="post-Unicorn-3-0-Released" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2015/10/Unicorn-3-0-Released/">Unicorn 3.0 Released</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2015/10/Unicorn-3-0-Released/">
+    <time datetime="2015-10-02T18:00:00.000Z" itemprop="datePublished">October 2, 2015</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/Unicorn_logo.png" alt="patrick you&#39;re a bloody genius"></p>
+<p>It’s been over a year since the last major release of Unicorn, but I haven’t been bored. Today I’m happy to announce the release of Unicorn 3.0 and Rainbow 1.0.</p>
+<h1 id="Unicorn-101"><a href="#Unicorn-101" class="headerlink" title="Unicorn 101"></a>Unicorn 101</h1><p>Sitecore development artifacts are both code and database items, such as rendering code and rendering items. As developers, we use serialization to write our database artifacts into source control along with our code so that we have a record of all our development artifacts. <a href="https://github.com/kamsar/Unicorn" target="_blank" rel="external">Unicorn</a> is a tool to make serializing items and sharing them across teams and deployed environments easy and fun.</p>
+<p>Unicorn takes advantage of keeping serialized items always up to date on the disk, which allows all merging to take place using your source control tool. Modern source control tools such as Git or SVN are capable of automatically merging the vast majority of item changes, which saves you time and reduces the chance of human error when merging.</p>
+<p>Unicorn 3 is fresh off the compiler and brings with it a <a href="https://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/">huge raft of improvements</a>. This version brings its own <a href="https://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/">serialization format</a> and <a href="https://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/">filesystem hierarchy</a> that are far more friendly to source control and merge conflicts than the default Sitecore format. It’s also ridiculously fast - about 50% faster overall than Unicorn 2 or Sitecore serialization APIs.</p>
+<h1 id="What-else-is-new"><a href="#What-else-is-new" class="headerlink" title="What else is new?"></a>What else is new?</h1><p>In fact there are <em>lots more</em> new features added to Unicorn 3 since the <a href="https://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/">what’s new blog post</a> was written. Not just minor details either! Read on…</p>
+<h2 id="Transparent-Sync"><a href="#Transparent-Sync" class="headerlink" title="Transparent Sync"></a>Transparent Sync</h2><p>This is a feature that <a href="https://kamsar.net/index.php/2015/10/Unicorn-Introducing-Transparent-Sync/">demanded its own blog post</a>! Transparent Sync enables Unicorn to sync the serialized items in real time, completely automatically. It does this by using its data provider to directly read the serialized items and inject them into the Sitecore content tree. The items on disk <strong>are</strong> the items in Sitecore: it bypasses the database entirely for transparently synced items.</p>
+<p>Seriously, it’s magic. <a href="https://kamsar.net/index.php/2015/10/Unicorn-Introducing-Transparent-Sync/">Transparent Sync</a> might be the best feature of Unicorn 3. You should give it a try!</p>
+<h2 id="New-Configuration-Architecture"><a href="#New-Configuration-Architecture" class="headerlink" title="New Configuration Architecture"></a>New Configuration Architecture</h2><p>Previously Unicorn was distributed with its default example configuration directly in <code>Unicorn.config</code>. This was suboptimal because it encouraged modifying the stock config file and making future upgrades more of a merging challenge than they needed to be. In the new order, Unicorn ships <em>without</em> any configurations defined. There are two <a href="https://github.com/kamsar/Unicorn/blob/master/src/Unicorn/Standard%20Config%20Files/Unicorn.Configs.Default.example" target="_blank" rel="external">example</a> configuration-adding <a href="https://github.com/kamsar/Unicorn/blob/master/src/Unicorn/Standard%20Config%20Files/Unicorn.Configs.NewItemsOnly.example" target="_blank" rel="external">patch files</a> distributed with the NuGet package which you can duplicate and edit to your desires, and the <a href="https://github.com/kamsar/Unicorn/blob/master/Build/Unicorn.nuget/readme.txt" target="_blank" rel="external">README distributed with the NuGet package</a> details what you need to do to get started.</p>
+<h2 id="Control-Panel-UX-Improvements"><a href="#Control-Panel-UX-Improvements" class="headerlink" title="Control Panel UX Improvements"></a>Control Panel UX Improvements</h2><p>The control panel has been redesigned to have an improved UX when there are many configurations defined. In the old UI, once more than a couple configurations were defined the page would need to scroll. The new UI reduces the vertical space for each configuration significantly:</p>
+<img src="/index.php/2015/10/Unicorn-3-0-Released/newui.png" alt="new control panel" title="new control panel">
+<p>The new control panel also has an experience for selecting only the configurations you wish to sync in a single batch:</p>
+<img src="/index.php/2015/10/Unicorn-3-0-Released/newui-multiselect.png" alt="new control panel" title="new control panel">
+<p>For automated builds, you can also copy the URL on the sync button when you’ve got multiple configurations selected in the control panel to run the same batch at build time. This is great if you’ve got some configurations that you may not wish to sync during a CI build.</p>
+<h2 id="New-Items-Only-Evaluator"><a href="#New-Items-Only-Evaluator" class="headerlink" title="New Items Only Evaluator"></a>New Items Only Evaluator</h2><p>This is an <a href="https://github.com/kamsar/Unicorn#evaluator" target="_blank" rel="external">evaluator</a> that changes the behavior of syncing to only write <em>new</em> items from serialization into Sitecore. Existing items with the same ID or items that are not serialized are left alone. This can be useful for example if you’re wanting to push some developer-initiated content items up, like metadata or lookup source items, that you want to always exist but once they have been created they become the content editor’s to do with as they will. A <a href="https://github.com/kamsar/Unicorn/blob/master/src/Unicorn/Standard%20Config%20Files/Unicorn.Configs.NewItemsOnly.example" target="_blank" rel="external">sample configuration</a> that enables the NIO evaluator ships with the NuGet package. Thanks to <a href="https://twitter.com/cardinal252" target="_blank" rel="external">Nathanael Mann</a> for the feature request.</p>
+<h2 id="Exclude-all-children-with-the-predicate"><a href="#Exclude-all-children-with-the-predicate" class="headerlink" title="Exclude all children with the predicate"></a>Exclude all children with the predicate</h2><p>To exclude all children of an item simply add a trailing slash to the <code>&lt;exclude&gt;</code> like so:</p>
+<pre><code>&lt;include database=&quot;master&quot; path=&quot;/sitecore/content&quot;&gt;
+    &lt;exclude path=&quot;/sitecore/content/&quot; /&gt;
+&lt;/include&gt;
+</code></pre><h2 id="Visual-Studio-Control-Panel-Support"><a href="#Visual-Studio-Control-Panel-Support" class="headerlink" title="Visual Studio Control Panel Support"></a>Visual Studio Control Panel Support</h2><p>Recently a <a href="https://visualstudiogallery.msdn.microsoft.com/64439022-f470-422a-b663-fbb89aaf6e86" target="_blank" rel="external">plugin for Visual Studio</a> was released that enables you to run Unicorn syncs directly within Visual Studio. Unicorn 3 supports this tool out of the box, by simply enabling the <code>Unicorn.Remote.config.disabled</code> patch file. </p>
+<img src="/index.php/2015/10/Unicorn-3-0-Released/visualstudio.png" alt="new control panel" title="new control panel">
+<p>The <a href="https://visualstudiogallery.msdn.microsoft.com/64439022-f470-422a-b663-fbb89aaf6e86" target="_blank" rel="external">Unicorn Control Panel for Visual Studio</a> requires VS2013 or VS2015. It is developed by <a href="https://twitter.com/berserkerdotnet" target="_blank" rel="external">Andrii Snihyr</a> - thank you for the community support!</p>
+<h2 id="TFS-Support"><a href="#TFS-Support" class="headerlink" title="TFS Support"></a>TFS Support</h2><p>Fellow Sitecore MVP and Connective DX’er <a href="https://twitter.com/petersondave" target="_blank" rel="external">Dave Peterson</a> has written up a <a href="https://github.com/PetersonDave/Rainbow.Tfs" target="_blank" rel="external">plugin for Rainbow/Unicorn that integrates it with TFS</a>. TFS 2010 (or server workspaces in 2012 and later) have the unfortunate limitation that all files are locked by default. This interferes with Unicorn’s operation as it writes files as items are changed in Sitecore, resulting in errors.</p>
+<p>The TFS integration hooks the TFS API to Rainbow’s SFS data store, causing it to actually check out the file Unicorn is about to write or delete before acting. You must use a 32-bit IIS app pool when using the plugin, as the TFS API is 32-bit only.</p>
+<p>The TFS plugin is available on NuGet; for installation instructions and the latest info <a href="https://github.com/PetersonDave/Rainbow.Tfs/blob/master/README.md" target="_blank" rel="external">see the README on GitHub</a></p>
+<h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h2><p>The documentation in the <a href="https://github.com/kamsar/Unicorn/blob/master/README.md" target="_blank" rel="external">README</a>, comments in the <a href="https://github.com/kamsar/Unicorn/tree/master/src/Unicorn/Standard%20Config%20Files" target="_blank" rel="external">stock config files</a>, and verbiage in the actual control panel and logs have all been reviewed and improved. If you get confused by anything, let me know and I’ll make the docs better or the error message clearer in the next release.</p>
+<h2 id="Thank-you"><a href="#Thank-you" class="headerlink" title="Thank you"></a>Thank you</h2><p>Unicorn is a project by and for the Sitecore community. I’d like to thank everyone who’s contributed to the project in a major or minor way: without you, we wouldn’t have this tool today. Thank you!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2015/10/Unicorn-3-0-Released/" data-id="cj937hg17003fdgifs94487v4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    
     
     <article id="post-Unicorn-Introducing-Transparent-Sync" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -189,7 +262,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/10/Unicorn-Introducing-Transparent-Sync/" data-id="cj937ctcs003kmsifszk7vwjm" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/10/Unicorn-Introducing-Transparent-Sync/" data-id="cj937hg18003hdgif50wwa875" class="article-share-link">Share</a>
       
       
     </footer>
@@ -284,7 +357,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/" data-id="cj937ctcr003emsifz90i22ji" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/" data-id="cj937hg17003ddgiftewdumhy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -379,7 +452,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/09/Rainbow-Part-3-What-is-Rainbow/" data-id="cj937ctcq003cmsif016sib80" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/09/Rainbow-Part-3-What-is-Rainbow/" data-id="cj937hg150039dgifr2licce0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -504,7 +577,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/" data-id="cj937ctcp0038msifhpl7h66i" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/" data-id="cj937hg16003bdgif0c4t94sv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -620,7 +693,7 @@ Languages:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/" data-id="cj937ctcp003amsifjgexk763" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/" data-id="cj937hg140037dgif8rfx8g48" class="article-share-link">Share</a>
       
       
     </footer>
@@ -673,7 +746,7 @@ Languages:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/07/Transparent-media-optimization-with-Dianoga-2/" data-id="cj937ctco0036msif07piyi0x" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/07/Transparent-media-optimization-with-Dianoga-2/" data-id="cj937hg130035dgifgal5tn42" class="article-share-link">Share</a>
       
       
     </footer>
@@ -763,7 +836,7 @@ Languages:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/07/Sitecore-Azure-Role-Sizing-Guide/" data-id="cj937ctcn0034msifxwcbjhx4" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/07/Sitecore-Azure-Role-Sizing-Guide/" data-id="cj937hg120033dgiftwn8an16" class="article-share-link">Share</a>
       
       
     </footer>
@@ -813,7 +886,7 @@ Languages:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/06/Synthesis-Object-Mapping-Performance/" data-id="cj937ctcm0032msifdqkpwoh0" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/06/Synthesis-Object-Mapping-Performance/" data-id="cj937hg120031dgif3mbrujkg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -994,84 +1067,7 @@ namespace Foo
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/05/Enabling-Async-in-Sitecore-Controller-Renderings/" data-id="cj937ctcl002ymsif3zdblgby" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    
-    
-    <article id="post-Extending-Sitecore-Rich-Text-Preview-CSS" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/index.php/2015/05/Extending-Sitecore-Rich-Text-Preview-CSS/">Extending Sitecore Rich Text Preview CSS</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          <div class="article-date">
-  <i class="fa fa-calendar"></i>
-  <a href="/index.php/2015/05/Extending-Sitecore-Rich-Text-Preview-CSS/">
-    <time datetime="2015-05-15T18:44:16.000Z" itemprop="datePublished">May 15, 2015</time>
-  </a>
-</div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>The <a href="https://jammykam.wordpress.com" target="_blank" rel="external">other Sitecore Kam</a> wrote an excellent post titled <a href="https://jammykam.wordpress.com/2015/03/11/user-specific-or-multi-site-specific-css-styles-in-sitecore-rich-text-editor/" target="_blank" rel="external">User Specific or Multi Site Specific CSS styles in Sitecore Rich Text Editor</a> a few months ago. I noticed one gap in what it did, however: changing the RTE configuration does not change the <em>preview</em> of the rich text shown in the Sitecore content editor interface.</p>
-<p>This means that you’d see the site specific styles when in the RTE proper, but not when browsing the item in the content editor.</p>
-<p>So here’s how to accomplish just that. The RTE preview is rendered by the <code>sitecore/shell/Controls/Rich Text Editor/Preview.aspx</code> page. Being a normal Web Form page, we can hack its <code>Inherits</code> attribute to something else in order to inject our custom CSS:</p>
-<pre><code>&lt;%@ Page ... Inherits=&quot;MyLibrary.MultisiteRichTextEditorPreview, MyLibraryAssembly&quot; %&gt;
-</code></pre><p>Then we have to create a class which inherits the default codebehind class, <code>Sitecore.Shell.Controls.RADEditor.Preview</code>:</p>
-<pre><code>using System;
-using System.Web.UI;
-using Sitecore.Shell.Controls.RADEditor;
-
-namespace MyLibrary
-{
-    public class MultisiteRichTextEditorPreview : Preview
-    {
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            // replace the method call here with whatever you&apos;re using to resolve a custom RTE CSS path(s)
-            // note that the query string parameter &apos;id&apos; is the context item ID here just like in the EditorConfiguration Kamruz blogged about.
-            var stylesheetPath = MultisiteRichTextEditorUtility.GetRichTextEditorCssPath();
-
-            if (stylesheetPath != null) Stylesheets.Controls.Add(new LiteralControl(string.Format(&quot;&lt;link href=\&quot;{0}\&quot; rel=\&quot;stylesheet\&quot;&gt;&quot;, stylesheetPath)));
-        }
-    }
-}
-</code></pre><p>Finally, we need to ‘improve’ our RTE stylesheet (this is optional, but excellent!):</p>
-<pre><code>* {
-    font-family: &quot;Comic Sans MS&quot; !important;
-    color: pink !important;
-}
-</code></pre><p>And then we have our newly enhanced rich text preview:</p>
-<img src="/index.php/2015/05/Extending-Sitecore-Rich-Text-Preview-CSS/comical.png" alt="HAHAHAHAHA" title="HAHAHAHAHA">
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/05/Extending-Sitecore-Rich-Text-Preview-CSS/" data-id="cj937ctcm0030msifcxdn9fai" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/05/Enabling-Async-in-Sitecore-Controller-Renderings/" data-id="cj937hg10002xdgif3vcrtxfm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1095,6 +1091,15 @@ namespace MyLibrary
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
+              <p class="item-title"><a href="/index.php/2017/10/All-about-xConnect-Security/" class="title">All about xConnect Security</a></p>
+              <p class="item-date"><time datetime="2017-10-22T20:57:18.000Z" itemprop="datePublished">October 22, 2017</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -1132,15 +1137,6 @@ namespace MyLibrary
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a></p>
-              <p class="item-title"><a href="/index.php/2017/02/Unicorn-4-Preview-Part-2-5-Generating-Packages-with-SPE/" class="title">Unicorn 4 Preview Part 2.5: Generating Unicorn Packages with SPE</a></p>
-              <p class="item-date"><time datetime="2017-02-12T05:09:02.000Z" itemprop="datePublished">February 11, 2017</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1150,7 +1146,7 @@ namespace MyLibrary
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">36</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
