@@ -81,7 +81,7 @@ ga('send', 'pageview');
   
   <div id="header-sub" class="header-sub header-inner">
     <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">36</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
   
@@ -128,6 +128,106 @@ ga('send', 'pageview');
           <i class="fa fa-calendar"></i>
           <a href="/archives/2017" class="archive-year">2017</a>
         </div>
+    
+    <article id="post-Controlling-Rendering-Order-in-Sitecore-MVC" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2017/01/Controlling-Rendering-Order-in-Sitecore-MVC/">Controlling Rendering Order in Sitecore MVC</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2017/01/Controlling-Rendering-Order-in-Sitecore-MVC/">
+    <time datetime="2017-01-14T00:25:47.000Z" itemprop="datePublished">January 13, 2017</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Back in the bad old Web Forms days, rendering a page was a multi-step process. There were <code>Init</code>, <code>Load</code>, <code>PreRender</code>, and <code>Render</code>, just to name a few. This was mostly a pain to deal with as it made it hard to know when in the page lifecycle you should place your code to deal with framework side effects. It also made its fair share of inane interview questions.</p>
+<p>But it <em>did</em> mean one useful thing: there was a place you could put code where it would always run even if a rendering was output cached, that went before the page actually rendered. Why was this useful? Suppose you needed a certain CSS class on <code>&lt;body&gt;</code> when a specific rendering was added to the page. Maybe a rendering would override the <code>&lt;title&gt;</code>, or any number of other techniques* which require code to execute prior to page layout composition.</p>
+<p>* most of these techniques are just as bad as Web Forms :P</p>
+<p>When MVC became popular, it brought its own single-step rendering pipeline. This is awesome because it’s easy to understand: the page rendering starts at the top and works its way down, rendering partials and the like in order. No more “the form value is missing because you added the dynamic field after init so data binding had already run.” (Seriously?) Simple.</p>
+<p>But in a single step pipeline, there’s no room for a later component to signal an earlier component anything. Take this for example:</p>
+<pre><code>// support class
+public class Body
+{
+    public static string CssClass { get; set; }
+}
+
+// layout
+&lt;body class=&quot;@Body.CssClass&quot;&gt;
+    @Html.Sitecore().Placeholder(&quot;wrapper&quot;)
+&lt;/body&gt;
+
+// inside wrapper, in a controller
+public ActionResult Rendering()
+{
+    Body.CssClass = &quot;🐘&quot;;
+    return View();
+}
+</code></pre><p>What will happen? Well, first the body tag will execute, then the <code>wrapper</code> placeholder will be executed. The body class will be set <em>after</em> the <code>&lt;body&gt;</code> tag has been rendered: there will be no class on the <code>body</code>.</p>
+<p>There are two ways I know of to get around this.</p>
+<h2 id="Use-a-Layout"><a href="#Use-a-Layout" class="headerlink" title="Use a Layout"></a>Use a Layout</h2><img src="/index.php/2017/01/Controlling-Rendering-Order-in-Sitecore-MVC/dawg.jpg" alt="dawg.jpg" title="">
+<p>A layout? Aren’t we already using one of those? Nope: an <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/views/layout" target="_blank" rel="external">MVC layout</a>, not a Sitecore layout. In our example above, we could refactor the layout like this:</p>
+<pre><code>// _Layout.cshtml
+&lt;body class=&quot;@Body.CssClass&quot;&gt;
+    @RenderBody()
+&lt;/body&gt; 
+
+// SitecoreLayout.cshtml
+@{
+    Layout = &quot;~/Path/To/_Layout.cshtml&quot;;
+}
+
+// the body of this is placed in the @RenderBody() in the MVC layout
+@Html.Sitecore().Placeholder(&quot;wrapper&quot;)
+</code></pre><p>Here the Sitecore layout inherits the MVC layout by setting the <code>Layout</code> property. This also has the side effect that the Sitecore view is executed <em>before</em> the MVC layout. So in our example, now the <code>SitecoreLayout.cshtml</code> is rendered (including the rendering which sets the body class), and then the <code>_Layout.cshtml</code> renders and places the Sitecore content in the <code>@RenderBody()</code>. The body class is thus set how we want.</p>
+<p>MVC layouts are also a lovely tool if you have several Sitecore layouts which share a lot of common boilerplate wrapper code - for example, the same meta tags, favicon, or version footer - without duplicating them several times. <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/views/layout#sections" target="_blank" rel="external">Sections</a> enable you to have your Sitecore layout also write to specific places in the MVC layout. For example you might choose to expose a <code>head</code> section to enable the Sitecore layout to add CSS files or analytics scripts to the MVC layout <code>&lt;head&gt;</code>.</p>
+<h2 id="Reversed-Rendering"><a href="#Reversed-Rendering" class="headerlink" title="Reversed Rendering"></a>Reversed Rendering</h2><img src="/index.php/2017/01/Controlling-Rendering-Order-in-Sitecore-MVC/redpill.jpg" alt="redpill.jpg" title="">
+<p>The second way to control your renderings’ order is to use a technique I call Reversed Rendering. This is a simple trick that relies on the fact that HTML helpers are really just functions. This is a completely valid layout:</p>
+<pre><code>@{
+    var wrapper = Html.Sitecore().Placeholder(&quot;wrapper&quot;);
+}
+
+&lt;body class=&quot;@Body.CssClass&quot;&gt;
+    @wrapper
+&lt;/body&gt;
+</code></pre><p>The <code>Placeholder()</code> method returns a <code>HtmlString</code> object, which contains the markup for the placeholder. You can take advantage of this to change the order by assigning the placeholder to a variable instead of rendering it directly into the output. Then you can control the order in which things render to make the body content render before the parent tags, thus facilitating communications.</p>
+<p>I haven’t tried it (and performance wouldn’t be great dealing with large strings), but you could also theoretically use this trick to perform HTML post-processing on rendered renderings.</p>
+<h2 id="What-about-output-caching"><a href="#What-about-output-caching" class="headerlink" title="What about output caching?"></a>What about output caching?</h2><p>Output caching gains performance by not executing the whole rendering pipeline and instead serving a pre-cached static version or a rendering. The problem is that by bypassing the rendering pipeline it also bypasses the code (controller or view) that pushes data up to the layout.</p>
+<p>So when using these techniques, make sure to not enable output caching on any renderings that are setting variables used in the layout - or else the variables won’t be set as soon as the caching kicks in.</p>
+<p>So there you have it. Go forth and have fun!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2017/01/Controlling-Rendering-Order-in-Sitecore-MVC/" data-id="cj94bx5gf004lmwif588u0o4e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    
     
     <article id="post-EditContext-Considered-Harmful" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -213,7 +313,7 @@ item.Editing.EndEdit();
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/01/EditContext-Considered-Harmful/" data-id="cj937hg1m004ldgifxhtz6hqh" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/01/EditContext-Considered-Harmful/" data-id="cj94bx5gh004nmwifcpil16wa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,6 +337,15 @@ item.Editing.EndEdit();
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
+              <p class="item-title"><a href="/index.php/2017/10/Quickly-add-SSL-to-Solr/" class="title">Quickly add SSL to Solr</a></p>
+              <p class="item-date"><time datetime="2017-10-23T15:20:39.000Z" itemprop="datePublished">October 23, 2017</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -274,15 +383,6 @@ item.Editing.EndEdit();
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a></p>
-              <p class="item-title"><a href="/index.php/2017/02/Unicorn-4-Part-III-Configuration-Enhancements/" class="title">Unicorn 4 Part III: Configuration Enhancements</a></p>
-              <p class="item-date"><time datetime="2017-02-28T03:03:31.000Z" itemprop="datePublished">February 27, 2017</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -292,7 +392,7 @@ item.Editing.EndEdit();
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">36</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">37</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 

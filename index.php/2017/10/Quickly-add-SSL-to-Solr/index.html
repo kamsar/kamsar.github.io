@@ -3,15 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: Blade | Kam&#39;s Idea Log</title>
+  <title>Quickly add SSL to Solr | Kam&#39;s Idea Log</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Kam&#39;s Idea Log">
-<meta property="og:url" content="https://kamsar.net/index.php/category/Blade/index.html">
+  <meta name="description" content="There have been several people recently who I’ve seen having trouble setting up SSL for their Solr in order to use it with Sitecore 9. So, I present the following gist to you. It’s designed to automat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quickly add SSL to Solr">
+<meta property="og:url" content="https://kamsar.net/index.php/2017/10/Quickly-add-SSL-to-Solr/index.html">
 <meta property="og:site_name" content="Kam&#39;s Idea Log">
+<meta property="og:description" content="There have been several people recently who I’ve seen having trouble setting up SSL for their Solr in order to use it with Sitecore 9. So, I present the following gist to you. It’s designed to automat">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://media.giphy.com/media/IB9foBA4PVkKA/giphy.gif">
+<meta property="og:updated_time" content="2017-10-23T15:27:34.606Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kam&#39;s Idea Log">
+<meta name="twitter:title" content="Quickly add SSL to Solr">
+<meta name="twitter:description" content="There have been several people recently who I’ve seen having trouble setting up SSL for their Solr in order to use it with Sitecore 9. So, I present the following gist to you. It’s designed to automat">
+<meta name="twitter:image" content="https://media.giphy.com/media/IB9foBA4PVkKA/giphy.gif">
 <meta name="twitter:creator" content="@kamsar">
   
     <link rel="alternative" href="/index.php/feed" title="Kam&#39;s Idea Log" type="application/atom+xml">
@@ -79,12 +85,6 @@ ga('send', 'pageview');
     </table>
   </div>
   
-  <div id="header-sub" class="header-sub header-inner">
-    <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
-  
 </header>
     <div class="outer">
       <aside id="profile">
@@ -118,40 +118,29 @@ ga('send', 'pageview');
     </div>
   </div>
 </aside>
-      <section id="main">
-  
-  
-    
-    
-      
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-    
-    <article id="post-blade-2-1-razor-3-support" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-Quickly-add-SSL-to-Solr" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/index.php/2013/11/blade-2-1-razor-3-support/">Blade 2.1 - Razor 3 support</a>
+    <h1 class="article-title" itemprop="name">
+      Quickly add SSL to Solr
     </h1>
   
 
         <div class="article-meta">
           <div class="article-date">
   <i class="fa fa-calendar"></i>
-  <a href="/index.php/2013/11/blade-2-1-razor-3-support/">
-    <time datetime="2013-11-21T04:54:11.000Z" itemprop="datePublished">November 20, 2013</time>
+  <a href="/index.php/2017/10/Quickly-add-SSL-to-Solr/">
+    <time datetime="2017-10-23T15:20:39.000Z" itemprop="datePublished">October 23, 2017</time>
   </a>
 </div>
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/index.php/category/Blade/">Blade</a>
+    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
   </div>
 
         </div>
@@ -159,107 +148,34 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I’ve pushed Blade 2.1 out to NuGet. This release updates the MVC references to MVC5, and the Razor references to Razor 3.</p>
-<p>This release also uses the latest bits for Sitecore NuGet, which resolve some issues with local IIS site connections.</p>
+        <p>There have been several people recently who I’ve seen having trouble setting up SSL for their Solr in order to use it with Sitecore 9. So, I present the following gist to you. It’s designed to automate the complete setup process of adding SSL to Solr with a self-signed certificate, and trusting that self-signed certificate. For production setups with a real certificate, it should be quite easy to modify.</p>
+<p>It’s been tested on standalone as well as Bitnami Solr. The script requires Windows 10 to use the <code>Import-PfxCertificate</code> cmdlet; if you don’t have that you can remove the trust scripting and do it manually.</p>
+<script src="//gist.github.com/c3c8322c1ec40eac64c7dd546e5124de.js"></script>
+<p><img src="https://media.giphy.com/media/IB9foBA4PVkKA/giphy.gif" alt="giphy"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/11/blade-2-1-razor-3-support/" data-id="cj94bx5fh001qmwiffhrjwgcn" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/10/Quickly-add-SSL-to-Solr/" data-id="cj94bx5gu005cmwifan12jvlb" class="article-share-link">Share</a>
       
       
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    
-    
-    <article id="post-announcing-blade-2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/index.php/2013/10/announcing-blade-2/">Announcing Blade 2</a>
-    </h1>
+    <a href="/index.php/2017/10/All-about-xConnect-Security/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">All about xConnect Security</div>
+    </a>
   
+</nav>
 
-        <div class="article-meta">
-          <div class="article-date">
-  <i class="fa fa-calendar"></i>
-  <a href="/index.php/2013/10/announcing-blade-2/">
-    <time datetime="2013-10-03T06:27:07.000Z" itemprop="datePublished">October 2, 2013</time>
-  </a>
-</div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/index.php/category/Blade/">Blade</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>I’m happy to announce that <a href="https://www.nuget.org/packages/Blade" target="_blank" rel="external">Blade v2 is now available from NuGet</a>. There are some very nice new features in this release.</p>
-<h2 id="MVC4-Razor-APIs-instead-of-RazorEngine"><a href="#MVC4-Razor-APIs-instead-of-RazorEngine" class="headerlink" title="MVC4 Razor APIs instead of RazorEngine"></a>MVC4 Razor APIs instead of RazorEngine</h2><p>Blade 2.0 replaces the RazorEngine library with directly calling MVC4 APIs. Doing this is much cleaner (and faster!) than the previous Razor implementation. This does introduce some minor breaking changes so read up before you upgrade.</p>
-<ul>
-<li>Useful errors with source context if there’s a syntax error or runtime error in a razor file. This was a major issue with previous versions of Blade that made razor errors difficult to debug.</li>
-<li>Full support, including IntelliSense, for using <code>@model</code> to declare the model type in razor views instead of the much more verbose <code>@inherits RazorRendering&lt;TModel&gt;</code> previously required. The old way still works fine too.</li>
-<li>The <code>BladeHtmlHelper</code> is gone, replaced by the normal MVC <code>HtmlHelper</code> - note that pieces of the helpers that do not make sense in a pseudo-MVC context, such as <code>ActionLink</code>, may behave unpredictably.</li>
-<li>View resolution follows the conventions of the MVC view engines that are registered. This means that path resolution is a bit different:<ul>
-<li>Html.Partial() will require absolute paths (<code>~/Foo/Bar/Baz.cshtml</code>) unless you are storing your Razor files in <code>/Views</code> like MVC does</li>
-<li>When statically including Razor renderings with the <code>RazorTemplate</code> web control, you must add <code>.cshtml</code> on the end of view paths, whereas previously that was optional</li>
-<li>Razor layout paths are unchanged from previous behavior: they can be relative, and you need .cshtml on them</li>
-<li>You should be able to plug in whatever view resolution logic you desire by adding in your own view engines in Global.asax just like with MVC sites</li>
-</ul>
-</li>
-</ul>
-<h2 id="Form-support-and-model-binding"><a href="#Form-support-and-model-binding" class="headerlink" title="Form support and model binding!"></a>Form support and model binding!</h2><p>Presenters can now handle postback in a clean fashion by using ASP.NET MVC model binding to bind posted values to your ViewModel automatically. There is also explicit support for handling XHR (AJAX) postbacks separately, enabling easy creation of simple callbacks to the same page that return JSON data.</p>
-<ul>
-<li>MVC model validation attributes (e.g. <code>[Required]</code>) and validation controls are fully supported for Razor views, as are MVC HTML helpers (<code>@Html.TextBoxFor(x=&gt;x.MyStringProperty)</code>, for example). User Controls and Web Controls support validation, but they do not have <code>ModelState</code> to pass it around to so you’d need to manually parse the validation result in the presenter for those.</li>
-<li>To support postback, if using a <code>SitecorePresenter</code> or <code>SynthesisPresenter</code>, simply override the <code>HandlePostBackWithModelBinding</code> method. The method is invoked if HTTP POST is requested, and model binding is automatically executed. Similar methods exist for XHR and non-automatic-modelbinding for both.</li>
-<li>The postback handling occurs immediately after the OnLoad event just like web forms usually does for submit event handlers. You can assume that <code>GetModel()</code> will have already been called on the presenter.</li>
-<li>Adding custom <code>ModelBinders</code> in Global.asax, just like in MVC, should work perfectly.</li>
-</ul>
-<h2 id="Unit-testable-presenters"><a href="#Unit-testable-presenters" class="headerlink" title="Unit testable presenters"></a>Unit testable presenters</h2><p>In Blade itself, the <code>SitecorePresenter</code> has been modified to allow injection of a custom <code>Item</code> as the data source of the presenter (via the <code>SetDataSource()</code> method), enabling you to decouple it from data source resolution logic. However, you probably should not be testing with <code>Item</code> instances, as those require a lot of Sitecore API presence. To get around this issue, Synthesis.Blade’s <code>SynthesisPresenter</code> enables injection of a custom Synthesis item interface directly into its <code>GetItem</code> method for completely Sitecore-independent tests! Check out this trivial example of testing a SynthesisPresenter, using Moq:</p>
-<pre><code>var item = new Mock&lt;ITestTemplateItem&gt;();
-var view = new Mock&lt;IView&gt;();
-
-// todo: setup mocks appropriately
-
-var presenter = new TestPresenter();
-
-var model = presenter.GetModel(view.Object, item.Object);
-
-// todo: assert something about the resultant model
-</code></pre><h3 id="Testing-limitations"><a href="#Testing-limitations" class="headerlink" title="Testing limitations"></a>Testing limitations</h3><p>Views are not particularly testable due to them using the MVC Razor engine, which requires a web context to execute. Hypothetically you could write tests against them using a web-based test runner, but it seems that most people do not recommend testing the view due to the relative fragility of the tests involved.</p>
-<h2 id="Upgrading"><a href="#Upgrading" class="headerlink" title="Upgrading"></a>Upgrading</h2><p>To upgrade from Blade 1.5 to Blade 2.0, simply upgrade the NuGet package. You should definitely test all of your razor views after the upgrade to make sure they are running correctly against the new MVC-based razor implementation. If you are not using razor, the upgrade should be pretty much seamless.</p>
-<p>Because Blade uses XDT-transformation-based installation routines, you will need NuGet 2.6 or later to install it.</p>
-<p>If you are also using Synthesis with Blade, you will need to upgrade to Synthesis/Synthesis.Blade 7.0 to be compatible with Blade 2.0.</p>
-<h2 id="Feedback"><a href="#Feedback" class="headerlink" title="Feedback"></a>Feedback</h2><p>I’d love to hear from you if you have trouble or ideas. <a href="https://github.com/kamsar/Blade/issues/new" target="_blank" rel="external">Send me an issue on GitHub!</a></p>
-<p>As always, the <a href="https://github.com/kamsar/Blade" target="_blank" rel="external">Blade source is available</a> under <a href="http://opensource.org/licenses/MIT" target="_blank" rel="external">the MIT license</a>, so feel free to hack away - and send me a pull request ;)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/10/announcing-blade-2/" data-id="cj94bx5fb001bmwifj57mtgll" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
 
-
-  
-  
 </section>
       
         <aside id="sidebar">

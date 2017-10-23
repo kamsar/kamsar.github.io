@@ -81,7 +81,7 @@ ga('send', 'pageview');
   
   <div id="header-sub" class="header-sub header-inner">
     <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">36</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
   
@@ -128,6 +128,151 @@ ga('send', 'pageview');
           <i class="fa fa-calendar"></i>
           <a href="/archives/2016" class="archive-year">2016</a>
         </div>
+    
+    <article id="post-Dependency-Injection-in-Sitecore-8-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2016/08/Dependency-Injection-in-Sitecore-8-2/">Dependency Injection in Sitecore 8.2</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2016/08/Dependency-Injection-in-Sitecore-8-2/">
+    <time datetime="2016-09-01T00:30:03.000Z" itemprop="datePublished">August 31, 2016</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Sitecore 8.2, hot off the presses yesterday, includes built in <a href="https://en.wikipedia.org/wiki/Dependency_injection" target="_blank" rel="external">dependency injection</a>. If you’ve been following the internal architecture of Sitecore for very long, you’ve probably realized that a lot of it is uglier than it needs to be - and less extensible - thanks to the lack of system-wide DI support. It’s kind of a big deal. Even if <a href="https://twitter.com/cardinal252" target="_blank" rel="external">Nat Mann</a> hates conforming containers ;)</p>
+<p>The Sitecore <a href="https://en.wikipedia.org/wiki/Inversion_of_control" target="_blank" rel="external">IoC</a> container is based on <a href="https://docs.asp.net/en/latest/mvc/controllers/dependency-injection.html" target="_blank" rel="external">Microsoft’s Dependency Injection</a> library that was written for .NET Core. It is not the world’s most flexible or performant container (nor was it designed to be), but it works and is a decent choice. If you wish you can change the underlying IoC library being used, but we aren’t going to cover that today.</p>
+<p>Sitecore’s built in DI offers two major advantages over the third party dependency injection that most advanced Sitecore teams have been using for a long time:</p>
+<ul>
+<li>Sitecore itself is using it (and thus you can extend Sitecore itself by replacing dependencies)</li>
+<li>You can natively dependency inject into pipeline processors (which you could <a href="https://cardinalcore.co.uk/2014/07/02/sitecore-pipelines-commands-using-ioc-containers/" target="_blank" rel="external">sort of already do</a>)</li>
+</ul>
+<h2 id="Controller-Injection"><a href="#Controller-Injection" class="headerlink" title="Controller Injection"></a>Controller Injection</h2><p>As with most ASP.NET DI implementations, most dependency resolution will take place in <em>controllers</em>. If you’ve already been using constructor injection with Sitecore, you may have to change absolutely nothing:</p>
+<pre><code>public class FooController : Controller
+{
+    private readonly IDependency _dependency;
+
+    public Foo(IDependency dependency) 
+    {
+        _dependency = dependency;
+    }
+
+    public ActionResult Index() 
+    {
+        return View(_dependency.DoStuff());
+    }
+}
+</code></pre><p>Be aware that the built in IoC container has two major limitations when injecting controllers:</p>
+<ul>
+<li>You may only have <em>one</em> public constructor for your controller - or any other registered dependency. This is a good thing, as multiple public constructors are a <a href="https://cuttingedge.it/blogs/steven/pivot/entry.php?id=97" target="_blank" rel="external">DI antipattern</a> anyway.</li>
+<li>The controller class must be registered with the container to be resolvable (e.g. you must register it such as <code>container.AddTransient&lt;FooController&gt;()</code>).</li>
+</ul>
+<p>The latter limitation we can do something nice about: read on and we’ll get to that when we talk about registering dependencies :)</p>
+<h2 id="Pipeline-Injection"><a href="#Pipeline-Injection" class="headerlink" title="Pipeline Injection"></a>Pipeline Injection</h2><p>You may also inject dependencies into pipeline processors using the same constructor injection pattern as controllers. Processors are <em>not injected by default</em>, presumably for performance. As with controllers, processors may only have one public constructor. I suspect, but have not tried, that this trick would also work with commands.</p>
+<p>To inject a processor, simply add <code>resolve=&quot;true&quot;</code> to its registration. For example:</p>
+<pre><code>&lt;processor type=&quot;Foo.BarProcessor, Foo&quot; resolve=&quot;true&quot; /&gt;
+</code></pre><h2 id="Web-Forms-Dependency-Injection"><a href="#Web-Forms-Dependency-Injection" class="headerlink" title="Web Forms Dependency Injection"></a>Web Forms Dependency Injection</h2><img src="/index.php/2016/08/Dependency-Injection-in-Sitecore-8-2/grumpy-cat-no.jpg" alt="grumpy-cat-no.jpg" title="">
+<p>(You can actually do Web Forms DI with Sitecore but I’m not going to tell you how. Quit using Web Forms.)</p>
+<h2 id="Service-Locator"><a href="#Service-Locator" class="headerlink" title="Service Locator"></a>Service Locator</h2><p>You can also resolve dependencies from the Sitecore container using the <a href="http://blog.ploeh.dk/2010/02/03/ServiceLocatorisanAnti-Pattern/" target="_blank" rel="external">Service Locator <em>antipattern</em></a>. This is where you explicitly ask the container to give you an instance of an object. It’s an antipattern, and you should use it as a weapon of last resort, because it tightly couples your class to the IoC container and makes things difficult to test.</p>
+<p>There are actually multiple ways you can use Service Locator:</p>
+<pre><code>// the MVC DependencyResolver can be used
+DependencyResolver.Current.GetService&lt;IService&gt;();
+
+// the Sitecore ServiceLocator can be used
+using Sitecore.DependencyInjection;
+ServiceLocator.ServiceProvider.GetService&lt;IServiceCollection&gt;();
+</code></pre><p>Again don’t use these…unless you have no other choice.</p>
+<h1 id="Registering-Dependencies"><a href="#Registering-Dependencies" class="headerlink" title="Registering Dependencies"></a>Registering Dependencies</h1><p>Of course an IoC container is useless if it has no registered dependencies to resolve! Sitecore’s container can be configured in multiple ways, all of which involve some level of XML. I heard you groan when you read that ;)</p>
+<p>Keep in mind when wiring dependencies that the IoC container is <em>not multitenant</em>. Your dependencies are sharing the container with Sitecore’s - and if you have more than one site, potentially other sites as well. So don’t go expecting to have <code>IFoo</code> resolve to different implementations in different sites!</p>
+<p>If you get confused and want to see a list of every dependency that is currently registered, along with its scope and type, there’s a page for that! Just visit <code>/sitecore/admin/showservicesconfig.aspx</code> and there you are. While you’re at it, check out the <a href="https://jammykam.wordpress.com/2016/08/23/sitecore-admin-pages-cheat-sheet-new-tools/" target="_blank" rel="external">other handy tools in the admin pages too</a>.</p>
+<h2 id="Configurators"><a href="#Configurators" class="headerlink" title="Configurators"></a>Configurators</h2><p>A configurator is probably what you think of when you consider IoC configuration if you’ve been using any modern container library. It’s a C# class that conforms to an interface where you are given a container object, and expected to wire your dependencies to it. You can register as many configurators as you like in the <code>&lt;services&gt;</code> section.</p>
+<pre><code>&lt;configuration xmlns:patch=&quot;http://www.sitecore.net/xmlconfig/&quot;&gt;
+    &lt;sitecore&gt;
+        &lt;services&gt;
+            &lt;configurator type=&quot;MyProject.MyConfiguratorClass, MyProject&quot; /&gt;
+        &lt;/services&gt;
+    &lt;/sitecore&gt;
+&lt;/configuration&gt;
+</code></pre><p>Here’s an example configurator implementation that registers a couple dependencies. As with most containers <code>Transient</code> and <code>Singleton</code> dependencies are available, and I believe <code>Scoped</code> as well, but I’m not sure what the exact behaviour of that is in this case.</p>
+<pre><code>using Microsoft.Extensions.DependencyInjection;
+using Sitecore.DependencyInjection;
+
+namespace MyProject
+{
+    public class MyConfiguratorClass : IServicesConfigurator
+    {
+        public void Configure(IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddSingleton&lt;IDependency, Dependency&gt;();
+            serviceCollection.AddSingleton&lt;IService&gt;(provider =&gt; new Service(&quot;withFactory&quot;));
+        }
+    }
+}
+</code></pre><p><strong>Note</strong>: You cannot use Sitecore Factory conventions when registering configurators, for example setting properties on the configurator with child elements. This is because the Factory also speaks DI now as a fallback, so it’d be like asking the container to resolve itself :)</p>
+<h2 id="Direct-Registration"><a href="#Direct-Registration" class="headerlink" title="Direct Registration"></a>Direct Registration</h2><p>You can also register individual dependencies with XML, just like we did ten years ago! I wouldn’t suggest doing this as it is less expressive than a configurator, not type-checked by compilation, and probably marginally slower as well due to having to convert the string to the type for every dependency.</p>
+<pre><code>&lt;configuration xmlns:patch=&quot;http://www.sitecore.net/xmlconfig/&quot;&gt;
+    &lt;sitecore&gt;
+        &lt;services&gt;
+            &lt;register 
+                serviceType=&quot;Type.IName, Assembly&quot; 
+                implementationType=&quot;Type.Name, Assembly&quot; 
+                lifetime=&quot;Transient&quot; /&gt;
+        &lt;/services&gt;
+    &lt;/sitecore&gt;
+&lt;/configuration&gt;
+</code></pre><h1 id="Automatic-Controller-Registration"><a href="#Automatic-Controller-Registration" class="headerlink" title="Automatic Controller Registration"></a>Automatic Controller Registration</h1><p>If you’re actually reading this, you may have noticed that I mentioned earlier that you must register every MVC controller you wish to dependency inject with the IoC container. Sounds like a drag, right? Not so fast! Pull out your robe and wizard hat, grab this handy code, and register all your controllers automatically within a configurator:</p>
+<pre><code>public void Configure(IServiceCollection serviceCollection)
+{
+    // configurator per project? Use this:
+    serviceCollection.AddMvcControllersInCurrentAssembly();
+
+    // configure all the things from on high by convention? Use this (Habitat as the example):
+    serviceCollection.AddMvcControllers(
+        &quot;Sitecore.Feature.*&quot;, 
+        &quot;Sitecore.*.Website&quot;);
+
+    // you can also pass Assembly instances directly, but why?
+    serviceCollection.AddMvcControllers(
+        Assembly.FromName(&quot;Foo&quot;), 
+        Assembly.FromName(&quot;Bar&quot;));
+}
+</code></pre><p>And without further ado, here’s the code that makes that possible.</p>
+<script src="//gist.github.com/460528edc3043b16bdccfdbd0ea0c552.js"></script>
+<p>Have a nice day!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2016/08/Dependency-Injection-in-Sitecore-8-2/" data-id="cj94bx5g7003zmwif6yf3x9cy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    
     
     <article id="post-Configuring-domains-from-patch-files" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -190,7 +335,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2016/08/Configuring-domains-from-patch-files/" data-id="cj937hg1g0045dgiff78hlux0" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2016/08/Configuring-domains-from-patch-files/" data-id="cj94bx5ga0045mwifkdldl0kl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -264,7 +409,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2016/03/The-Solr-Cannon/" data-id="cj937hg1e003zdgifdyog7wqj" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2016/03/The-Solr-Cannon/" data-id="cj94bx5g6003xmwif8pljzeuy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -320,7 +465,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2016/03/Branch-Datasource-Presets/" data-id="cj937hg1c003tdgifwf29nyta" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2016/03/Branch-Datasource-Presets/" data-id="cj94bx5g6003vmwifg632rf68" class="article-share-link">Share</a>
       
       
     </footer>
@@ -391,7 +536,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2016/01/Benchmark-Show-Precompilation/" data-id="cj937hg19003ldgifv10lrxxt" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2016/01/Benchmark-Show-Precompilation/" data-id="cj94bx5g4003lmwifwtybn6da" class="article-share-link">Share</a>
       
       
     </footer>
@@ -487,7 +632,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/07/Sitecore-Azure-Role-Sizing-Guide/" data-id="cj937hg120033dgiftwn8an16" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/07/Sitecore-Azure-Role-Sizing-Guide/" data-id="cj94bx5fx0035mwif65smy3oi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -668,7 +813,7 @@ namespace Foo
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/05/Enabling-Async-in-Sitecore-Controller-Renderings/" data-id="cj937hg10002xdgif3vcrtxfm" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/05/Enabling-Async-in-Sitecore-Controller-Renderings/" data-id="cj94bx5fv0031mwif580dd6bd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -745,7 +890,7 @@ namespace MyLibrary
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/05/Extending-Sitecore-Rich-Text-Preview-CSS/" data-id="cj937hg10002vdgifr6xnmf6q" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/05/Extending-Sitecore-Rich-Text-Preview-CSS/" data-id="cj94bx5ft002smwifswymihvn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -882,7 +1027,7 @@ namespace Kamsar.FieldTypes
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/05/A-Multiple-Root-Treelist-Field/" data-id="cj937hg11002zdgifglueqljj" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/05/A-Multiple-Root-Treelist-Field/" data-id="cj94bx5ft002wmwifvhponfyl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -942,61 +1087,7 @@ namespace Kamsar.FieldTypes
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/02/sitecore-8-experience-editor-performance-optimization/" data-id="cj937hg0z002sdgife3511w7r" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    
-    
-    <article id="post-quick-note-sitecore-mvc-partials" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/index.php/2015/01/quick-note-sitecore-mvc-partials/">Quick note: Sitecore MVC partials</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          <div class="article-date">
-  <i class="fa fa-calendar"></i>
-  <a href="/index.php/2015/01/quick-note-sitecore-mvc-partials/">
-    <time datetime="2015-01-08T03:36:25.000Z" itemprop="datePublished">January 7, 2015</time>
-  </a>
-</div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Here’s a bit of an obtuse trick that lets you use <code>@Html.Partial()</code> effectively on Sitecore MVC View renderings without specifying the full path to the partial you want to render. You might think that regular MVC syntax would work here:</p>
-<pre><code>@Html.Partial(&quot;_MyPartial&quot;)
-</code></pre><p>But you’d be wrong. Instead, you’ll get an error that the partial could not be found, and the perplexing message that it tried to search <code>[path-to-views]/Sitecore/_MyPartial.cshtml</code>. Where’d that “/sitecore” come from? To understand this, a bit of background on how ASP.NET MVC resolves partials is in order.</p>
-<p>The view resolution convention is based on <em>the controller name</em> that executes the view, <em>not the view’s physical location</em>. This makes sense in a pure ASP.NET MVC environment where every view is the result of a controller. However in a View Rendering, there’s just the cshtml. Except that in the background, Sitecore executes the View Rendering using a shim controller - a shim that goes by <code>SitecoreController</code>. This is where the <code>/Views/Sitecore</code> search path comes from.</p>
-<p>So what’s the trick? Well, as long as all your views are in a MVC-like hierarchy, you can refer to the partial using the parent path:</p>
-<pre><code>@Html.Partial(&quot;../ViewParentFolder/_MyPartial&quot;)
-</code></pre><p>This jumps out of the controller rendering folder (always Sitecore) and lets you specify the parent folder directly instead, without resorting to a full absolute path which - especially if you use areas or moved views around later - could break.</p>
-<p>In case you’re wondering why I’m using native partials instead of <code>@Html.Sitecore().Rendering()</code> or <code>@Html.Sitecore().ViewRendering()</code> and such, these are static components of a MVC layout that are shared between multiple layouts - so it doesn’t make much sense to also register them as dynamic renderings and take the performance hit of that lookup.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/01/quick-note-sitecore-mvc-partials/" data-id="cj937hg0w002idgif7319cfml" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/02/sitecore-8-experience-editor-performance-optimization/" data-id="cj94bx5fr002mmwif7h39qkj1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1020,6 +1111,15 @@ namespace Kamsar.FieldTypes
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
+              <p class="item-title"><a href="/index.php/2017/10/Quickly-add-SSL-to-Solr/" class="title">Quickly add SSL to Solr</a></p>
+              <p class="item-date"><time datetime="2017-10-23T15:20:39.000Z" itemprop="datePublished">October 23, 2017</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -1057,15 +1157,6 @@ namespace Kamsar.FieldTypes
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a></p>
-              <p class="item-title"><a href="/index.php/2017/02/Unicorn-4-Part-III-Configuration-Enhancements/" class="title">Unicorn 4 Part III: Configuration Enhancements</a></p>
-              <p class="item-date"><time datetime="2017-02-28T03:03:31.000Z" itemprop="datePublished">February 27, 2017</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1075,7 +1166,7 @@ namespace Kamsar.FieldTypes
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">36</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">37</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 

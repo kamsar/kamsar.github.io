@@ -81,7 +81,7 @@ ga('send', 'pageview');
   
   <div id="header-sub" class="header-sub header-inner">
     <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">36</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
   
@@ -128,6 +128,63 @@ ga('send', 'pageview');
           <i class="fa fa-calendar"></i>
           <a href="/archives/2013" class="archive-year">2013</a>
         </div>
+    
+    <article id="post-editing-hidden-template-fields-in-the-page-editor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2013/08/editing-hidden-template-fields-in-the-page-editor/">Editing hidden template fields in the page editor</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2013/08/editing-hidden-template-fields-in-the-page-editor/">
+    <time datetime="2013-08-15T06:44:01.000Z" itemprop="datePublished">August 14, 2013</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Recently on a project I came across a need to allow editors who were using the Sitecore Page Editor to modify some fields that had no logical place on the actual editor screen. In this case, the fields were relating to page SEO - meta keywords and description among other things. Since these are in the head of the page, there’s no good place to stick an edit frame or custom experience button - they aren’t even part of a rendering placed on the page.</p>
+<p>While poking around the WebEdit customization options, I hit on the idea of adding a WebEdit ribbon button that would act as a custom experience button would, and load a subset of the item fields in a content editor window. It turns out this was actually relatively easy. </p>
+<p>In the Core database, the default WebEdit ribbon is defined under <code>/sitecore/content/Applications/WebEdit/Ribbons/WebEdit/Page Editor</code>. Under this item are items for each ‘chunk’ in the ribbon, and under that each command button, like this:</p>
+<p><img src="/images/20130814tree.png" alt="tree" width="185" height="253" class="alignnone size-full wp-image-751"></p>
+<p>To implement your own command, you just need to add a Small Button or Large Button item underneath a Chunk - new or existing - to place your button on the ribbon. The “SEO” chunk in the above screenshot is an example of what you want to end up with. </p>
+<p>The key piece of all of this is how to have your button actually load the field editor, and telling it what fields to load. You do this by configuring the Click field on the button to run the <code>webedit:fieldeditor</code> command like so:</p>
+<pre><code>webedit:fieldeditor(fields=Browser Title|Description|Keywords, command={007A0E9E-59AA-48BB-84F2-6D25A8D2EF80})
+</code></pre><p>The fields argument is pretty easy to understand - a pipe delimited list of fields to edit, just like a WebEdit Custom Experience Button has (this command is in fact the one used by custom experience buttons). The command parameter I am not sure what it is used for. Internally it seems to need to be an item in the core db that exists - I used the GUID of my button item, and that worked fine.</p>
+<p>And here’s what you end up with when you’re done, for a very small amount of work:</p>
+<p><img src="/images/20130814result.png" alt="result"></p>
+<p>This worked for me on Sitecore 7 (RTM), but I suspect the technique would work great on earlier versions of Sitecore as well.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2013/08/editing-hidden-template-fields-in-the-page-editor/" data-id="cj94bx5f60010mwifftxlc9bm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    
     
     <article id="post-a-subtle-error-using-system-io-path-in-a-http-context" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -198,7 +255,7 @@ var ext = Path.GetExtension(url);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/06/a-subtle-error-using-system-io-path-in-a-http-context/" data-id="cj937hg0e000wdgif4gt8x92u" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/06/a-subtle-error-using-system-io-path-in-a-http-context/" data-id="cj94bx5f70011mwif1cbl9j4b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -260,7 +317,7 @@ var ext = Path.GetExtension(url);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/05/scoping-searches-to-the-current-context-in-sitecore-7s-linq/" data-id="cj937hg0b000pdgifmwwp4wyd" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/05/scoping-searches-to-the-current-context-in-sitecore-7s-linq/" data-id="cj94bx5f3000rmwif8ayb7fg1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -347,7 +404,7 @@ var query2 = context.GetQueryable&lt;mappedclass&gt;().Where(x=&gt;x.Field1.Some
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/04/sitecore-7-linq-gotchas/" data-id="cj937hg09000idgifrawmegb2" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/04/sitecore-7-linq-gotchas/" data-id="cj94bx5ex000mmwifhmii7h5x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -394,7 +451,7 @@ var query2 = context.GetQueryable&lt;mappedclass&gt;().Where(x=&gt;x.Field1.Some
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/02/sitecore-mvp-2013/" data-id="cj937hg0a000kdgif5vm1tgrz" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/02/sitecore-mvp-2013/" data-id="cj94bx5et000emwifxh37mxar" class="article-share-link">Share</a>
       
       
     </footer>
@@ -448,7 +505,7 @@ var query2 = context.GetQueryable&lt;mappedclass&gt;().Where(x=&gt;x.Field1.Some
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2013/02/selecting-a-sitecore-rendering-technology/" data-id="cj937hg0b000ndgifx71zu3eq" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2013/02/selecting-a-sitecore-rendering-technology/" data-id="cj94bx5eu000imwifiwunvgm6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -512,7 +569,7 @@ for (int i = 0; i &lt; siteNames.Length; i++)
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2010/05/sitecore-multi-site-installations-and-output-caching/" data-id="cj937hg01000adgiflnx9wnlk" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2010/05/sitecore-multi-site-installations-and-output-caching/" data-id="cj94bx5er0009mwifh7vkn3rl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -536,6 +593,15 @@ for (int i = 0; i &lt; siteNames.Length; i++)
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
+              <p class="item-title"><a href="/index.php/2017/10/Quickly-add-SSL-to-Solr/" class="title">Quickly add SSL to Solr</a></p>
+              <p class="item-date"><time datetime="2017-10-23T15:20:39.000Z" itemprop="datePublished">October 23, 2017</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -573,15 +639,6 @@ for (int i = 0; i &lt; siteNames.Length; i++)
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a></p>
-              <p class="item-title"><a href="/index.php/2017/02/Unicorn-4-Part-III-Configuration-Enhancements/" class="title">Unicorn 4 Part III: Configuration Enhancements</a></p>
-              <p class="item-date"><time datetime="2017-02-28T03:03:31.000Z" itemprop="datePublished">February 27, 2017</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -591,7 +648,7 @@ for (int i = 0; i &lt; siteNames.Length; i++)
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">36</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">37</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
