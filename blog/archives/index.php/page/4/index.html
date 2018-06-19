@@ -81,7 +81,7 @@ ga('send', 'pageview');
   
   <div id="header-sub" class="header-sub header-inner">
     <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/JSS/">JSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
   
@@ -118,6 +118,227 @@ ga('send', 'pageview');
 </aside>
       <section id="main">
   
+  
+    
+    
+      
+        <div class="archive-year-wrap">
+          <i class="fa fa-calendar"></i>
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+    
+    <article id="post-Unicorn-3-1-Released" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2016/01/Unicorn-3-1-Released/">Unicorn 3.1 Released</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2016/01/Unicorn-3-1-Released/">
+    <time datetime="2016-01-27T04:58:31.000Z" itemprop="datePublished">January 26, 2016</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Unicorn 3.1 and Rainbow 1.1 are released to NuGet. These updated versions bring several new features and a bunch of fixes. Upgrading is recommended for all users of Unicorn 3.0 due to the fixing of some data issues.</p>
+<h2 id="What’s-new"><a href="#What’s-new" class="headerlink" title="What’s new?"></a>What’s new?</h2><h3 id="Configuration-Dependencies"><a href="#Configuration-Dependencies" class="headerlink" title="Configuration Dependencies"></a>Configuration Dependencies</h3><p>Unicorn configurations may now declare dependency relationships between each other. This is useful for example when one configuration may contain templates and another configuration might contain items based on those templates. With a dependency relationship the dependent configurations are guaranteed to always go first when configurations are synced. Transitive relationships (e.g. A -&gt; B -&gt; C) are supported.</p>
+<p>Dependencies are defined using <a href="https://github.com/kamsar/Unicorn/blob/master/src/Unicorn/Standard%20Config%20Files/Unicorn.Configs.Dependency.config.example" target="_blank" rel="external">a dependencies attribute</a> on the configuration.</p>
+<p>Dependencies <strong>do not</strong> force dependent configurations to sync. If config <code>A</code> depends on config <code>B</code> and you choose to sync only config <code>A</code>, <code>B</code> will not be synced. However if you sync <em>both</em> <code>A</code> and <code>B</code>, then <code>B</code> will always sync first due to the dependency.</p>
+<h3 id="Include-Exclude-Predicate-Enhancements"><a href="#Include-Exclude-Predicate-Enhancements" class="headerlink" title="Include/Exclude Predicate Enhancements"></a>Include/Exclude Predicate Enhancements</h3><p>The predicate system has been significantly overhauled in Unicorn 3.1 to allow more advanced include and exclude scenarios.</p>
+<ul>
+<li><p>Exclude entries may now use paths relative to the parent <code>&lt;include&gt;</code> by omitting a leading slash. This would exclude <code>/foo/bar</code>: </p>
+<pre><code>&lt;include path=&quot;/foo&quot;&gt;
+    &lt;exclude path=&quot;bar&quot; /&gt;
+&lt;/include&gt;
+</code></pre></li>
+</ul>
+<ul>
+<li><p>A new explicit grammar for excluding all children of an include has been introduced. This replaces the previous implicit grammar of adding a trailing slash (which still works but is deprecated).</p>
+<pre><code>&lt;include path=&quot;/foo&quot;&gt;
+    &lt;exclude children=&quot;true&quot; /&gt;
+&lt;/include&gt;
+</code></pre></li>
+<li><p>The explicit children grammar supports <code>&lt;except&gt;</code> syntax to exclude all children <a href="https://github.com/kamsar/Unicorn/blob/master/src/Unicorn.Tests/Predicates/TestConfiguration.xml#L31" target="_blank" rel="external">except for specific ones</a>.</p>
+<pre><code>&lt;include path=&quot;/somechildren&quot;&gt;
+    &lt;exclude children=&quot;true&quot;&gt;
+        &lt;except name=&quot;tests&quot; /&gt;
+        &lt;except name=&quot;fests&quot; /&gt;
+    &lt;/exclude&gt;
+&lt;/include&gt;
+</code></pre></li>
+<li><p>A new explicit grammar for excluding only children of a specific sub-path has been added. This grammar also supports <a href="https://github.com/kamsar/Unicorn/blob/master/src/Unicorn.Tests/Predicates/TestConfiguration.xml#L41" target="_blank" rel="external"><code>&lt;except&gt;</code> syntax</a> and relative paths.</p>
+<pre><code>&lt;include path=&quot;/foo&quot;&gt;
+    &lt;exclude childrenOfPath=&quot;/foo&quot; /&gt;
+    &lt;exclude childrenOfPath=&quot;bar&quot;&gt; &lt;!-- /foo/bar/* --&gt;
+        &lt;except name=&quot;quux&quot; /&gt; &lt;!-- include /foo/bar/quux --&gt;
+    &lt;/exclude&gt;
+&lt;/include&gt;
+</code></pre></li>
+</ul>
+<p>Take a look at the <a href="https://github.com/kamsar/Unicorn/blob/master/src/Unicorn.Tests/Predicates/TestConfiguration.xml" target="_blank" rel="external">test predicate configuration</a> for examples of all available grammars.</p>
+<h3 id="Control-Panel-Tool-Authentication"><a href="#Control-Panel-Tool-Authentication" class="headerlink" title="Control Panel Tool Authentication"></a>Control Panel Tool Authentication</h3><p>The method used to authenticate automated tools to Unicorn has been updated to be significantly more secure using a <a href="https://en.wikipedia.org/wiki/Challenge-Handshake_Authentication_Protocol" target="_blank" rel="external">CHAP</a> implementation. This also comes with a handy <a href="https://github.com/kamsar/Unicorn/tree/master/doc/PowerShell%20Remote%20Scripting" target="_blank" rel="external">PowerShell module</a> that you can use to simply invoke the handshake from a build script.</p>
+<p>Should you require the legacy shared secret method, that is <a href="https://github.com/kamsar/Unicorn/blob/master/src/Unicorn/Standard%20Config%20Files/Unicorn.UI.config#L24" target="_blank" rel="external">still available but it is not the default</a>. Security is also now pluggable, if you wanted to use your own implementation.</p>
+<p>The remote API ships disabled by default and you must activate it by <a href="https://github.com/kamsar/Unicorn/blob/master/src/Unicorn/Standard%20Config%20Files/Unicorn.UI.config#L18" target="_blank" rel="external">generating a random shared secret and adding it to the config</a>. This same secret must be known to invoke the API, and unlike the legacy API the secret is never transmitted directly.</p>
+<h3 id="Breaking-Changes"><a href="#Breaking-Changes" class="headerlink" title="Breaking Changes"></a>Breaking Changes</h3><p>Unicorn 3.1 has some breaking changes compared to Unicorn 3.0, so upgrading requires reserializing your items to get them in a consistent format with the latest version. Unicorn 3.1 does understand Unicorn 3.0-formatted items, but Unicorn 3.0 <em>does not</em> understand Unicorn 3.1-formatted items. There will also be some repeated changes in the logs if you sync 3.0 items with 3.1, so usage with 3.0 items is not recommended.</p>
+<p>Introducing breaking changes was a hard decision to make, but I think the saner defaults and new capabilities will justify the slightly more difficult upgrade process. So what’s breaking?</p>
+<ul>
+<li>The item’s database name is now stored in the serialized data (<a href="https://github.com/kamsar/Rainbow/pull/7" target="_blank" rel="external">#7</a>). This enables parsing serialized items in contexts where the database cannot easily be inferred, such as Courier.</li>
+<li>Unversioned fields have official support and are nested under the <code>Language</code> instead of under a <code>Version</code> within the language which was incorrect. Prior to reserializing, syncing a 3.0-formatted item with 3.1 may result in messages that the field has been reset to standard values and then set again. <code>IItemData</code> now has an <code>UnversionedFields</code> property to store unversioned fields by language.</li>
+<li>The name on serialized fields has been converted from a comment in the YAML into an actual parsed value. Note that this value is just a hint and if a template field is renamed it is NOT updated automatically.</li>
+<li>The default setting of <code>Rainbow.SFS.ExtraInvalidFilenameCharacters</code> has been changed to <code>&quot;$&quot;</code> to make Rainbow compatible by default with TFS, and the TFS config example that previously set this has been removed.</li>
+<li>The default setting for <code>Rainbow.SFS.SerializationFolderPathMaxLength</code> has been increased from <code>90</code> to <code>110</code> based on real world experience that 90 is too short.</li>
+<li>The default setting for <code>Rainbow.SFS.MaxItemNameLengthBeforeTruncation</code> has been reduced from <code>100</code> to <code>30</code> based on real world experience that 100 was long enough to break the path length limitation for items with near 100 length names.</li>
+<li>Automated deployment tools calling Unicorn have a new security API. See below for details on this, but it’s now more secure.</li>
+</ul>
+<h3 id="Other-Improvements"><a href="#Other-Improvements" class="headerlink" title="Other Improvements:"></a>Other Improvements:</h3><ul>
+<li>Syncing dictionary items will now cause the dictionary cache to be cleared at the end of the sync, forcing the synced entries to be loaded.</li>
+<li>The Unicorn Control Panel is now pipeline-based and extensible so that modules may define their own verbs or alter the UI if needed.</li>
+<li>Error messages when serializing and deserializing XML-based fields (layout, rules) have been improved.</li>
+<li>Unicorn and Rainbow both now utilize the C# 6.0 syntax and require the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48159" target="_blank" rel="external">C# 6.0 compiler</a> to build. They still target .NET 4.5.</li>
+<li>Config file comments and documentation have been updated to cover the new features of Unicorn 3.1.</li>
+</ul>
+<h3 id="Bug-fixes"><a href="#Bug-fixes" class="headerlink" title="Bug fixes:"></a>Bug fixes:</h3><ul>
+<li>Renaming or moving items which are serialized on loopback paths will no longer cause the serialized children to be deleted.</li>
+<li>Missing field errors on the root item of a tree now result in a retry and non fatal error as expected.</li>
+<li>A non fatal warning when syncing multiple configurations will no longer result in the sync stopping at the end of the configuration with the non fatal warning.</li>
+<li>When using the New Items Only evaluator, you will no longer receive sync conflict warnings when saving items created by the evaluator.</li>
+<li>Copying items when Transparent Sync is enabled and the source item is not in the Sitecore database now works correctly.</li>
+<li>Empty field values will no longer cause problems when Transparent Sync is enabled.</li>
+<li>XML-based fields (layout, rules) with empty values will no longer cause exceptions. <a href="https://github.com/kamsar/Rainbow/pull/6" target="_blank" rel="external">#6</a>, <a href="https://github.com/kamsar/Unicorn/issues/90" target="_blank" rel="external">#90</a></li>
+<li>Items installed by Sitecore packages or update packages into Unicorn configuration areas will no longer lose some field values in the serialized items. <a href="https://github.com/kamsar/Unicorn/issues/92" target="_blank" rel="external">#92</a></li>
+<li>Predicate include entries and SFS trees are no longer confused by paths which are different but start with similar bases, such as <code>/sitecore/content</code> and <code>/sitecore/content monkey</code></li>
+<li>Plain text Unicorn logs returned to automated tool calls will no longer include HTML-encoded values such as <code>&amp;gt;</code></li>
+<li>Naming items a <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247(v=vs.85" target="_blank" rel="external">Windows reserved file name</a>.aspx) such as CON or COM1 will no longer result in an error. <a href="https://github.com/kamsar/Rainbow/issues/8" target="_blank" rel="external">#8</a></li>
+<li>Fields with a blank value in Sitecore that were not included in the serialized item were not being correctly reset to standard values. This has been fixed.</li>
+</ul>
+<h2 id="Upgrading"><a href="#Upgrading" class="headerlink" title="Upgrading"></a>Upgrading</h2><p>Ok so there are breaking changes, how do I upgrade? Thankfully it’s not too hard.</p>
+<ol>
+<li><strong>Before</strong> you upgrade, run a full sync of all configurations. If some have Transparent Sync enabled, turn that off during the upgrade. (you can reenable after step 4)</li>
+<li>Upgrade your NuGet packages to Unicorn 3.1. (which will also install Rainbow 1.1)</li>
+<li>Run a build of your solution, and if you develop out of webroot publish your changes.</li>
+<li>Using the Unicorn control panel, <strong>Reserialize</strong> all configurations to flush them to disk as 3.1-format items.</li>
+<li>If you use the automated tool API to do automated execution of Unicorn, migrate to the <a href="https://github.com/kamsar/Unicorn/tree/master/doc/PowerShell%20Remote%20Scripting" target="_blank" rel="external">PowerShell module</a> to invoke the new API.</li>
+<li>Have fun!</li>
+</ol>
+<h2 id="Contributors"><a href="#Contributors" class="headerlink" title="Contributors"></a>Contributors</h2><p>Unicorn 3.1 has seen contributions from many community members. Thank you all for your support, testing, bug reports, and contributions!</p>
+<ul>
+<li><a href="https://github.com/cassidydotdk" target="_blank" rel="external">Mark Cassidy</a></li>
+<li><a href="https://github.com/Eldblom" target="_blank" rel="external">Thomas Eldblom</a></li>
+<li><a href="https://github.com/agehrke" target="_blank" rel="external">Andreas Gerhke</a></li>
+<li><a href="https://github.com/OlegJytnik" target="_blank" rel="external">Oleg Jytnik</a></li>
+<li><a href="https://github.com/patoncrispy" target="_blank" rel="external">Chris Paton</a></li>
+<li><a href="https://github.com/drachele" target="_blank" rel="external">Daniel Rachele</a></li>
+<li><a href="https://github.com/divamatrix" target="_blank" rel="external">Lewanna Rathbun</a></li>
+<li><a href="https://github.com/guitarrich" target="_blank" rel="external">Richard Seal</a></li>
+<li><a href="https://twitter.com/BerserkerDotNET" target="_blank" rel="external">Andrii Snihyr</a></li>
+<li><a href="https://github.com/csteeg" target="_blank" rel="external">Chris van de Steeg</a></li>
+<li><a href="https://github.com/GeorgeKarbyn" target="_blank" rel="external">George Thomaidis</a></li>
+<li><a href="https://twitter.com/williamsk000" target="_blank" rel="external">Kevin Williams</a></li>
+<li><a href="https://github.com/dashkodo" target="_blank" rel="external">dashkodo</a></li>
+<li><a href="https://github.com/devstack" target="_blank" rel="external">devstack</a></li>
+<li><a href="https://github.com/uandrei" target="_blank" rel="external">uandrei</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2016/01/Unicorn-3-1-Released/" data-id="cjim7nmtb003y4kifyf6q56x8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    
+    
+    <article id="post-Benchmark-Show-Precompilation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2016/01/Benchmark-Show-Precompilation/">The Benchmark Show: Sitecore Precompilation</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2016/01/Benchmark-Show-Precompilation/">
+    <time datetime="2016-01-05T04:20:35.000Z" itemprop="datePublished">January 4, 2016</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I’m <a href="https://kamsar.net/index.php/2015/02/sitecore-8-experience-editor-performance-optimization/">mildly obsessed with Sitecore performance</a>, so when I found a new trick I had to see what it could do: <a href="https://msdn.microsoft.com/en-us/library/ms229863.aspx" target="_blank" rel="external"><code>aspnet_compiler.exe</code></a>. This is a really old tool that was designed to compile your .aspx pages into an assembly - and then later your cshtml as well. This improves startup time because no dynamic compilation needs to take place at runtime.</p>
+<p>Getting <code>aspnet_compiler</code> to run against Sitecore, by which I mean executing it against an entire deployment ready web root including both your code and the <code>sitecore</code> folder, is a bit of a challenge. Because you cannot tell <code>aspnet_compiler</code> to ignore anything, and because one of the cshtml files in Sitecore 8.1 Update-1 apparently has a compiler error (for the curious, add <code>@using Sitecore.ListManagement.Client.Web.UI.Controls.ImportMapTo</code> to /sitecore/shell/client/Applications/ListManager/Controls/ContactFields/ContactFields.cshtml). You also have to comment out the <code>@Html.Sitecore()</code>s in /sitecore/shell/Templates/layout.cshtml (don’t worry it’s just a template used when you add a new MVC layout).</p>
+<p>Once you get the fixes made, running <code>aspnet_compiler</code> is as simple as:</p>
+<p><code>&quot;c:\Windows\Microsoft.NET\Framework\v4.0.30319\aspnet_compiler.exe&quot; -v / -p &quot;c:\path\to\deploy\ready\files&quot; &quot;c:\output\path&quot;</code></p>
+<p>It will take a while - probably at least a minute - while it compiles every aspx and cshtml in the whole place into assemblies.</p>
+<h2 id="Cool-trick-Does-it-work"><a href="#Cool-trick-Does-it-work" class="headerlink" title="Cool trick. Does it work?"></a>Cool trick. Does it work?</h2><p>Let’s look at some hard data. I took my base Sitecore site (which runs <a href="https://gist.github.com/kamsar/8c9efc80e72e6ada8304" target="_blank" rel="external">Performance.config</a>) and executed my deployment scripts over it, then precompiled that to a new folder with <code>aspnet_compiler</code>. Then I devised several tests to tease out both the effects of precompilation and whether Sitecore’s built in SPEAK precompilation has improved since its 8.0 days - where it could make startup take 140 seconds. The tests were in most cases run both with a cold <em>ASP.NET Temporary Files</em> folder (where .NET puts compiled Razor caches) and with a warm one for comparison. Cold would be the first startup on a new machine, whereas warm would be after an app pool recycle thereafter.</p>
+<h3 id="Test-1-Home-Page"><a href="#Test-1-Home-Page" class="headerlink" title="Test 1: Home Page"></a>Test 1: Home Page</h3><p>This is a simple test of loading the home page, which is a fairly simple Sitecore MVC layout with about 4 view and controller renderings and several partials. All tests begin with the app pool stopped and no <code>w3wp</code> executing.</p>
+<h3 id="Test-2-SPEAK-Media-Library-Dialog"><a href="#Test-2-SPEAK-Media-Library-Dialog" class="headerlink" title="Test 2: SPEAK Media Library Dialog"></a>Test 2: SPEAK Media Library Dialog</h3><p>The SPEAK media browser (what you get when browsing from an image field, for example) has been historically a pain point performance wise. For this test I loaded the dialog iframe URL into a Chrome tab and measured the time to finish page load with the Chrome developer tools.</p>
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><h3 id="Home-Page-cold"><a href="#Home-Page-cold" class="headerlink" title="Home Page (cold)"></a>Home Page (cold)</h3><p>Baseline (Performance.config): 22.25s<br>SC Precompiler: 24.8s<br>Precompiled: 21.5s</p>
+<p>As expected the precompiled is marginally fastest. Sitecore 8.1’s precompilation function, as we’ll see throughout the tests, seems to add 2-4 seconds to startup time. Without preexisting compiled temp files, startup is extremely slow in all cases - unexpectedly so for the supposedly ‘precompiled’ site. My guess is that it copies the precompiled files to the temp folder, which expends I/O, but that’s a guess.</p>
+<h3 id="Home-Page-warm"><a href="#Home-Page-warm" class="headerlink" title="Home Page (warm)"></a>Home Page (warm)</h3><p>Baseline: 9.71s<br>SC Precompiler: 13.97s<br>Precompiled: 9.51s</p>
+<p>With the temporary files warm, startup gets much faster. Once again the Sitecore precompiler is in last place.</p>
+<h3 id="SPEAK-Media-cold"><a href="#SPEAK-Media-cold" class="headerlink" title="SPEAK Media (cold)"></a>SPEAK Media (cold)</h3><p>Baseline: 29.6s<br>SC Precompiler: 33.8s<br>Precompiled: 22.93s</p>
+<p>The effects of precompilation are strong when loading the very complex, partial-heavy SPEAK dialog - coming in 47% faster than the Sitecore default.</p>
+<h3 id="SPEAK-Media-warm"><a href="#SPEAK-Media-warm" class="headerlink" title="SPEAK Media (warm)"></a>SPEAK Media (warm)</h3><p>Baseline: 12.2s<br>SC Precompiler: 16s<br>Precompiled: 12.82s<br>SC Precompiler (warmed): 13.23s</p>
+<p>Performance is nearly identical once the temporary compiled files are cached the first time for SPEAK. In this case there is also a test for having warmed the Sitecore precompiler and allowed it to finish precompiling in the background, then restarted the cold app pool. </p>
+<h2 id="Analysis-TL-DR"><a href="#Analysis-TL-DR" class="headerlink" title="Analysis (TL;DR)"></a>Analysis (TL;DR)</h2><p>Overall the effects of using <code>aspnet_compiler</code> prior to deployment are relatively minor in most real world cases. Initial startup is ideally a rare case, and once their caches are heated all options perform quite similarly (as an example, the second hit to the media dialog is ~250ms to finish). For more elastic deployments, such as cloud setups, or for larger clusters it is probably worth the effort since you burn the CPU cycles once and it does significantly improve first hit to SPEAK dialogs as well as marginal overall performance improvements. Rendering heavy Sitecore MVC implementations would also likely see similar gains to SPEAK. In addition to performance, using the <code>aspnet_compiler</code> validates the C# in your Razor views - which is a nice plus in the event of a Razor syntax error which would normally be discovered at runtime.</p>
+<p>The big downside of precompiling is that it’s fairly slow (several minutes on fast hardware, probably much slower otherwise or without SSDs), and that it has to re-copy the whole web root to another output location (lots of I/O). So overall build time on CI may increase significantly.</p>
+<h3 id="Another-option-Use-the-Sitecore-precompiler"><a href="#Another-option-Use-the-Sitecore-precompiler" class="headerlink" title="Another option: Use the Sitecore precompiler"></a>Another option: Use the Sitecore precompiler</h3><p>If you look at the results, <em>startup time</em> with the Sitecore precompiler is always a bit longer. But once the Sitecore precompiler completes its asynchronous run - usually within a couple minutes after startup - the results are very close to a natively precompiled site (see the warm media dialog results). This is overall a much simpler option. It does mean every instance has to compile for itself, but it does not require adaptation of the build process nor long times spent copying files.</p>
+<p>And here’s the best part: <em>you can use it for your own views, too</em>. It’s just a Razor precompiler pipeline processor, and you can add one - or more - for your sites’ MVC views. For example:</p>
+<pre><code>&lt;processor type=&quot;Sitecore.Pipelines.Initialize.PrecompileSpeakViews, Sitecore.Speak.Client&quot;&gt;
+    &lt;Paths&gt;/Areas/MySite/Views&lt;/Paths&gt; &lt;!-- virtual path to your views --&gt;
+&lt;/processor&gt;
+</code></pre><p>This will cause your views to all get precompiled asynchronously on startup - if they are not already - which writes their assemblies into the <em>Temporary ASP.NET Files</em> folder. So you trade a couple seconds of startup time, and an initial spike of CPU cycles, for consistent performance thereafter. However, you lose the protection against syntax errors provided by build-time precompilation.</p>
+<p>Next time on the benchmark show: Common Sitecore development tasks, benchmarked on a variety of hardware.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2016/01/Benchmark-Show-Precompilation/" data-id="cjim7nmt9003u4kify0y0h4vp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     
     
@@ -184,7 +405,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/11/Unicorn-3-0-2-Released/" data-id="cj94lkg2k003pjgifbukp1vak" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/11/Unicorn-3-0-2-Released/" data-id="cjim7nmta003w4kifihgwaq20" class="article-share-link">Share</a>
       
       
     </footer>
@@ -243,7 +464,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/10/Unicorn-3-0-1-Released/" data-id="cj94lkg2l003rjgifr4hdsa0b" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/10/Unicorn-3-0-1-Released/" data-id="cjim7nmt7003o4kifjsn7g84r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -316,7 +537,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/10/Unicorn-3-0-Released/" data-id="cj94lkg2j003ljgifw33irb14" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/10/Unicorn-3-0-Released/" data-id="cjim7nmt6003m4kiftyun61fa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -388,7 +609,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/10/Unicorn-Introducing-Transparent-Sync/" data-id="cj94lkg2k003njgifonfm3dsa" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/10/Unicorn-Introducing-Transparent-Sync/" data-id="cjim7nmt8003s4kif4soc70nj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -483,7 +704,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/" data-id="cj94lkg2i003jjgif3rjacsak" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/09/Unicorn-3-What-s-new/" data-id="cjim7nmt8003q4kifixay0rr7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -578,7 +799,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/09/Rainbow-Part-3-What-is-Rainbow/" data-id="cj94lkg2i003hjgif25xswn7b" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/09/Rainbow-Part-3-What-is-Rainbow/" data-id="cjim7nmt5003k4kifdm8f085l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -703,7 +924,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/" data-id="cj94lkg2h003fjgift6156nvz" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/08/Reinventing-the-Serialization-File-System-Rainbow-Preview-Part-2/" data-id="cjim7nmt5003j4kif3txcm7x7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -819,150 +1040,7 @@ Languages:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/" data-id="cj94lkg2f003djgifckvwcggw" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    
-    
-    <article id="post-Transparent-media-optimization-with-Dianoga-2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/index.php/2015/07/Transparent-media-optimization-with-Dianoga-2/">Transparent media optimization with Dianoga 2</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          <div class="article-date">
-  <i class="fa fa-calendar"></i>
-  <a href="/index.php/2015/07/Transparent-media-optimization-with-Dianoga-2/">
-    <time datetime="2015-07-04T16:20:21.000Z" itemprop="datePublished">July 4, 2015</time>
-  </a>
-</div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/index.php/category/Dianoga/">Dianoga</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>I’ve pushed a significant update to <a href="https://kamsar.net/index.php/2014/07/automatic-sitecore-image-optimization-with-dianoga/">Dianoga</a>, my framework to transparently optimize the size of media library images, including rescaled sizes.</p>
-<p>My <a href="https://kamsar.net/index.php/2014/07/automatic-sitecore-image-optimization-with-dianoga/">original post on Dianoga 1.0</a> explains why you’d want to use it in detail, but as an overview how does saving 5-40% overall on image bandwidth sound? All you have to do is install a <a href="http://www.nuget.org/packages/Dianoga" target="_blank" rel="external">NuGet package</a> that adds one dll and one config file to your solution. That’s it. You can also find <a href="https://github.com/kamsar/Dianoga/blob/master/README.md" target="_blank" rel="external">documentation on GitHub</a>.</p>
-<h2 id="What’s-new-in-2-0"><a href="#What’s-new-in-2-0" class="headerlink" title="What’s new in 2.0"></a>What’s new in 2.0</h2><p>Dianoga 2 is faster and more extensible. The key change is that media is now optimized asynchronously, resulting in a near-zero impact on site performance even for the first hit. Dianoga 1.0 ran its optimization in the <code>getMediaStream</code> pipeline, which meant it had to complete the optimization while the browser was waiting for the image. For a large header banner, this could be a couple seconds on slower hardware (for the first hit only). Dianoga 2 replaces the <code>MediaCache</code> and performs asynchronous optimization <em>after</em> the image has been cached. This does mean that the first hit receives unoptimized images, but subsequent requests after the cache has been optimized get the smaller version.</p>
-<p>Extensibility has also been improved in Dianoga 2. Previously, there were a lot of hard-coded things such as the path to the optimization tools and the optimizers themselves. Now you can add and remove optimizers in the config (including adding your own, if you wanted say a PNG quantizer), and move the tools around if desired.</p>
-<p>There was <a href="https://github.com/kamsar/Dianoga/issues/1" target="_blank" rel="external">a bug</a> in Dianoga 1.0 that resulted in the tools DLL becoming locked, which could cause problems with deployment tools. This has been fixed in 2.0 by dynamically loading and unloading at need. Thanks to <a href="https://twitter.com/ullmark" target="_blank" rel="external">Markus Ullmark</a> for the issue report.</p>
-<h2 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h2><p>Upgrading from Dianoga 1.0 to 2.0 is fairly simple; upgrade the NuGet package. You can choose to overwrite your Dianoga.config file (recommended), or merge it with the latest in GitHub if you don’t want to.</p>
-<p>Have fun!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/07/Transparent-media-optimization-with-Dianoga-2/" data-id="cj94lkg2f003ajgifzm2nqh8k" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    
-    
-    <article id="post-Sitecore-Azure-Role-Sizing-Guide" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/index.php/2015/07/Sitecore-Azure-Role-Sizing-Guide/">Sitecore Azure Role Sizing Guide</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          <div class="article-date">
-  <i class="fa fa-calendar"></i>
-  <a href="/index.php/2015/07/Sitecore-Azure-Role-Sizing-Guide/">
-    <time datetime="2015-07-03T02:44:20.000Z" itemprop="datePublished">July 2, 2015</time>
-  </a>
-</div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>It seems like everyone is hot to get Sitecore on <a href="http://azure.microsoft.com/" target="_blank" rel="external">Azure</a> these days, but there’s not a whole lot of guidance out there on how Sitecore scales effectively in an Azure environment. Since I get asked the “what size instances do we need?” or “how much will Azure cost us?” question a lot, I figured some testing was in order.</p>
-<p>The environment I tested in is a real actual customer website on Sitecore 7.2 Update-4 (not yet launched but in late beta). The site has been relatively optimized with normal practices - namely, appropriate application of output caching and in-memory object caching. The site scores a B on <a href="http://www.webpagetest.org/" target="_blank" rel="external">WebPageTest</a> - due to things out of my control - and is in decent shape. We are deploying to Azure Cloud Services (<a href="https://en.wikipedia.org/wiki/Platform_as_a_service" target="_blank" rel="external">PaaS</a>), using custom PowerShell scripting - <em>not</em> the Sitecore Azure module (we have had suboptimal experiences with the module). We’re using SQL Azure as the database backend, and the Azure Cache session provider. Note that the Azure Cache session is not supported for xDB (7.5/8) scenarios.</p>
-<h2 id="The-Tests"><a href="#The-Tests" class="headerlink" title="The Tests"></a>The Tests</h2><p>I wanted to determine the effects of changing various cloud scaling options relative to real world performance, but I also didn’t want to spend days benchmarking. So I settled on two test scenarios:</p>
-<ul>
-<li>Frontend performance. This is a JMeter test that hits the site with 10,000 requests to the home page, with 1,000 threads at once. The idea is to beat the server into submission and see how it does.</li>
-<li>Backend performance. I chose Lucene search index rebuilding, as that is a taxing process on both the database and server CPUs, and it conveniently reports how long it took to run. Note that you should probably be using Solr for any xDB scenarios or any search-heavy sites.</li>
-</ul>
-<p>These are not supposed to be ‘end of story’ benchmarks. There are no doubt many bones to pick with them, and they’re certainly not comprehensive. But they do paint a decent picture of overall scaling potential.</p>
-<h2 id="Testing-Environment"><a href="#Testing-Environment" class="headerlink" title="Testing Environment"></a>Testing Environment</h2><p>The base testing environment consists of an Azure Cloud Service running two A3 (4-core, 7.5GB RAM, HDDs) web roles. The databases (core, master, web, analytics) are SQL Azure S3 instances running on a SQL Azure v12 (latest) server.</p>
-<p>Several role variants were tested:</p>
-<ul>
-<li>2x A3 roles, which are 4-cores with 7GB RAM and HDD local storage (~$268/mo each)</li>
-<li>2x D2 roles, which are 2-cores (D-series cores are ‘60% faster’ per Microsoft) 7GB RAM and SSD local storage (~$254/mo each)</li>
-<li>2x D3 roles, 4-cores 14GB RAM and SSD local storage (~$509/mo each)</li>
-<li>2x D4 roles, 8-cores 28GB RAM and SSD local storage (~$1018/mo each)</li>
-</ul>
-<p>In addition, I tested the effect of changing the SQL Azure sizes on the backend with the D4 roles. I did not test the frontend in these cases, because that seemed to scale well on the S3s already.</p>
-<ul>
-<li>S3 databases, which are 100DTU “standard” (~$150/mo each)</li>
-<li>P1 databases, which are 125DTU “premium” (~$465/mo each)</li>
-<li>P2 databases, which are 250DTU “premium” (~$930/mo each)</li>
-</ul>
-<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p>Our first set of tests are comparing the size of the web roles in Azure. It is quite likely that these results would also be loosely applicable to IaaS virtual machine deployments as well.</p>
-<h3 id="Throughput"><a href="#Throughput" class="headerlink" title="Throughput"></a>Throughput</h3><img src="/index.php/2015/07/Sitecore-Azure-Role-Sizing-Guide/rps.png" alt="Throughput Graph" title="Throughput Graph">
-<p>The throughput graph is about as expected: add more cores, get more scaling. The one surprise is that the D2 instance, with 4 total cores at a higher clock and SSD disk, is able to match the A3 with 8 total cores (D2 and A3 cost a similar amount). </p>
-<p>Keep in mind that all of these were using the same SQL Azure S3 databases as the backend - for general frontend service, especially with output caching, Sitecore is extremely database-efficient and does not bottleneck on lower grade databases even with 16 cores serving. </p>
-<p>Note that I strongly suspect the bandwidth between myself and Azure was the bottleneck on the D4 results, as I saw it burst up to more like 500 during the main portion of the test.</p>
-<h3 id="Latency"><a href="#Latency" class="headerlink" title="Latency"></a>Latency</h3><img src="/index.php/2015/07/Sitecore-Azure-Role-Sizing-Guide/latency.png" alt="Latency Graph" title="Latency Graph">
-<p>Latency continues the interesting battle between A3 and D2. The A3 pulls out a minor - within margin of error - victory on average but the SSD of the D2 gives it a convincing performance consistency win with the 95% line over 1 second faster. Given that A3 and D2 cost a similar amount, it seems D2 would be a good choice for budget conscious hosting - but if you can afford Sitecore, you should probably stretch your licenses to more cores per instance.</p>
-<p>The D3 is probably the ideal general purpose choice for your web roles. </p>
-<p>The latency numbers on the monstrous 8-core D4 instances tell the tale that my 1,000 threads and puny 100Mb/s bandwidth were just making the servers laugh.</p>
-<p>These graphs illustrate the latency consistency you gain from a D-series role with SSD:</p>
-<img src="/index.php/2015/07/Sitecore-Azure-Role-Sizing-Guide/a3graph.png" alt="A3 Latency Graph" title="A3 Latency Graph">
-<img src="/index.php/2015/07/Sitecore-Azure-Role-Sizing-Guide/d3graph.png" alt="D3 Latency Graph" title="D3 Latency Graph">
-<p>These two graphs plot the latency over time during the JMeter test. You can see how the top one (A3) is much less consistent thanks to its HDDs, whereas the lower one (D3) is smoother, indicating fewer latency spikes. The latency decreases in the final stage of the test due to some JMeter threads having completed their 10-request run earlier than others, so less server load is in play.</p>
-<h3 id="Bandwidth"><a href="#Bandwidth" class="headerlink" title="Bandwidth"></a>Bandwidth</h3><img src="/index.php/2015/07/Sitecore-Azure-Role-Sizing-Guide/bandwidth.png" alt="Bandwidth Graph" title="Bandwidth Graph">
-<p>Bandwidth is another measure of how much data is being pushed out. Once again, the lesser gain than you might expect from D4 was due to my downstream connection becoming saturated as the monstrous servers <a href="https://www.youtube.com/watch?v=CTjolEUj00g" target="_blank" rel="external">laughed</a>.</p>
-<h3 id="Backend-Rebuild-all-indexes"><a href="#Backend-Rebuild-all-indexes" class="headerlink" title="Backend: Rebuild all indexes"></a>Backend: Rebuild all indexes</h3><p>For this test, I rebuilt the default sitecore_core_index, sitecore_master_index, and sitecore_web_index indices.</p>
-<img src="/index.php/2015/07/Sitecore-Azure-Role-Sizing-Guide/backend.png" alt="Backend Graph" title="Backend Graph">
-<p>Here we see the limitations of the S3 databases creep in during our D4 testing. Up to D3 seems to be limited by CPU speed, but the D4 is actually slower until we both up the max index rebuild parallelism <em>and</em> go to P2 databases to feed the monstrous 8-core beast. </p>
-<p>Note that with SQL Azure, the charge is per-db - so if you wanted to kit out core, master, and web on P2s you’d be paying near $3,000/month just for the DBs. At that point it might be worth considering using IaaS SQL or looking at the <a href="https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool/" target="_blank" rel="external">Elastic Database Pools</a> to spread around the bursty load of many databases.</p>
-<h2 id="Final-Words"><a href="#Final-Words" class="headerlink" title="Final Words"></a>Final Words</h2><p>Overall Sitecore is a very CPU-intensive application where you can generally get away with saving a few bucks on the databases in favor of more compute, especially in content delivery. As in most applications, SSDs make a significant performance improvement to the point where I would suggest Azure D3 instances for nearly all normal Sitecore in Azure deployments, unless you need <a href="http://www.realultimatepower.net/" target="_blank" rel="external">Real Ultimate Power</a> from a D4 - or for the truly ridiculous a 16-core D14 ;)</p>
-<p>For general frontend scaling the SQL Azure S3 seems to be the best price/performance until you go past quad cores, or past two web roles (one would assume 4x D3 would be relatively similar to 2x D4). Once you have 16 cores serving the frontend, you’ll be bottlenecked below P2 databases at least for index rebuilding. Publishing probably has similar characteristics.</p>
-<p>As always when designing for scale, the first step should be to optimize your code and caching. For example, before I did any caching optimizations I did the same JMeter test on the site. The A3s only put out 40 requests/sec - after output caching and tweaks, they did 144 requests/sec. That’s not to say the site was slow pre-optimization: <a href="https://en.wikipedia.org/wiki/Time_To_First_Byte" target="_blank" rel="external">TTFB</a> was about 220ms without load. But once you add load, even small optimizations make a huge difference.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2015/07/Sitecore-Azure-Role-Sizing-Guide/" data-id="cj94lkg2e0036jgifsxpovubz" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2015/07/Rethinking-the-Sitecore-Serialization-Format-Unicorn-3-Preview-part-1/" data-id="cjim7nmt4003i4kif8zqlfeuq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -986,6 +1064,24 @@ Languages:
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/JSS/">JSS</a></p>
+              <p class="item-title"><a href="/index.php/2018/04/Announcing-Sitecore-JSS-XSLT-Support/" class="title">Announcing Sitecore JSS XSLT Support</a></p>
+              <p class="item-date"><time datetime="2018-04-01T07:07:06.000Z" itemprop="datePublished">April 1, 2018</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
+              <p class="item-title"><a href="/index.php/2017/11/The-lazy-way-to-install-Sitecore-9/" class="title">The lazy developer&#39;s way to install Sitecore 9</a></p>
+              <p class="item-date"><time datetime="2017-11-02T00:37:11.000Z" itemprop="datePublished">November 1, 2017</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -1014,24 +1110,6 @@ Languages:
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
-              <p class="item-title"><a href="/index.php/2017/10/Where-to-find-Sitecore-documentation/" class="title">Where to find Sitecore documentation</a></p>
-              <p class="item-date"><time datetime="2017-10-22T19:29:29.000Z" itemprop="datePublished">October 22, 2017</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a></p>
-              <p class="item-title"><a href="/index.php/2017/06/Unicorn-4-Released/" class="title">Unicorn 4 Released</a></p>
-              <p class="item-date"><time datetime="2017-06-22T19:57:43.000Z" itemprop="datePublished">June 22, 2017</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1041,7 +1119,7 @@ Languages:
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/JSS/">JSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">39</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1056,7 +1134,7 @@ Languages:
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      <p>&copy; 2017 Kam Figy</p>
+      <p>&copy; 2018 Kam Figy</p>
       <p><small>Opinions expressed on this blog are my own, and not necessarily those of my employer.</small></p>
      <p><small>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</small></p>
     </div>

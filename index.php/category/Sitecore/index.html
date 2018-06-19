@@ -81,7 +81,7 @@ ga('send', 'pageview');
   
   <div id="header-sub" class="header-sub header-inner">
     <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/JSS/">JSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
   
@@ -126,6 +126,71 @@ ga('send', 'pageview');
           <i class="fa fa-calendar"></i>
           <a href="/archives/2017" class="archive-year">2017</a>
         </div>
+    
+    <article id="post-The-lazy-way-to-install-Sitecore-9" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2017/11/The-lazy-way-to-install-Sitecore-9/">The lazy developer&#39;s way to install Sitecore 9</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2017/11/The-lazy-way-to-install-Sitecore-9/">
+    <time datetime="2017-11-02T00:37:11.000Z" itemprop="datePublished">November 1, 2017</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Since Sitecore 9 was released, there’s been a lot of talk about the new installation techniques that it necessitates - namely, the move towards infrastructure as code and the Sitecore Install Framework (SIF). It’s no secret that installing Sitecore 9 can be a bit more difficult than previous versions, but it really doesn’t have to be.</p>
+<p>This is the part where you might be expecting me to announce some crazy script I wrote, but not this time because someone else already did the work. So let’s address the elephant in the room.</p>
+<h2 id="Solr-the-easy-way"><a href="#Solr-the-easy-way" class="headerlink" title="Solr the easy way"></a>Solr the easy way</h2><p>Back in the day <a href="https://kamsar.net/index.php/2016/03/The-Solr-Cannon/">I wrote some scripts to install Solr</a> using Bitnami. It worked, but I’d always wanted to find the time to make it simpler and less dependent on Bitnami and their notoriously hard to find older versions. Well <a href="https://jermdavis.wordpress.com/2017/10/30/low-effort-solr-installs/" target="_blank" rel="external">Jeremy Davis did exactly what I wanted to do</a> and scripted the whole Solr install, locally trusted SSL certificate, and installation as a service. You can also just <a href="https://gist.github.com/jermdavis/8d8a79f680505f1074153f02f70b9105" target="_blank" rel="external">skip straight to the gist of the PowerShell you need to run</a>.</p>
+<p>Seriously, it’s awesome and you should use it especially for local dev setups.</p>
+<p>A few things I noted when I used it:</p>
+<ul>
+<li>Change the download URLs for Solr and NSSM to be https (encrypted). They work fine that way.</li>
+<li>You must install the Java Runtime Environment (JRE) first and plug in the right version - it won’t do it for you</li>
+<li>Make sure to add the <code>$SolrHost</code> value to your hosts file before you run the script so that it can resolve with the SSL certificate correctly (it will be bound to that name; don’t use <code>localhost</code>).</li>
+</ul>
+<h2 id="SIF-the-easy-way-with-SIFless"><a href="#SIF-the-easy-way-with-SIFless" class="headerlink" title="SIF the easy way with SIFless"></a>SIF the easy way with SIFless</h2><p>SIF is a pretty amazing tool, but it has two shortcomings: one, that it’s great for automated infrastructure but not so great for a quick local setup and two, that it doesn’t yet have an uninstall feature. Well <a href="http://www.rockpapersitecore.com/2017/10/introducing-sif-less-for-easy-sitecore-9-installation/" target="_blank" rel="external">Rob Ahnemann wrote a handy GUI for SIF called SIFless</a> that fixes both of those issues, making quick setups with mostly default settings easy <em>and</em> generating hackable SIF PowerShell scripts that let you do whatever advanced things you want after using the GUI to get started. And it generates uninstall scripts too that get rid of the windows services, solr cores, and other artifacts that are left when you want to tear down that test site.</p>
+<p>A few things to be aware of with SIFless:</p>
+<ul>
+<li>Despite the amusing name, SIFless <em>does</em> require SIF to be installed!</li>
+<li>The Solr URL needs to be the path to the Solr admin panel (e.g. not <code>https://mysolr:8983</code>, but <code>https://mysolr:8983/solr</code>)</li>
+<li>The Solr physical path needs to be to the root of the Solr instance (if it’s the right place you’ll see ‘bin’ and ‘server’ folders; if you used the script above with defaults this would be <code>C:\solr\solr-6.6.2</code>)</li>
+</ul>
+<h2 id="Go-forth-and-use-Sitecore-9"><a href="#Go-forth-and-use-Sitecore-9" class="headerlink" title="Go forth and use Sitecore 9"></a>Go forth and use Sitecore 9</h2><p>Using these two tools I went from having no Solr and no Sitecore installations to having a fully operational <del>battle station</del> Sitecore 9 instance with xConnect in about 45 minutes. And that includes debugging my own silly mistakes. I bet you can do it faster. Get thee to a PowerShell console!</p>
+<p><img src="https://media.giphy.com/media/cCba2gQCxNpsc/giphy.gif" alt="time to get SIFty"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2017/11/The-lazy-way-to-install-Sitecore-9/" data-id="cjim7nmtw005f4kifayd3oggc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    
     
     <article id="post-I-m-a-Sitecorian" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -182,7 +247,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/10/I-m-a-Sitecorian/" data-id="cj94lkylz005vjgif3xfggbha" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/10/I-m-a-Sitecorian/" data-id="cjim7nmty005j4kiffudxnrrp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -232,7 +297,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/10/Quickly-add-SSL-to-Solr/" data-id="cj94lkg36005gjgifsyh7gn9j" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/10/Quickly-add-SSL-to-Solr/" data-id="cjim7nmu0005m4kifg7vxpdlx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -347,7 +412,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/10/All-about-xConnect-Security/" data-id="cj94lkg35005ejgiflgiyiq27" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/10/All-about-xConnect-Security/" data-id="cjim7nmtv005c4kifm4unrkwq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -407,7 +472,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/10/Where-to-find-Sitecore-documentation/" data-id="cj94lkg35005cjgifvd8yok8v" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/10/Where-to-find-Sitecore-documentation/" data-id="cjim7nmtv005d4kifvyz32qp3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -467,7 +532,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/06/Simplifying-Contact-Facets-with-C-6/" data-id="cj94lkg330055jgifsz1v11pd" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/06/Simplifying-Contact-Facets-with-C-6/" data-id="cjim7nmtt00564kifjwvr81u9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -567,7 +632,7 @@ public ActionResult Rendering()
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/01/Controlling-Rendering-Order-in-Sitecore-MVC/" data-id="cj94lkg2z004vjgif5tt048gr" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/01/Controlling-Rendering-Order-in-Sitecore-MVC/" data-id="cjim7nmtq004y4kif90pzqzxu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -663,7 +728,7 @@ item.Editing.EndEdit();
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/01/EditContext-Considered-Harmful/" data-id="cj94lkg2w004rjgif9bbxky1g" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/01/EditContext-Considered-Harmful/" data-id="cjim7nmtm004q4kifx9ptn7ci" class="article-share-link">Share</a>
       
       
     </footer>
@@ -736,7 +801,7 @@ item.Editing.EndEdit();
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2016/10/Become-a-Sitecore-admin-without-a-login/" data-id="cj94lkg2t004hjgifmzyafon5" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2016/10/Become-a-Sitecore-admin-without-a-login/" data-id="cjim7nmtj004i4kiffsriu1km" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1159,94 +1224,7 @@ Get-ChildItem -path &apos;.&apos; -Recurse -Include &apos;*.csproj&apos; | ForEa
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2016/09/Nugetify-your-Sitecore-References/" data-id="cj94lkg2t004fjgif0lq9inlj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    
-    
-    <article id="post-Precompiled-Views-with-Sitecore-8-2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/index.php/2016/09/Precompiled-Views-with-Sitecore-8-2/">Precompiled Views with Sitecore 8.2</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          <div class="article-date">
-  <i class="fa fa-calendar"></i>
-  <a href="/index.php/2016/09/Precompiled-Views-with-Sitecore-8-2/">
-    <time datetime="2016-09-02T19:20:43.000Z" itemprop="datePublished">September 2, 2016</time>
-  </a>
-</div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>A while ago I wrote a post about <a href="/index.php/2016/01/Benchmark-Show-Precompilation/">speeding up your views with precompilation</a>.</p>
-<p>After writing that post I learned about <a href="https://github.com/RazorGenerator/RazorGenerator" target="_blank" rel="external">RazorGenerator</a> which <a href="http://www.chrisvandesteeg.nl/2010/11/22/embedding-pre-compiled-razor-views-in-your-dll/" target="_blank" rel="external">Chris van de Steeg blogged about</a>. RazorGenerator is better in just about every way compared to <code>aspnet_compiler.exe</code>. Whereas the <code>aspnet_compiler</code> just warms the compiler cache for the current machine, RazorGenerator builds the generated classes for your Razor files <em>directly into your assemblies</em>.</p>
-<p>With RazorGenerator you can compile once and deploy everywhere. Getting started with it is almost stupidly simple. Seriously, I described the whole process <a href="https://twitter.com/kamsar/status/684823059082027008" target="_blank" rel="external">in one tweet</a>: Install the <code>RazorGenerator.MsBuild</code> NuGet package. That’s it. So what does that get you?</p>
-<ul>
-<li>Compile-time view syntax checking. Ever deployed a Razor file that broke at runtime after a “successful” build? Well now your builds will <em>fail</em> if your Razor syntax is invalid. Hoorah!</li>
-<li>Your Razor views are compiled into your output assembly (look at it in DotPeek and see the <code>ASP</code> namespace)</li>
-<li>It’s fast. You probably won’t even notice the build time difference.</li>
-</ul>
-<h2 id="But-that’s-not-quite-all"><a href="#But-that’s-not-quite-all" class="headerlink" title="But that’s not quite all"></a>But that’s not quite all</h2><p>Right, so how do you get your precompiled views to actually get loaded? ASP.NET MVC doesn’t understand how to resolve <em>classes</em> instead of <em>files</em> out of the box. With Sitecore 8.1 and earlier, you could use the <code>RazorGenerator.Mvc</code> NuGet package and <a href="https://github.com/RazorGenerator/RazorGenerator/wiki/Using-RazorGenerator.Mvc" target="_blank" rel="external">wire up its <code>PrecompiledViewEngine</code></a> to accomplish this.</p>
-<p>Sitecore 8.2 modernizes a lot of the MVC implementation under the covers, and part of that is that the Sitecore infrastructure now supports precompiled views natively! (Wondering why the experience editor starts up a lot faster in 8.2? That’s why.) It’s really easy to use, in fact: all you have to do is tell Sitecore which assemblies to look for precompiled views in and it does the rest. Behold:</p>
-<pre><code>&lt;configuration xmlns:patch=&quot;http://www.sitecore.net/xmlconfig/&quot;&gt;
-  &lt;sitecore&gt;
-    &lt;mvc&gt;
-      &lt;precompilation&gt;
-        &lt;assemblies&gt;
-          &lt;assemblyIdentity name=&quot;My.Project&quot; /&gt;
-          &lt;assemblyIdentity name=&quot;My.OtherProject&quot; /&gt;
-        &lt;/assemblies&gt;
-      &lt;/precompilation&gt;
-    &lt;/mvc&gt;
-  &lt;/sitecore&gt;
-&lt;/configuration&gt;
-</code></pre><p><strong>CAVEAT</strong>: The Sitecore precompiler is greedy by default. When it is on, if a class exists for your view, <em>the physical file for the view is not checked</em>. You can even delete it. This means that you cannot tweak the cshtml file and have updates be reflected. You can enable timestamp checking if you must by changing this setting:</p>
-<pre><code>&lt;configuration xmlns:patch=&quot;http://www.sitecore.net/xmlconfig/&quot;&gt;
-  &lt;sitecore&gt;
-    &lt;settings&gt;
-      &lt;!--  MVC: Flag for controlling whether Razor View Engine will look at physical view last modified dates 
-        when determining to use a view file from a pre-compiled assembly or from the file system.
-        Default: &quot;false&quot;
-        --&gt;
-        &lt;setting name=&quot;Mvc.UsePhysicalViewsIfNewer&quot; value=&quot;false&quot; /&gt;
-      &lt;/settings&gt;
-  &lt;/sitecore&gt;
-&lt;/configuration&gt;
-</code></pre><p>Because there are (minor) performance implications of doing the timestamp checks, I would advise <em>enabling</em> this setting for development and <em>disabling</em> the setting for production. You should never, ever be changing files on production after a deployment anyway.</p>
-<h2 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h2><p>If you’re on Sitecore 8.2, you can get view performance gains by:</p>
-<ul>
-<li>Installing <code>RazorGenerator.MsBuild</code> on each Visual Studio project that contains Razor views</li>
-<li>Registering each of those assemblies with the Sitecore precompiled view engine so that it uses your precompiled classes for view rendering</li>
-</ul>
-<p>Big thanks to <a href="https://twitter.com/herskinduk" target="_blank" rel="external">Kern</a> for setting up the MVC expert panel, without which this feature might well not exist. And we might still have <a href="https://kamsar.net/index.php/2015/02/sitecore-8-experience-editor-performance-optimization/">1:40 startup times</a> after a compile. :)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2016/09/Precompiled-Views-with-Sitecore-8-2/" data-id="cj94lkg2s004djgifghwe4myn" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2016/09/Nugetify-your-Sitecore-References/" data-id="cjim7nmth004c4kifxk76ubrn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1270,6 +1248,24 @@ Get-ChildItem -path &apos;.&apos; -Recurse -Include &apos;*.csproj&apos; | ForEa
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/JSS/">JSS</a></p>
+              <p class="item-title"><a href="/index.php/2018/04/Announcing-Sitecore-JSS-XSLT-Support/" class="title">Announcing Sitecore JSS XSLT Support</a></p>
+              <p class="item-date"><time datetime="2018-04-01T07:07:06.000Z" itemprop="datePublished">April 1, 2018</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
+              <p class="item-title"><a href="/index.php/2017/11/The-lazy-way-to-install-Sitecore-9/" class="title">The lazy developer&#39;s way to install Sitecore 9</a></p>
+              <p class="item-date"><time datetime="2017-11-02T00:37:11.000Z" itemprop="datePublished">November 1, 2017</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -1298,24 +1294,6 @@ Get-ChildItem -path &apos;.&apos; -Recurse -Include &apos;*.csproj&apos; | ForEa
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
-              <p class="item-title"><a href="/index.php/2017/10/Where-to-find-Sitecore-documentation/" class="title">Where to find Sitecore documentation</a></p>
-              <p class="item-date"><time datetime="2017-10-22T19:29:29.000Z" itemprop="datePublished">October 22, 2017</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a></p>
-              <p class="item-title"><a href="/index.php/2017/06/Unicorn-4-Released/" class="title">Unicorn 4 Released</a></p>
-              <p class="item-date"><time datetime="2017-06-22T19:57:43.000Z" itemprop="datePublished">June 22, 2017</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1325,7 +1303,7 @@ Get-ChildItem -path &apos;.&apos; -Recurse -Include &apos;*.csproj&apos; | ForEa
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/JSS/">JSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">39</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1340,7 +1318,7 @@ Get-ChildItem -path &apos;.&apos; -Recurse -Include &apos;*.csproj&apos; | ForEa
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      <p>&copy; 2017 Kam Figy</p>
+      <p>&copy; 2018 Kam Figy</p>
       <p><small>Opinions expressed on this blog are my own, and not necessarily those of my employer.</small></p>
      <p><small>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</small></p>
     </div>

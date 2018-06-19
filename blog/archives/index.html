@@ -81,7 +81,7 @@ ga('send', 'pageview');
   
   <div id="header-sub" class="header-sub header-inner">
     <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/JSS/">JSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
   
@@ -124,8 +124,140 @@ ga('send', 'pageview');
       
         <div class="archive-year-wrap">
           <i class="fa fa-calendar"></i>
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+    
+    <article id="post-Announcing-Sitecore-JSS-XSLT-Support" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2018/04/Announcing-Sitecore-JSS-XSLT-Support/">Announcing Sitecore JSS XSLT Support</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2018/04/Announcing-Sitecore-JSS-XSLT-Support/">
+    <time datetime="2018-04-01T07:07:06.000Z" itemprop="datePublished">April 1, 2018</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/JSS/">JSS</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Sitecore Team X is proud to announce the final public release of Sitecore JavaScript Services (JSS) with full XSLT 3.0 support!</p>
+<h2 id="Why-XSLT-3-0"><a href="#Why-XSLT-3-0" class="headerlink" title="Why XSLT 3.0?"></a>Why XSLT 3.0?</h2><p>XSLT 3.0 allows for <a href="https://www.xml.com/articles/2017/02/14/why-you-should-be-using-xslt-30/" target="_blank" rel="external">JSON transformations</a>, so you can use the full power of modern JSS while retaining the XSLT developer experience that Site Core developers know and love.</p>
+<p>Our XSLT 3.0 engine allows for client-side rendering by transforming hard-to-read JSON into plain, sensible XML using XSLT 3.0 standards-compliant JSON-to-XML transformations. Instead of ugly JSON, your JSS renderings can simple, easy to read XML like this:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">j:map</span> <span class="attr">xmlns:j</span>=<span class="string">"http://www.w3.org/2013/XSL/json"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">j:map</span> <span class="attr">key</span>=<span class="string">"fields"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">j:map</span> <span class="attr">key</span>=<span class="string">"title"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">j:map</span> <span class="attr">key</span>=<span class="string">"value"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">j:string</span> <span class="attr">key</span>=<span class="string">"editable"</span>&gt;</span>SiteCore Experience Platform + JSS + XSLT<span class="tag">&lt;/<span class="name">j:string</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">j:string</span> <span class="attr">key</span>=<span class="string">"value"</span>&gt;</span>SiteCore Experience Platform + JSS + XSLT<span class="tag">&lt;/<span class="name">j:string</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">j:map</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">j:map</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">j:map</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">j:map</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>It’s just as simple to make a JSS XSLT to transform your rendering output. Check out this super simple “hello world” sample:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">xsl:stylesheet</span> <span class="attr">xmlns:xsl</span>=<span class="string">"http://www.w3.org/1999/XSL/Transform"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:xs</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:math</span>=<span class="string">"http://www.w3.org/2005/xpath-functions/math"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:xd</span>=<span class="string">"http://www.oxygenxml.com/ns/doc/xsl"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:SiteCore</span>=<span class="string">"http://www.SiteCore.com/demandMore/xslt"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:h</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:fn</span>=<span class="string">"http://www.w3.org/2005/xpath-functions"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:j</span>=<span class="string">"http://www.w3.org/2005/xpath-functions"</span></span></div><div class="line"><span class="tag">    <span class="attr">exclude-result-prefixes</span>=<span class="string">"xs math xd h SiteCore"</span></span></div><div class="line"><span class="tag">    <span class="attr">version</span>=<span class="string">"3.0"</span></span></div><div class="line"><span class="tag">    <span class="attr">expand-text</span>=<span class="string">"yes"</span></span></div><div class="line"><span class="tag">    &gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">xsl:output</span>  <span class="attr">method</span>=<span class="string">"text"</span> <span class="attr">indent</span>=<span class="string">"yes"</span> <span class="attr">media-type</span>=<span class="string">"text/json"</span> <span class="attr">omit-xml-declaration</span>=<span class="string">"yes"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">xsl:variable</span> <span class="attr">name</span>=<span class="string">"fields-a"</span> <span class="attr">select</span>=<span class="string">"json-to-xml(/)"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">xsl:template</span> <span class="attr">match</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">xsl:variable</span> <span class="attr">name</span>=<span class="string">"fields-b"</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">xsl:apply-templates</span> <span class="attr">select</span>=<span class="string">"$fields-a/*"</span>/&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">xsl:variable</span>&gt;</span></div><div class="line">       &#123;xml-to-json($fields-b,map&#123;'indent':true()&#125;)&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">xsl:template</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">xsl:template</span> <span class="attr">match</span>=<span class="string">"/j:map"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">j:map</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">j:array</span> <span class="attr">key</span>=<span class="string">"fields"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">xsl:apply-templates</span> <span class="attr">select</span>=<span class="string">"j:map[@key='fields']/j:map"</span> <span class="attr">mode</span>=<span class="string">"rendering"</span>/&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">j:array</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">j:map</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">xsl:template</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">xsl:template</span> <span class="attr">match</span>=<span class="string">"j:map"</span> <span class="attr">mode</span>=<span class="string">"rendering"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">j:map</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">j:string</span> <span class="attr">key</span>=<span class="string">"title"</span>&gt;</span>&#123;j:string[@key='title:value']||' '||j:string</div><div class="line">[@key='title:editable']&#125;<span class="tag">&lt;/<span class="name">j:string</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">xsl:if</span> <span class="attr">test</span>=<span class="string">"j:boolean [@key='experienceEditor']"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">j:string</span> <span class="attr">key</span>=<span class="string">"editable"</span>&gt;</span>&#123;j:string</div><div class="line">[@key='editable']/text()&#125;<span class="tag">&lt;/<span class="name">j:string</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">xsl:if</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">j:map</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">xsl:template</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">xsl:stylesheet</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>JSON transformations allow XSLT 3.0 to be a transformative force on the modern web. Expect to see recruiters demand 10 years of XSLT 3.0 experience for Site-core candidates within the next year - this is a technology you will not want to miss out on learning.</p>
+<h2 id="Dynamic-XSLT-with-VBScript"><a href="#Dynamic-XSLT-with-VBScript" class="headerlink" title="Dynamic XSLT with VBScript"></a>Dynamic XSLT with VBScript</h2><p>Modern JavaScript is way too difficult, so we’ve implemented a feature that lets you define dynamic XSLT templates using ultra-modern VBScript:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">xsl:stylesheet</span> <span class="attr">xmlns:xsl</span>=<span class="string">"http://www.w3.org/1999/XSL/Transform"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:xs</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:math</span>=<span class="string">"http://www.w3.org/2005/xpath-functions/math"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:xd</span>=<span class="string">"http://www.oxygenxml.com/ns/doc/xsl"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:SiteCore</span>=<span class="string">"http://www.SiteCore.com/demandMore/xslt"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:h</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:fn</span>=<span class="string">"http://www.w3.org/2005/xpath-functions"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:j</span>=<span class="string">"http://www.w3.org/2005/xpath-functions"</span></span></div><div class="line"><span class="tag">    <span class="attr">exclude-result-prefixes</span>=<span class="string">"xs math xd h SiteCore"</span></span></div><div class="line"><span class="tag">    <span class="attr">version</span>=<span class="string">"3.0"</span></span></div><div class="line"><span class="tag">    <span class="attr">expand-text</span>=<span class="string">"yes"</span></span></div><div class="line"><span class="tag">    &gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">xsl:output</span>  <span class="attr">method</span>=<span class="string">"text"</span> <span class="attr">indent</span>=<span class="string">"yes"</span> <span class="attr">media-type</span>=<span class="string">"text/json"</span> <span class="attr">omit-xml-declaration</span>=<span class="string">"yes"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">xsl:variable</span> <span class="attr">name</span>=<span class="string">"fields-a"</span> <span class="attr">select</span>=<span class="string">"json-to-xml(/)"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">xsl:template</span> <span class="attr">match</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">xsl:variable</span> <span class="attr">name</span>=<span class="string">"fields-b"</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">xsl:apply-templates</span> <span class="attr">select</span>=<span class="string">"$fields-a/*"</span>/&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">xsl:variable</span>&gt;</span></div><div class="line">       &#123;xml-to-json($fields-b,map&#123;'indent':true()&#125;)&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">xsl:template</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">xsl:template</span> <span class="attr">match</span>=<span class="string">"/j:map"</span> <span class="attr">type</span>=<span class="string">"text/vbscript"</span>&gt;</span></div><div class="line">      Dim txtValue = xmlns.SiteCore.rendering.title.value</div><div class="line">      Dim txtEditable = xmlns.SiteCore.rendering.title.value</div><div class="line"></div><div class="line">      Sub xsltRender(txtVBProgrammers, txtAreDim)</div><div class="line">        document.write(txtVBProgrammers)</div><div class="line">      End Sub</div><div class="line">    <span class="tag">&lt;/<span class="name">xsl:template</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">xsl:template</span> <span class="attr">match</span>=<span class="string">"j:map"</span> <span class="attr">mode</span>=<span class="string">"rendering"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">j:map</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">j:string</span> <span class="attr">key</span>=<span class="string">"title"</span>&gt;</span>&#123;j:string[@key='title:value']||' '||j:string</div><div class="line">[@key='title:editable']&#125;<span class="tag">&lt;/<span class="name">j:string</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">xsl:if</span> <span class="attr">test</span>=<span class="string">"j:boolean [@key='experienceEditor']"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">j:string</span> <span class="attr">key</span>=<span class="string">"editable"</span>&gt;</span>&#123;j:string</div><div class="line">[@key='editable']/text()&#125;<span class="tag">&lt;/<span class="name">j:string</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">xsl:if</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">j:map</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">xsl:template</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">xsl:stylesheet</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>With a quick piece of simple VBScript like that, you’ll be making awesome JSS pages like this one in no time!</p>
+<img src="/index.php/2018/04/Announcing-Sitecore-JSS-XSLT-Support/xslt.png" alt="xslt.png" title="">
+<h2 id="How-can-I-get-this-XSLT-goodness"><a href="#How-can-I-get-this-XSLT-goodness" class="headerlink" title="How can I get this XSLT goodness?"></a>How can I get this XSLT goodness?</h2><p>Glad you asked. Download it <a href="https://goo.gl/EpcFui" target="_blank" rel="external">right here</a>!</p>
+<h2 id="What’s-next-for-JSS"><a href="#What’s-next-for-JSS" class="headerlink" title="What’s next for JSS"></a>What’s next for JSS</h2><p>The Sitecore JSS team is always looking for opportunities to improve JSS and make it compatible with the most modern technologies. Experimentation is already under way to add ColdFusion scripting support for XSLT 3 JSS renderings, and enable PHP server-side rendering for your SiteCore solutions.</p>
+<p>Just another way that we help you succeed in your Site core implementations.</p>
+<p><a href="https://goo.gl/2jTvPX" target="_blank" rel="external">Send us feedback on our roadmap</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2018/04/Announcing-Sitecore-JSS-XSLT-Support/" data-id="cjim7nmtx005h4kifkt3ntsik" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    
+    
+      
+        <div class="archive-year-wrap">
+          <i class="fa fa-calendar"></i>
           <a href="/archives/2017" class="archive-year">2017</a>
         </div>
+    
+    <article id="post-The-lazy-way-to-install-Sitecore-9" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2017/11/The-lazy-way-to-install-Sitecore-9/">The lazy developer&#39;s way to install Sitecore 9</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2017/11/The-lazy-way-to-install-Sitecore-9/">
+    <time datetime="2017-11-02T00:37:11.000Z" itemprop="datePublished">November 1, 2017</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Since Sitecore 9 was released, there’s been a lot of talk about the new installation techniques that it necessitates - namely, the move towards infrastructure as code and the Sitecore Install Framework (SIF). It’s no secret that installing Sitecore 9 can be a bit more difficult than previous versions, but it really doesn’t have to be.</p>
+<p>This is the part where you might be expecting me to announce some crazy script I wrote, but not this time because someone else already did the work. So let’s address the elephant in the room.</p>
+<h2 id="Solr-the-easy-way"><a href="#Solr-the-easy-way" class="headerlink" title="Solr the easy way"></a>Solr the easy way</h2><p>Back in the day <a href="https://kamsar.net/index.php/2016/03/The-Solr-Cannon/">I wrote some scripts to install Solr</a> using Bitnami. It worked, but I’d always wanted to find the time to make it simpler and less dependent on Bitnami and their notoriously hard to find older versions. Well <a href="https://jermdavis.wordpress.com/2017/10/30/low-effort-solr-installs/" target="_blank" rel="external">Jeremy Davis did exactly what I wanted to do</a> and scripted the whole Solr install, locally trusted SSL certificate, and installation as a service. You can also just <a href="https://gist.github.com/jermdavis/8d8a79f680505f1074153f02f70b9105" target="_blank" rel="external">skip straight to the gist of the PowerShell you need to run</a>.</p>
+<p>Seriously, it’s awesome and you should use it especially for local dev setups.</p>
+<p>A few things I noted when I used it:</p>
+<ul>
+<li>Change the download URLs for Solr and NSSM to be https (encrypted). They work fine that way.</li>
+<li>You must install the Java Runtime Environment (JRE) first and plug in the right version - it won’t do it for you</li>
+<li>Make sure to add the <code>$SolrHost</code> value to your hosts file before you run the script so that it can resolve with the SSL certificate correctly (it will be bound to that name; don’t use <code>localhost</code>).</li>
+</ul>
+<h2 id="SIF-the-easy-way-with-SIFless"><a href="#SIF-the-easy-way-with-SIFless" class="headerlink" title="SIF the easy way with SIFless"></a>SIF the easy way with SIFless</h2><p>SIF is a pretty amazing tool, but it has two shortcomings: one, that it’s great for automated infrastructure but not so great for a quick local setup and two, that it doesn’t yet have an uninstall feature. Well <a href="http://www.rockpapersitecore.com/2017/10/introducing-sif-less-for-easy-sitecore-9-installation/" target="_blank" rel="external">Rob Ahnemann wrote a handy GUI for SIF called SIFless</a> that fixes both of those issues, making quick setups with mostly default settings easy <em>and</em> generating hackable SIF PowerShell scripts that let you do whatever advanced things you want after using the GUI to get started. And it generates uninstall scripts too that get rid of the windows services, solr cores, and other artifacts that are left when you want to tear down that test site.</p>
+<p>A few things to be aware of with SIFless:</p>
+<ul>
+<li>Despite the amusing name, SIFless <em>does</em> require SIF to be installed!</li>
+<li>The Solr URL needs to be the path to the Solr admin panel (e.g. not <code>https://mysolr:8983</code>, but <code>https://mysolr:8983/solr</code>)</li>
+<li>The Solr physical path needs to be to the root of the Solr instance (if it’s the right place you’ll see ‘bin’ and ‘server’ folders; if you used the script above with defaults this would be <code>C:\solr\solr-6.6.2</code>)</li>
+</ul>
+<h2 id="Go-forth-and-use-Sitecore-9"><a href="#Go-forth-and-use-Sitecore-9" class="headerlink" title="Go forth and use Sitecore 9"></a>Go forth and use Sitecore 9</h2><p>Using these two tools I went from having no Solr and no Sitecore installations to having a fully operational <del>battle station</del> Sitecore 9 instance with xConnect in about 45 minutes. And that includes debugging my own silly mistakes. I bet you can do it faster. Get thee to a PowerShell console!</p>
+<p><img src="https://media.giphy.com/media/cCba2gQCxNpsc/giphy.gif" alt="time to get SIFty"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2017/11/The-lazy-way-to-install-Sitecore-9/" data-id="cjim7nmtw005f4kifayd3oggc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    
     
     <article id="post-I-m-a-Sitecorian" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -182,7 +314,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/10/I-m-a-Sitecorian/" data-id="cj94lkylz005vjgif3xfggbha" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/10/I-m-a-Sitecorian/" data-id="cjim7nmty005j4kiffudxnrrp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -232,7 +364,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/10/Quickly-add-SSL-to-Solr/" data-id="cj94lkg36005gjgifsyh7gn9j" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/10/Quickly-add-SSL-to-Solr/" data-id="cjim7nmu0005m4kifg7vxpdlx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -347,7 +479,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/10/All-about-xConnect-Security/" data-id="cj94lkg35005ejgiflgiyiq27" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/10/All-about-xConnect-Security/" data-id="cjim7nmtv005c4kifm4unrkwq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -407,7 +539,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/10/Where-to-find-Sitecore-documentation/" data-id="cj94lkg35005cjgifvd8yok8v" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/10/Where-to-find-Sitecore-documentation/" data-id="cjim7nmtv005d4kifvyz32qp3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -519,7 +651,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/06/Unicorn-4-Released/" data-id="cj94lkg340059jgif8g4otxwx" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/06/Unicorn-4-Released/" data-id="cjim7nmtu005a4kif8u4xyh75" class="article-share-link">Share</a>
       
       
     </footer>
@@ -579,7 +711,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/06/Simplifying-Contact-Facets-with-C-6/" data-id="cj94lkg330055jgifsz1v11pd" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/06/Simplifying-Contact-Facets-with-C-6/" data-id="cjim7nmtt00564kifjwvr81u9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -660,7 +792,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Part-III-Configuration-Enhancements/" data-id="cj94lkg310053jgif51ke2zkq" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Part-III-Configuration-Enhancements/" data-id="cjim7nmtt00584kifyx2kfin4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -717,128 +849,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Preview-Part-2-5-Generating-Packages-with-SPE/" data-id="cj94lkg300051jgif61ecyxwj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    
-    
-    <article id="post-Where-s-the-comments" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/index.php/2017/02/Where-s-the-comments/">Where&#39;s the comments?</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          <div class="article-date">
-  <i class="fa fa-calendar"></i>
-  <a href="/index.php/2017/02/Where-s-the-comments/">
-    <time datetime="2017-02-07T03:20:50.000Z" itemprop="datePublished">February 6, 2017</time>
-  </a>
-</div>
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Because of low utilization and the fact that Disqus is about to start <a href="http://www.daedtech.com/im-quitting-disqus/" target="_blank" rel="external">spamming you with wonderful ads</a>, I’ve decided to turn comments off on my blog. </p>
-<p>That’s not to say you’re not allowed to comment, because you can <a href="https://twitter.com/kamsar" target="_blank" rel="external">tweet</a> your comments or join <a href="https://www.akshaysura.com/2015/10/27/how-to-join-sitecore-slack-community-chat/" target="_blank" rel="external">Sitecore Community Slack</a> and comment all day.</p>
-<p>In other news the blog is now fully SSL enabled, courtesy of <a href="https://www.cloudflare.com/" target="_blank" rel="external">CloudFlare</a>.</p>
-<p>Happy hacking!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/02/Where-s-the-comments/" data-id="cj94lkg30004zjgifz48oa7u7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    
-    
-    <article id="post-Unicorn-4-Preview-Part-2-SPE-Support" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/">Unicorn 4 Preview, Part 2: SPE Support</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          <div class="article-date">
-  <i class="fa fa-calendar"></i>
-  <a href="/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/">
-    <time datetime="2017-02-06T23:16:03.000Z" itemprop="datePublished">February 6, 2017</time>
-  </a>
-</div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Unicorn 4 will feature full support for <a href="https://www.gitbook.com/book/sitecorepowershell/sitecore-powershell-extensions/details" target="_blank" rel="external">Sitecore PowerShell Extensions</a> (SPE) to perform Unicorn actions. If you’ve ever wanted deep programmatic control over Unicorn (for example “I want to sync Foundation.*”), or if you’ve got an existing deployment process that’s already using SPE Remoting to perform deployment tasks - this is for you.</p>
-<img src="/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/spe.png" alt="spe.png" title="">
-<p>To use Unicorn cmdlets in SPE, all that is necessary is to install the SPE package along with Unicorn. Unicorn 4 comes with configuration that remains quiescent until SPE is installed that will automatically enable the Unicorn cmdlets. In case that’s not clear enough: SPE is an optional addition and will not be required to use Unicorn 4.</p>
-<p>So what can we do with Unicorn cmdlets for SPE?</p>
-<h2 id="Configurations"><a href="#Configurations" class="headerlink" title="Configurations"></a>Configurations</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Get one</span></div><div class="line">Get-UnicornConfiguration <span class="string">"Foundation.Foo"</span></div><div class="line"></div><div class="line"><span class="comment"># Get by filter</span></div><div class="line">Get-UnicornConfiguration <span class="string">"Foundation.*"</span></div><div class="line"></div><div class="line"><span class="comment"># Get all</span></div><div class="line">Get-UnicornConfiguration</div></pre></td></tr></table></figure>
-<p>The result of <code>Get-UnicornConfiguration</code> is an array of <code>IConfiguration</code> objects, which you can spelunk (e.g. with their <code>Name</code> property) or pass to other cmdlets. Configurations are read only.</p>
-<h2 id="Syncing"><a href="#Syncing" class="headerlink" title="Syncing"></a>Syncing</h2><p>Sync cmdlets make use of <a href="https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.utility/write-progress" target="_blank" rel="external">Write-Progress</a> to provide a similar progress bar experience to the Control Panel, albeit a bit less responsive.</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Sync one</span></div><div class="line">Sync-UnicornConfiguration <span class="string">"Foundation.Foo"</span></div><div class="line"></div><div class="line"><span class="comment"># Sync multiple by name</span></div><div class="line">Sync-UnicornConfiguration @(<span class="string">"Foundation.Foo"</span>, <span class="string">"Foundation.Bar"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Sync multiple from pipeline</span></div><div class="line">Get-UnicornConfiguration <span class="string">"Foundation.*"</span> | Sync-UnicornConfiguration</div><div class="line"></div><div class="line"><span class="comment"># Sync all, except transparent sync-enabled configurations</span></div><div class="line">Get-UnicornConfiguration | Sync-UnicornConfiguration -SkipTransparent</div><div class="line"></div><div class="line"><span class="comment"># Optionally set log output level (Debug, Info, Warn, Error)</span></div><div class="line">Sync-UnicornConfiguration -LogLevel Warn</div></pre></td></tr></table></figure>
-<p>For example:</p>
-<img src="/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/sync.png" alt="sync.png" title="">
-<h2 id="Partial-Syncing"><a href="#Partial-Syncing" class="headerlink" title="Partial Syncing"></a>Partial Syncing</h2><p>Sometimes you want to only sync a portion of a configuration. You can do that with PowerShell using <code>Sync-UnicornItem</code>.</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Sync a single item (note: must be under Unicorn control)</span></div><div class="line"><span class="built_in">Get-Item</span> <span class="string">"/sitecore/content"</span> | Sync-UnicornItem</div><div class="line"></div><div class="line"><span class="comment"># Sync multiple single items (note: all must be under Unicorn control)</span></div><div class="line"><span class="built_in">Get-ChildItem</span> <span class="string">"/sitecore/content"</span> | Sync-UnicornItem </div><div class="line"></div><div class="line"><span class="comment"># Sync an entire item tree, show only warnings and errors</span></div><div class="line"><span class="built_in">Get-Item</span> <span class="string">"/sitecore/content"</span> | Sync-UnicornItem -Recurse -LogLevel Warn</div></pre></td></tr></table></figure>
-<h2 id="Reserializing"><a href="#Reserializing" class="headerlink" title="Reserializing"></a>Reserializing</h2><p>The cmdlet to reserialize is called <code>Export-UnicornConfiguration</code> because <code>Reserialize</code> is not an <a href="https://msdn.microsoft.com/en-us/powershell/reference/5.0/microsoft.powershell.core/functions/get-verb" target="_blank" rel="external">approved verb</a> for a cmdlet :)</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Reserialize one</span></div><div class="line">Export-UnicornConfiguration <span class="string">"Foundation.Foo"</span></div><div class="line"></div><div class="line"><span class="comment"># Reserialize multiple by name</span></div><div class="line">Export-UnicornConfiguration @(<span class="string">"Foundation.Foo"</span>, <span class="string">"Foundation.Bar"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Reserialize from pipeline</span></div><div class="line">Get-UnicornConfiguration <span class="string">"Foundation.*"</span> | Export-UnicornConfiguration</div></pre></td></tr></table></figure>
-<h2 id="Partial-Reserializing"><a href="#Partial-Reserializing" class="headerlink" title="Partial Reserializing"></a>Partial Reserializing</h2><p>Sometimes you want to only reserialize a portion of a configuration. You can do that with PowerShell using <code>Export-UnicornItem</code>.</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Reserialize a single item (note: must be under Unicorn control)</span></div><div class="line"><span class="built_in">Get-Item</span> <span class="string">"/sitecore/content"</span> | Export-UnicornItem</div><div class="line"></div><div class="line"><span class="comment"># Reserialize multiple single items (note: all must be under Unicorn control)</span></div><div class="line"><span class="built_in">Get-ChildItem</span> <span class="string">"/sitecore/content"</span> | Export-UnicornItem </div><div class="line"></div><div class="line"><span class="comment"># Reserialize an entire item tree</span></div><div class="line"><span class="built_in">Get-Item</span> <span class="string">"/sitecore/content"</span> | Export-UnicornItem -Recurse</div></pre></td></tr></table></figure>
-<h2 id="Converting-to-Raw-YAML"><a href="#Converting-to-Raw-YAML" class="headerlink" title="Converting to Raw YAML"></a>Converting to Raw YAML</h2><p>You can also dump out the raw YAML for an item - or items. The output of <code>ConvertTo-RainbowYaml</code> is either a string or array of strings depending on how many items were passed to it. Note that unless <code>-Raw</code> is specified, the default field formatters and excluded fields Unicorn ships with are used. These are non-customizable and do not follow Unicorn defaults if changed.</p>
-<img src="/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/enyaml.png" alt="enyaml.png" title="">
-<p>This capability enables casual use of YAML serialization without having to use Unicorn or set up a configuration. It’s not a good solution for general purpose synchronization though simply because the nuances of storing trees of items in files are many. Very many. But I’m curious what uses people will find for this :)</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Convert an item to YAML format (always uses default excludes and field formatters)</span></div><div class="line"><span class="built_in">Get-Item</span> <span class="string">"/sitecore/content"</span> | ConvertTo-RainbowYaml</div><div class="line"></div><div class="line"><span class="comment"># Convert many items to YAML strings</span></div><div class="line"><span class="built_in">Get-ChildItem</span> <span class="string">"/sitecore/content"</span> | ConvertTo-RainbowYaml</div><div class="line"></div><div class="line"><span class="comment"># Disable all field formats and field filtering</span></div><div class="line"><span class="comment"># (e.g. disable XML pretty printing,</span></div><div class="line"><span class="comment"># and don't ignore the Revision and Modified fields, etc)</span></div><div class="line"><span class="built_in">Get-Item</span> <span class="string">"/sitecore/content"</span> | ConvertTo-RainbowYaml -Raw</div></pre></td></tr></table></figure>
-<h2 id="Converting-from-Raw-YAML"><a href="#Converting-from-Raw-YAML" class="headerlink" title="Converting from Raw YAML"></a>Converting from Raw YAML</h2><img src="/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/convertfrom.png" alt="convertfrom.png" title="">
-<p>In Rainbow the <code>IItemData</code> interface is the internal unit of an Item. The <code>ConvertFrom-RainbowYaml</code> cmdlet converts raw YAML string(s) into <code>IItemData</code> which you can then spelunk as objects or deserialize as needed.</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Get IItemDatas from YAML variable</span></div><div class="line"><span class="variable">$rawYaml</span> | ConvertFrom-RainbowYaml</div><div class="line"></div><div class="line"><span class="comment"># Get IItemData and disable all field filters</span></div><div class="line"><span class="comment"># (use this if you ran ConvertTo-RainbowYaml with -Raw)</span></div><div class="line"><span class="variable">$yaml</span> | ConvertFrom-RainbowYaml -Raw</div></pre></td></tr></table></figure>
-<h2 id="Deserialization"><a href="#Deserialization" class="headerlink" title="Deserialization"></a>Deserialization</h2><p>To deserialize items, use <code>Import-RainbowItem</code> which takes <code>IItemData</code> items in and deserializes them into the Sitecore database. No comparison is done before deserialization, which makes this a bit slower than a full Unicorn sync.</p>
-<img src="/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/elephant.png" alt="elephant.png" title="">
-<p>As a shorthand <code>Import-RainbowItem</code> also accepts YAML strings, however as <code>IItemData</code> can represent any sort of item, it is not limited only to deserializing YAML-sourced items.</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deserialize IItemDatas from ConvertFrom-RainbowYaml</span></div><div class="line"><span class="variable">$rawYaml</span> | ConvertFrom-RainbowYaml | Import-RainbowItem</div><div class="line"></div><div class="line"><span class="comment"># Deserialize raw YAML from pipeline into Sitecore </span></div><div class="line"><span class="comment"># Shortcut bypassing ConvertFrom-RainbowYaml</span></div><div class="line"><span class="variable">$yaml</span> | Import-RainbowItem</div><div class="line"></div><div class="line"><span class="comment"># Deserialize and disable all field filters</span></div><div class="line"><span class="comment"># (use this if you ran ConvertTo-RainbowYaml with -Raw)</span></div><div class="line"><span class="variable">$yaml</span> | Import-RainbowItem -Raw</div><div class="line"></div><div class="line"><span class="comment"># Deserialize multiple at once</span></div><div class="line"><span class="variable">$yamlStringArray</span> | Import-RainbowItem</div><div class="line"></div><div class="line"><span class="comment"># Complete example that does nothing but eat CPU</span></div><div class="line"><span class="built_in">Get-ChildItem</span> <span class="string">"/sitecore/content"</span> | ConvertTo-RainbowYaml | Import-RainbowItem</div></pre></td></tr></table></figure>
-<h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions?"></a>Questions?</h2><h3 id="Does-this-mean-the-existing-PowerShell-Remote-API-is-obsolete"><a href="#Does-this-mean-the-existing-PowerShell-Remote-API-is-obsolete" class="headerlink" title="Does this mean the existing PowerShell Remote API is obsolete?"></a>Does this mean the existing <a href="https://github.com/kamsar/Unicorn/tree/master/doc/PowerShell%20Remote%20Scripting" target="_blank" rel="external">PowerShell Remote API</a> is obsolete?</h3><p>No. The existing PowerShell API uses Windows PowerShell to provide remote syncing capability and does not require installing <em>Sitecore</em> PowerShell. They serve different parallel purposes, and both are here to stay.</p>
-<h3 id="You-have-no-gifs-or-memes-in-this-post-Is-something-wrong"><a href="#You-have-no-gifs-or-memes-in-this-post-Is-something-wrong" class="headerlink" title="You have no gifs or memes in this post. Is something wrong?"></a>You have no gifs or memes in this post. Is something wrong?</h3><p><img src="https://i.giphy.com/qZZAQDUNeXams.gif" alt="you mad?"></p>
-<h3 id="Can-I-have-a-beta-yet"><a href="#Can-I-have-a-beta-yet" class="headerlink" title="Can I have a beta yet?"></a>Can I have a beta yet?</h3><p>I’ll be releasing a beta once I finish the features I have planned. Yep, there’s at least one more ;)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/" data-id="cj94lkg30004xjgifbv3i4iht" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Preview-Part-2-5-Generating-Packages-with-SPE/" data-id="cjim7nmtr00524kifnzcbijau" class="article-share-link">Share</a>
       
       
     </footer>
@@ -862,6 +873,24 @@ ga('send', 'pageview');
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/JSS/">JSS</a></p>
+              <p class="item-title"><a href="/index.php/2018/04/Announcing-Sitecore-JSS-XSLT-Support/" class="title">Announcing Sitecore JSS XSLT Support</a></p>
+              <p class="item-date"><time datetime="2018-04-01T07:07:06.000Z" itemprop="datePublished">April 1, 2018</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
+              <p class="item-title"><a href="/index.php/2017/11/The-lazy-way-to-install-Sitecore-9/" class="title">The lazy developer&#39;s way to install Sitecore 9</a></p>
+              <p class="item-date"><time datetime="2017-11-02T00:37:11.000Z" itemprop="datePublished">November 1, 2017</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -890,24 +919,6 @@ ga('send', 'pageview');
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
-              <p class="item-title"><a href="/index.php/2017/10/Where-to-find-Sitecore-documentation/" class="title">Where to find Sitecore documentation</a></p>
-              <p class="item-date"><time datetime="2017-10-22T19:29:29.000Z" itemprop="datePublished">October 22, 2017</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a></p>
-              <p class="item-title"><a href="/index.php/2017/06/Unicorn-4-Released/" class="title">Unicorn 4 Released</a></p>
-              <p class="item-date"><time datetime="2017-06-22T19:57:43.000Z" itemprop="datePublished">June 22, 2017</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -917,7 +928,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/JSS/">JSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">39</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -932,7 +943,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      <p>&copy; 2017 Kam Figy</p>
+      <p>&copy; 2018 Kam Figy</p>
       <p><small>Opinions expressed on this blog are my own, and not necessarily those of my employer.</small></p>
      <p><small>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</small></p>
     </div>

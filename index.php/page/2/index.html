@@ -112,6 +112,123 @@ ga('send', 'pageview');
 </aside>
       <section id="main">
   
+    <article id="post-Where-s-the-comments" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2017/02/Where-s-the-comments/">Where&#39;s the comments?</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2017/02/Where-s-the-comments/">
+    <time datetime="2017-02-07T03:20:50.000Z" itemprop="datePublished">February 6, 2017</time>
+  </a>
+</div>
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Because of low utilization and the fact that Disqus is about to start <a href="http://www.daedtech.com/im-quitting-disqus/" target="_blank" rel="external">spamming you with wonderful ads</a>, I’ve decided to turn comments off on my blog. </p>
+<p>That’s not to say you’re not allowed to comment, because you can <a href="https://twitter.com/kamsar" target="_blank" rel="external">tweet</a> your comments or join <a href="https://www.akshaysura.com/2015/10/27/how-to-join-sitecore-slack-community-chat/" target="_blank" rel="external">Sitecore Community Slack</a> and comment all day.</p>
+<p>In other news the blog is now fully SSL enabled, courtesy of <a href="https://www.cloudflare.com/" target="_blank" rel="external">CloudFlare</a>.</p>
+<p>Happy hacking!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2017/02/Where-s-the-comments/" data-id="cjim7nmts00544kifju0ayrm9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Unicorn-4-Preview-Part-2-SPE-Support" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/">Unicorn 4 Preview, Part 2: SPE Support</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/">
+    <time datetime="2017-02-06T23:16:03.000Z" itemprop="datePublished">February 6, 2017</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Unicorn 4 will feature full support for <a href="https://www.gitbook.com/book/sitecorepowershell/sitecore-powershell-extensions/details" target="_blank" rel="external">Sitecore PowerShell Extensions</a> (SPE) to perform Unicorn actions. If you’ve ever wanted deep programmatic control over Unicorn (for example “I want to sync Foundation.*”), or if you’ve got an existing deployment process that’s already using SPE Remoting to perform deployment tasks - this is for you.</p>
+<img src="/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/spe.png" alt="spe.png" title="">
+<p>To use Unicorn cmdlets in SPE, all that is necessary is to install the SPE package along with Unicorn. Unicorn 4 comes with configuration that remains quiescent until SPE is installed that will automatically enable the Unicorn cmdlets. In case that’s not clear enough: SPE is an optional addition and will not be required to use Unicorn 4.</p>
+<p>So what can we do with Unicorn cmdlets for SPE?</p>
+<h2 id="Configurations"><a href="#Configurations" class="headerlink" title="Configurations"></a>Configurations</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Get one</span></div><div class="line">Get-UnicornConfiguration <span class="string">"Foundation.Foo"</span></div><div class="line"></div><div class="line"><span class="comment"># Get by filter</span></div><div class="line">Get-UnicornConfiguration <span class="string">"Foundation.*"</span></div><div class="line"></div><div class="line"><span class="comment"># Get all</span></div><div class="line">Get-UnicornConfiguration</div></pre></td></tr></table></figure>
+<p>The result of <code>Get-UnicornConfiguration</code> is an array of <code>IConfiguration</code> objects, which you can spelunk (e.g. with their <code>Name</code> property) or pass to other cmdlets. Configurations are read only.</p>
+<h2 id="Syncing"><a href="#Syncing" class="headerlink" title="Syncing"></a>Syncing</h2><p>Sync cmdlets make use of <a href="https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.utility/write-progress" target="_blank" rel="external">Write-Progress</a> to provide a similar progress bar experience to the Control Panel, albeit a bit less responsive.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Sync one</span></div><div class="line">Sync-UnicornConfiguration <span class="string">"Foundation.Foo"</span></div><div class="line"></div><div class="line"><span class="comment"># Sync multiple by name</span></div><div class="line">Sync-UnicornConfiguration @(<span class="string">"Foundation.Foo"</span>, <span class="string">"Foundation.Bar"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Sync multiple from pipeline</span></div><div class="line">Get-UnicornConfiguration <span class="string">"Foundation.*"</span> | Sync-UnicornConfiguration</div><div class="line"></div><div class="line"><span class="comment"># Sync all, except transparent sync-enabled configurations</span></div><div class="line">Get-UnicornConfiguration | Sync-UnicornConfiguration -SkipTransparent</div><div class="line"></div><div class="line"><span class="comment"># Optionally set log output level (Debug, Info, Warn, Error)</span></div><div class="line">Sync-UnicornConfiguration -LogLevel Warn</div></pre></td></tr></table></figure>
+<p>For example:</p>
+<img src="/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/sync.png" alt="sync.png" title="">
+<h2 id="Partial-Syncing"><a href="#Partial-Syncing" class="headerlink" title="Partial Syncing"></a>Partial Syncing</h2><p>Sometimes you want to only sync a portion of a configuration. You can do that with PowerShell using <code>Sync-UnicornItem</code>.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Sync a single item (note: must be under Unicorn control)</span></div><div class="line"><span class="built_in">Get-Item</span> <span class="string">"/sitecore/content"</span> | Sync-UnicornItem</div><div class="line"></div><div class="line"><span class="comment"># Sync multiple single items (note: all must be under Unicorn control)</span></div><div class="line"><span class="built_in">Get-ChildItem</span> <span class="string">"/sitecore/content"</span> | Sync-UnicornItem </div><div class="line"></div><div class="line"><span class="comment"># Sync an entire item tree, show only warnings and errors</span></div><div class="line"><span class="built_in">Get-Item</span> <span class="string">"/sitecore/content"</span> | Sync-UnicornItem -Recurse -LogLevel Warn</div></pre></td></tr></table></figure>
+<h2 id="Reserializing"><a href="#Reserializing" class="headerlink" title="Reserializing"></a>Reserializing</h2><p>The cmdlet to reserialize is called <code>Export-UnicornConfiguration</code> because <code>Reserialize</code> is not an <a href="https://msdn.microsoft.com/en-us/powershell/reference/5.0/microsoft.powershell.core/functions/get-verb" target="_blank" rel="external">approved verb</a> for a cmdlet :)</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Reserialize one</span></div><div class="line">Export-UnicornConfiguration <span class="string">"Foundation.Foo"</span></div><div class="line"></div><div class="line"><span class="comment"># Reserialize multiple by name</span></div><div class="line">Export-UnicornConfiguration @(<span class="string">"Foundation.Foo"</span>, <span class="string">"Foundation.Bar"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Reserialize from pipeline</span></div><div class="line">Get-UnicornConfiguration <span class="string">"Foundation.*"</span> | Export-UnicornConfiguration</div></pre></td></tr></table></figure>
+<h2 id="Partial-Reserializing"><a href="#Partial-Reserializing" class="headerlink" title="Partial Reserializing"></a>Partial Reserializing</h2><p>Sometimes you want to only reserialize a portion of a configuration. You can do that with PowerShell using <code>Export-UnicornItem</code>.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Reserialize a single item (note: must be under Unicorn control)</span></div><div class="line"><span class="built_in">Get-Item</span> <span class="string">"/sitecore/content"</span> | Export-UnicornItem</div><div class="line"></div><div class="line"><span class="comment"># Reserialize multiple single items (note: all must be under Unicorn control)</span></div><div class="line"><span class="built_in">Get-ChildItem</span> <span class="string">"/sitecore/content"</span> | Export-UnicornItem </div><div class="line"></div><div class="line"><span class="comment"># Reserialize an entire item tree</span></div><div class="line"><span class="built_in">Get-Item</span> <span class="string">"/sitecore/content"</span> | Export-UnicornItem -Recurse</div></pre></td></tr></table></figure>
+<h2 id="Converting-to-Raw-YAML"><a href="#Converting-to-Raw-YAML" class="headerlink" title="Converting to Raw YAML"></a>Converting to Raw YAML</h2><p>You can also dump out the raw YAML for an item - or items. The output of <code>ConvertTo-RainbowYaml</code> is either a string or array of strings depending on how many items were passed to it. Note that unless <code>-Raw</code> is specified, the default field formatters and excluded fields Unicorn ships with are used. These are non-customizable and do not follow Unicorn defaults if changed.</p>
+<img src="/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/enyaml.png" alt="enyaml.png" title="">
+<p>This capability enables casual use of YAML serialization without having to use Unicorn or set up a configuration. It’s not a good solution for general purpose synchronization though simply because the nuances of storing trees of items in files are many. Very many. But I’m curious what uses people will find for this :)</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Convert an item to YAML format (always uses default excludes and field formatters)</span></div><div class="line"><span class="built_in">Get-Item</span> <span class="string">"/sitecore/content"</span> | ConvertTo-RainbowYaml</div><div class="line"></div><div class="line"><span class="comment"># Convert many items to YAML strings</span></div><div class="line"><span class="built_in">Get-ChildItem</span> <span class="string">"/sitecore/content"</span> | ConvertTo-RainbowYaml</div><div class="line"></div><div class="line"><span class="comment"># Disable all field formats and field filtering</span></div><div class="line"><span class="comment"># (e.g. disable XML pretty printing,</span></div><div class="line"><span class="comment"># and don't ignore the Revision and Modified fields, etc)</span></div><div class="line"><span class="built_in">Get-Item</span> <span class="string">"/sitecore/content"</span> | ConvertTo-RainbowYaml -Raw</div></pre></td></tr></table></figure>
+<h2 id="Converting-from-Raw-YAML"><a href="#Converting-from-Raw-YAML" class="headerlink" title="Converting from Raw YAML"></a>Converting from Raw YAML</h2><img src="/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/convertfrom.png" alt="convertfrom.png" title="">
+<p>In Rainbow the <code>IItemData</code> interface is the internal unit of an Item. The <code>ConvertFrom-RainbowYaml</code> cmdlet converts raw YAML string(s) into <code>IItemData</code> which you can then spelunk as objects or deserialize as needed.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Get IItemDatas from YAML variable</span></div><div class="line"><span class="variable">$rawYaml</span> | ConvertFrom-RainbowYaml</div><div class="line"></div><div class="line"><span class="comment"># Get IItemData and disable all field filters</span></div><div class="line"><span class="comment"># (use this if you ran ConvertTo-RainbowYaml with -Raw)</span></div><div class="line"><span class="variable">$yaml</span> | ConvertFrom-RainbowYaml -Raw</div></pre></td></tr></table></figure>
+<h2 id="Deserialization"><a href="#Deserialization" class="headerlink" title="Deserialization"></a>Deserialization</h2><p>To deserialize items, use <code>Import-RainbowItem</code> which takes <code>IItemData</code> items in and deserializes them into the Sitecore database. No comparison is done before deserialization, which makes this a bit slower than a full Unicorn sync.</p>
+<img src="/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/elephant.png" alt="elephant.png" title="">
+<p>As a shorthand <code>Import-RainbowItem</code> also accepts YAML strings, however as <code>IItemData</code> can represent any sort of item, it is not limited only to deserializing YAML-sourced items.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deserialize IItemDatas from ConvertFrom-RainbowYaml</span></div><div class="line"><span class="variable">$rawYaml</span> | ConvertFrom-RainbowYaml | Import-RainbowItem</div><div class="line"></div><div class="line"><span class="comment"># Deserialize raw YAML from pipeline into Sitecore </span></div><div class="line"><span class="comment"># Shortcut bypassing ConvertFrom-RainbowYaml</span></div><div class="line"><span class="variable">$yaml</span> | Import-RainbowItem</div><div class="line"></div><div class="line"><span class="comment"># Deserialize and disable all field filters</span></div><div class="line"><span class="comment"># (use this if you ran ConvertTo-RainbowYaml with -Raw)</span></div><div class="line"><span class="variable">$yaml</span> | Import-RainbowItem -Raw</div><div class="line"></div><div class="line"><span class="comment"># Deserialize multiple at once</span></div><div class="line"><span class="variable">$yamlStringArray</span> | Import-RainbowItem</div><div class="line"></div><div class="line"><span class="comment"># Complete example that does nothing but eat CPU</span></div><div class="line"><span class="built_in">Get-ChildItem</span> <span class="string">"/sitecore/content"</span> | ConvertTo-RainbowYaml | Import-RainbowItem</div></pre></td></tr></table></figure>
+<h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions?"></a>Questions?</h2><h3 id="Does-this-mean-the-existing-PowerShell-Remote-API-is-obsolete"><a href="#Does-this-mean-the-existing-PowerShell-Remote-API-is-obsolete" class="headerlink" title="Does this mean the existing PowerShell Remote API is obsolete?"></a>Does this mean the existing <a href="https://github.com/kamsar/Unicorn/tree/master/doc/PowerShell%20Remote%20Scripting" target="_blank" rel="external">PowerShell Remote API</a> is obsolete?</h3><p>No. The existing PowerShell API uses Windows PowerShell to provide remote syncing capability and does not require installing <em>Sitecore</em> PowerShell. They serve different parallel purposes, and both are here to stay.</p>
+<h3 id="You-have-no-gifs-or-memes-in-this-post-Is-something-wrong"><a href="#You-have-no-gifs-or-memes-in-this-post-Is-something-wrong" class="headerlink" title="You have no gifs or memes in this post. Is something wrong?"></a>You have no gifs or memes in this post. Is something wrong?</h3><p><img src="https://i.giphy.com/qZZAQDUNeXams.gif" alt="you mad?"></p>
+<h3 id="Can-I-have-a-beta-yet"><a href="#Can-I-have-a-beta-yet" class="headerlink" title="Can I have a beta yet?"></a>Can I have a beta yet?</h3><p>I’ll be releasing a beta once I finish the features I have planned. Yep, there’s at least one more ;)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Preview-Part-2-SPE-Support/" data-id="cjim7nmtq00504kifv9popurm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Unicorn-4-Preview-Project-Dilithium" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -176,7 +293,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Preview-Project-Dilithium/" data-id="cj94lkg2y004tjgifqk6xzopu" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/02/Unicorn-4-Preview-Project-Dilithium/" data-id="cjim7nmtp004w4kifwbpe8kkx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -274,7 +391,7 @@ public ActionResult Rendering()
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/01/Controlling-Rendering-Order-in-Sitecore-MVC/" data-id="cj94lkg2z004vjgif5tt048gr" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/01/Controlling-Rendering-Order-in-Sitecore-MVC/" data-id="cjim7nmtq004y4kif90pzqzxu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -368,7 +485,7 @@ item.Editing.EndEdit();
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2017/01/EditContext-Considered-Harmful/" data-id="cj94lkg2w004rjgif9bbxky1g" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2017/01/EditContext-Considered-Harmful/" data-id="cjim7nmtm004q4kifx9ptn7ci" class="article-share-link">Share</a>
       
       
     </footer>
@@ -436,7 +553,7 @@ item.Editing.EndEdit();
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2016/11/Synthesis-8-2-2-Released/" data-id="cj94lkg2w004njgifegz1je5g" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2016/11/Synthesis-8-2-2-Released/" data-id="cjim7nmto004u4kifc3agmppm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -593,7 +710,7 @@ public void DoAThing(string attribute)
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2016/11/The-Basics-Conditional-Inversion/" data-id="cj94lkg2v004ljgife7uiu14a" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2016/11/The-Basics-Conditional-Inversion/" data-id="cjim7nmto004s4kifv3vdex06" class="article-share-link">Share</a>
       
       
     </footer>
@@ -699,7 +816,7 @@ public void DoAThing(string attribute)
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2016/10/Unicorn-3-3-Released/" data-id="cj94lkg2w004pjgif8jj7mz6g" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2016/10/Unicorn-3-3-Released/" data-id="cjim7nmtl004o4kifias0s8dp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -776,7 +893,7 @@ public void DoAThing(string attribute)
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2016/10/Dianoga-3-0-is-released/" data-id="cj94lkg2t004jjgifnps7llfm" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2016/10/Dianoga-3-0-is-released/" data-id="cjim7nmtl004m4kifrm698djo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -841,513 +958,7 @@ public void DoAThing(string attribute)
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2016/10/Become-a-Sitecore-admin-without-a-login/" data-id="cj94lkg2t004hjgifmzyafon5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Nugetify-your-Sitecore-References" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/index.php/2016/09/Nugetify-your-Sitecore-References/">Nugetify your Sitecore References</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          <div class="article-date">
-  <i class="fa fa-calendar"></i>
-  <a href="/index.php/2016/09/Nugetify-your-Sitecore-References/">
-    <time datetime="2016-09-20T23:01:17.000Z" itemprop="datePublished">September 20, 2016</time>
-  </a>
-</div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Recently, in a fit of brilliance, Sitecore released a <a href="https://doc.sitecore.net/sitecore_experience_platform/developing/developing_with_sitecore/sitecore_public_nuget_packages_faq" target="_blank" rel="external">public NuGet feed</a> that you can use to reference Sitecore assemblies from your projects. While some people have been doing this with home grown packages for years, it’s nice to have a stable, official source to get your references from. </p>
-<p>If you’re not familiar with how this works, <a href="https://jermdavis.wordpress.com/2016/09/05/the-official-sitecore-nuget-feed-is-here/" target="_blank" rel="external">Jeremy Davis wrote a great post</a> about the details of using the official feed.</p>
-<h2 id="Okay-so-what-are-you-on-about"><a href="#Okay-so-what-are-you-on-about" class="headerlink" title="Okay so what are you on about?"></a>Okay so what are you on about?</h2><p>If you’ve got a project of reasonable size, especially one using <a href="http://helix.sitecore.net/" target="_blank" rel="external">Helix</a>, you probably have a bucketload of references to Sitecore assemblies. Manually converting all these references to packages is a bit of a tedious process, and you know what we do to tedious processes around here.</p>
-<img src="/index.php/2016/09/Nugetify-your-Sitecore-References/nugetify.jpg" alt="nugetify.jpg" title="">
-<p>That’s right, we script them.</p>
-<h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><p>Migrating your direct Sitecore references to NuGet is a quite simple process with this script. For obvious reasons, use source control so you have a fallback in case the script doesn’t work for your particular setup. It worked for me on several projects, but just in case :)</p>
-<h3 id="1-Install-NuGet-config"><a href="#1-Install-NuGet-config" class="headerlink" title="1. Install NuGet.config"></a>1. Install NuGet.config</h3><p>Copy this to the root of your solution:</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;configuration&gt;
-  &lt;!--
-  Used to specify the default Sources for list, install and update.
-  --&gt;
-  &lt;packageSources&gt;
-    &lt;add key=&quot;Official Sitecore&quot; value=&quot;https://sitecore.myget.org/F/sc-packages/api/v3/index.json&quot; /&gt;
-  &lt;/packageSources&gt;
-
-  &lt;activePackageSource&gt;
-    &lt;!-- this tells that all of them are active --&gt;
-    &lt;add key=&quot;All&quot; value=&quot;(Aggregate source)&quot; /&gt;
-  &lt;/activePackageSource&gt;
-&lt;/configuration&gt;
-</code></pre><p>This will add the official Sitecore NuGet package feed to your solution. Unlike adding it via Visual Studio, this will also apply for CI and MSBuild-executed builds.</p>
-<h3 id="2-Copy-Nugetify-ps1"><a href="#2-Copy-Nugetify-ps1" class="headerlink" title="2. Copy Nugetify.ps1"></a>2. Copy <strong>Nugetify.ps1</strong></h3><p>Copy the following PowerShell script to the root of your solution. <strong>Open it in a text editor and set the correct <code>$SitecoreVersion</code> and <code>$FrameworkVersion</code></strong> for your solution. The NuGet feed has packages for Sitecore 7.0-8.2.</p>
-<pre><code># Script to convert all sitecore assembly references to Sitecore Public NuGet feed
-# Run from root solution folder (where your packages folder is)
-# execute this script with powershell
-Param
-(
-    $sitecoreVersion = &apos;8.2.160729&apos;, # NuGet package version to convert to. Format is major.minor.releasedate.
-    $frameworkVersion = &apos;net452&apos; # for 8.2: net452. For 7.0-8.1: net45
-)
-
-$ScriptPath = $MyInvocation.MyCommand.Path
-$ScriptDir  = Split-Path -Parent $ScriptPath
-$MsbNSString = &apos;http://schemas.microsoft.com/developer/msbuild/2003&apos;
-$MsbNS = @{msb = $MsbNSString}
-$PackagesConfigFileName = &apos;packages.config&apos;
-
-#Create project.json from packages.config
-Write-Host &apos;Scanning for projects to update...&apos; -ForegroundColor Green
-Get-ChildItem -path &apos;.&apos; -Recurse -Include $PackagesConfigFileName |
-    ForEach {
-        $PackageFilePath = $_.FullName
-        $PackageFileDir = $_.Directory
-        Write-Host &quot;Processing $PackageFilePath&quot; -ForegroundColor Green
-
-        # Find existing csproj to match direct references
-        $csproj = Resolve-Path &quot;$($_.Directory)\*.csproj&quot;
-        $proj = [xml] (Get-Content $csproj)
-
-        # Find existing Sitecore references and NuGet-ify them
-        Write-Host &quot;Checking for non-NuGet Sitecore references in $csproj&quot;
-        $xpath = &quot;//msb:Reference/msb:HintPath[not(contains(.,&apos;packages\&apos;))]&quot;
-
-        $changedProj = $false
-        $sitecoreNuGetPackages = @(Select-Xml -xpath $xpath $proj -Namespace $MsbNS | foreach {
-            $node = $_.Node.ParentNode
-
-            $referenceName = $node.Attributes[&apos;Include&apos;].Value.Split(&apos;,&apos;)[0]
-
-              # Filter non-NuGet references to transform into NuGet packages
-            if($referenceName.StartsWith(&quot;Sitecore&quot;) `
-                -and -not $referenceName.StartsWith(&apos;Sitecore.Modules&apos;) `
-                -and -not $referenceName.Contains(&apos;WFFM&apos;) `
-                -and -not $referenceName.StartsWith(&apos;Sitecore.Forms&apos;) `
-                -and -not $referenceName.StartsWith(&apos;Sitecore.Foundation&apos;) `
-                -and -not $referenceName.StartsWith(&apos;Sitecore.Feature&apos;) `
-                -and -not ($referenceName.StartsWith(&apos;Sitecore&apos;) -and $referenceName.EndsWith(&apos;Website&apos;))) {
-
-                $changedProj = $true
-
-                Write-Host &quot;NuGet-ifying assembly reference $referenceName&quot;
-
-                # set hintPath to package path
-                Push-Location -Path $PackageFileDir
-                $hintPathRoot = Resolve-Path &quot;$ScriptDir\packages&quot; -Relative
-                Pop-Location
-
-                $hintPath = &quot;$hintPathRoot\$referenceName.NoReferences.$sitecoreVersion\lib\$frameworkVersion\$referenceName.dll&quot;
-
-                $existingHintPath = $node[&apos;HintPath&apos;, $MsbNSString]
-                if($existingHintPath -eq $null) {
-                    $hint = $proj.CreateElement(&quot;HintPath&quot;, $MsbNSString)
-                    $hint.InnerXml = $hintPath
-                    $foo = $node.AppendChild($hint)
-                } else {
-                    $existingHintPath.InnerXml = $hintPath
-                }
-
-                &quot;$referenceName.NoReferences&quot;
-            }
-        })
-
-        if($changedProj) {
-            Write-Host &quot;Saving NuGet-ified references to csproj&quot; -ForegroundColor Yellow
-            $proj.Save($csproj)
-        } else {
-            Write-Host &quot;Found no references to change.&quot;
-        }
-
-        # Add packages to packages.config
-        $packageXml = [xml] (Get-Content $PackageFilePath)
-
-        $sitecoreNuGetPackages | % {
-            $packageNode = $packageXml.CreateElement(&apos;package&apos;);
-            $packageNode.SetAttribute(&apos;id&apos;, $_)
-            $packageNode.SetAttribute(&apos;version&apos;, $sitecoreVersion)
-            $packageNode.SetAttribute(&apos;targetFramework&apos;, $frameworkVersion)
-
-            $foo = $packageXml.DocumentElement.AppendChild($packageNode)
-        }
-
-        Write-Host &quot;Updating packages.config with new packages&quot; -ForegroundColor Yellow
-        $packageXml.Save($PackageFilePath)
-    }
-</code></pre><h3 id="3-Run-Nugetify-ps1"><a href="#3-Run-Nugetify-ps1" class="headerlink" title="3. Run Nugetify.ps1"></a>3. Run <strong>Nugetify.ps1</strong></h3><p>Open a PowerShell and execute <code>Nugetify.ps1</code>.</p>
-<p>That’s it. Open Visual Studio and verify that everything was converted correctly, and you should be good to go.</p>
-<h2 id="What-about-NuGet-3-project-json"><a href="#What-about-NuGet-3-project-json" class="headerlink" title="What about NuGet 3 + project.json?"></a>What about NuGet 3 + <code>project.json</code>?</h2><p>Another option is to use the NuGet 3.x style package management which is integrated into a <code>project.json</code> file that lives next to your csproj files. NuGet 3’s major advantage is that the <code>project.json</code> both references packages <strong>and</strong> adds them to your project references. So adding packages does not result in alterations to the csproj file, and upgrading packages is as simple as changing a json file.</p>
-<p>Sounds idyllic, right? Well there’s one huge downside. Microsoft, in their infinite wisdom, decided that it was not necessary to support content files being deployed into the project the package is installed into. For Sitecore projects, that means packages that come with config files, such as Unicorn, Synthesis, and Glass Mapper, will not install those files into projects using <code>project.json</code>. The content-containing packages can still be used, but then it becomes your task to reverse engineer the content they install, add that to your project, and handle upgrades of those content files when the package is upgraded.</p>
-<p>For the moment, I wouldn’t use <code>project.json</code>, but I hope it becomes more tenable in the future. But if you want to use it, I have a script for that too - a script that both nugetifies your Sitecore references <strong>and</strong> converts <strong>all</strong> of your packages in <code>packages.config</code> to <code>project.json</code>. This script is based on <a href="https://github.com/wgtmpeters/nugetprojectjson" target="_blank" rel="external">this one</a>.</p>
-<pre><code># Script to generate project.json for all packages.config file in the solution.
-# This script will also migrate non-NuGet Sitecore package references to Sitecore Public NuGet feed
-
-# Run from root solution folder
-# execute this script with powershell
-
-# TargetFramework: Use the .NET framework version your projects are targeting, which may NOT be the version Sitecore is built aginst
-# SitecoreVersion: NuGet version you want to convert to for local sitecore assembly references
-Param
-(
-      [string] $TargetFramework = &quot;net452&quot;,
-    $sitecoreVersion = &apos;8.2.160729&apos;
-)
-
-# Filter existing installed NuGet packages to transform versions and such
-function Filter-Packages {
-    $input | % {
-        $package = $_.Node.id
-        $version = $_.Node.version
-
-        # Translate nuget package generator 8.2 package version to official
-        if($version -eq &quot;8.2.0.160729&quot;) {
-            $version = &quot;8.2.160729&quot;
-        }
-
-        # Translate 3rd party refs from old SC versions to target public versions
-        if($package.Equals(&apos;Microsoft.Extensions.DependencyInjection.Abstractions&apos;)) {
-            $version = &apos;1.0.0&apos;
-        }
-
-        if($package.Equals(&apos;MongoDB.Driver&apos;)) {
-            $package = &apos;mongocsharpdriver&apos;
-            $version = &apos;1.11.0&apos;
-        }
-
-        # Blacklist these older sitecore nuget generator metapackages, modules, and nonexistant packages
-        if($package.EndsWith(&quot;-Core&quot;) `
-            -or $package.EndsWith(&quot;-CoreGroup&quot;) `
-            -or $package.Equals(&apos;MongoDB.Bson&apos;) `
-            -or $package.Equals(&quot;Telerik.Web.UI&quot;)) {
-
-            return # skip loop
-        }
-
-        # Packages that started with Sitecore before should now get NoReferences for sanity (note: you may need to exclude sitecore modules whose name begins in Sitecore here)
-        if($package.StartsWith(&apos;Sitecore&apos;) `
-            -and -not $package.StartsWith(&apos;Sitecore.FakeDb&apos;) `
-            -and -not $package.EndsWith(&apos;PatchableIgnoreList&apos;)) {
-
-            $package = &quot;$package.NoReferences&quot;;
-        }
-
-        $_.Node.id = $package
-        $_.Node.version = $version
-
-        $_
-    }
-}
-
-$ScriptPath = $MyInvocation.MyCommand.Path
-$ScriptDir  = Split-Path -Parent $ScriptPath
-$MsbNS = @{msb = &apos;http://schemas.microsoft.com/developer/msbuild/2003&apos;}
-$PackagesConfigFileName = &apos;packages.config&apos;
-
-#Create project.json from packages.config
-Get-ChildItem -path &apos;.&apos; -Recurse -Include $PackagesConfigFileName |
-    ForEach {
-        $PackageFilePath = $_.FullName
-        $ProjectFilePath = $_.Directory.FullName + &apos;\project.json&apos;
-        Write-Host &quot;Processing $PackageFilePath&quot;
-
-        # Find existing csproj to match direct references
-        $csproj = Resolve-Path &quot;$($_.Directory)\*.csproj&quot;
-        $proj = [xml] (Get-Content $csproj)
-
-        # Find existing Sitecore references and NuGet-ify them
-        Write-Host &quot;Checking for non-NuGet Sitecore references in $csproj&quot;
-        $xpath = &quot;//msb:Reference/msb:HintPath[not(contains(.,&apos;packages\&apos;))]&quot;
-
-        $changedProj = $false
-        $sitecoreNuGetPackages = @(Select-Xml -xpath $xpath $proj -Namespace $MsbNS | foreach {
-            $node = $_.Node.ParentNode
-
-            $referenceName = $node.Attributes[&apos;Include&apos;].Value.Split(&apos;,&apos;)[0]
-
-      # Filter non-NuGet references to transform into NuGet packages
-            if($referenceName.StartsWith(&quot;Sitecore&quot;) `
-                -and -not $referenceName.StartsWith(&apos;Sitecore.Modules&apos;) `
-        -and -not $referenceName.Contains(&apos;WFFM&apos;) `
-        -and -not $referenceName.StartsWith(&apos;Sitecore.Forms&apos;) `
-                -and -not $referenceName.StartsWith(&apos;Sitecore.Foundation&apos;) `
-                -and -not $referenceName.StartsWith(&apos;Sitecore.Feature&apos;) `
-                -and -not ($referenceName.StartsWith(&apos;Sitecore&apos;) -and $referenceName.EndsWith(&apos;Website&apos;))) {
-
-                $changedProj = $true
-
-                Write-Host &quot;NuGet-ifying assembly reference $referenceName&quot;
-
-                # remove old reference we&apos;re NuGet-ing
-                [void]$node.ParentNode.RemoveChild($node);
-
-                &quot;$referenceName.NoReferences&quot;
-            }
-        })
-
-        if($changedProj) {
-            Write-Host &quot;Saving NuGet-ified references in $csproj&quot;
-            $proj.Save($csproj)
-        }
-
-        # Generate project.json
-        $file = &apos;{
-  &quot;dependencies&quot;: {
-&apos;
-
-$packages = (Select-xml -xpath &apos;//package&apos; -Path $PackageFilePath | Filter-Packages | % { &quot;    &quot;&quot;{0}&quot;&quot;: &quot;&quot;{1}&quot;&quot;&quot; -f $_.Node.id,$_.Node.version }) -join &quot;,`r`n&quot;
-
-$file += $packages;
-
-$sitecorePackages = (($sitecoreNuGetPackages | % { &quot;    &quot;&quot;{0}&quot;&quot;: &quot;&quot;{1}&quot;&quot;&quot; -f $_, $sitecoreVersion }) -join &quot;,`r`n&quot;)
-
-# separate the json elements if both converted and sitecore packages exist
-if($packages.Length -gt 0) {
-    $file += &quot;,`r`n&quot;
-} else {
-    $file += &quot;`r`n&quot;
-}
-
-$file += $sitecorePackages
-
-$file += &apos;
-  },
-  &quot;frameworks&quot;: {
-    &quot;&apos; + $TargetFramework + &apos;&quot;: {}
-  },
-  &quot;runtimes&quot;:  {
-      &quot;win-anycpu&quot;: {},
-      &quot;win&quot;: {}
-  }
-}&apos;
-
-$file | Out-File $ProjectFilePath
-
-    Remove-Item $PackageFilePath
-}
-
-Get-ChildItem -path &apos;.&apos; -Recurse -Include &apos;*.csproj&apos; | ForEach {
-    $CsProjFilePath = $_.FullName
-    $ProjectFilePath = $_.Directory.FullName + &apos;\project.json&apos;
-
-    Write-Host $csProjFilePath
-
-    $proj = [xml] (Get-Content $CsProjFilePath)
-
-    #Remove all references to ..packages files
-    $xpath = &quot;//msb:Reference/msb:HintPath[contains(.,&apos;packages\&apos;)]&quot;
-    $nodes = @(Select-Xml -xpath $xpath $proj -Namespace $MsbNS | foreach {$_.Node})
-    if (!$nodes) { Write-Verbose &quot;RemoveElement: XPath $XPath not found&quot; }
-    Write-Output &apos;Reference Nodes found: &apos; $nodes.Count
-    foreach($node in $nodes) {
-        $referenceNode = $node.ParentNode
-        $itemGroupNode = $referenceNode.ParentNode
-        [void]$itemGroupNode.RemoveChild($referenceNode)
-    }
-    [System.XML.XMLElement] $itemGroupNoneNode = $null
-    #Find itemgroup with None Elements, if not found add.
-    $itemGroupNoneNodes = @(Select-Xml -xpath &quot;//msb:ItemGroup/msb:None&quot; $proj -Namespace $MsbNS | foreach {$_.Node})
-    Write-Output &apos;$itemGroupNoneNode found: &apos; $itemGroupNoneNodes.Count
-    if($itemGroupNoneNodes.Count -eq 0){
-        # create itemgroup element for None nodes.
-        Write-Output &apos;Adding ItemGroup for None Nodes&apos;
-        $itemGroupNoneNode =  $proj.CreateElement(&apos;ItemGroup&apos;,$proj.DocumentElement.NamespaceURI)
-        $itemGroupNodes = @(Select-Xml -xpath &quot;//msb:ItemGroup&quot; $proj -Namespace $MsbNS | foreach {$_.Node})
-        #$itemGroupNodes.Count
-        [void]$proj.DocumentElement.InsertAfter($itemGroupNoneNode,$itemGroupNodes[$itemGroupNodes.Count-1])
-
-    }else{
-        $itemGroupNoneNode = $itemGroupNoneNodes[0].ParentNode
-    }
-
-    #Remove packages.config from ItemGroup
-    $nodes = @(Select-Xml -xpath &quot;//msb:ItemGroup/msb:None[@Include=&apos;packages.config&apos;]&quot; $proj -Namespace $MsbNS | foreach {$_.Node})
-    Write-Output &apos;packages.config Nodes found: &apos; $nodes.Count
-    foreach($node in $nodes) {
-        $itemGroupNode = $node.ParentNode
-        [void]$itemGroupNode.RemoveChild($node)
-    }
-
-    #Remove packages.config from ItemGroup (if it was set to content)
-    $nodes = @(Select-Xml -xpath &quot;//msb:ItemGroup/msb:Content[@Include=&apos;packages.config&apos;]&quot; $proj -Namespace $MsbNS | foreach {$_.Node})
-    Write-Output &apos;packages.config Nodes found: &apos; $nodes.Count
-    foreach($node in $nodes) {
-        $itemGroupNode = $node.ParentNode
-        [void]$itemGroupNode.RemoveChild($node)
-    }
-
-    #Remove build target EnsureNuGetPackageBuildImports from csproj
-    $nodes = @(Select-Xml -xpath &quot;//msb:Target[@Name=&apos;EnsureNuGetPackageBuildImports&apos;]&quot; $proj -Namespace $MsbNS | foreach {$_.Node})
-    Write-Output &apos;EnsureNuGetPackageBuildImports target found: &apos; $nodes.CountAd
-    foreach($node in $nodes) {
-        $itemGroupNode = $node.ParentNode
-        [void]$itemGroupNode.RemoveChild($node)
-    }
-
-    #Add project.json to itemGroup
-    if( Test-Path $ProjectFilePath){
-        $nodes = @(Select-Xml -xpath &quot;//msb:ItemGroup/msb:None[@Include=&apos;project.json&apos;]&quot; $proj -Namespace $MsbNS | foreach {$_.Node})
-        if($nodes.Count -eq 0){
-            $projectJsonNoneNode = $proj.CreateElement(&quot;None&quot;, $proj.DocumentElement.NamespaceURI)
-            $projectJsonNoneNode.SetAttribute(&quot;Include&quot;,&quot;project.json&quot;)
-            [void]$itemGroupNoneNode.AppendChild($projectJsonNoneNode)
-            Write-Output &apos;Adding None node for project.json&apos;
-        }
-    }
-
-    #add PropertyGroup nodes targetFrameworkProfile, CopyNuGetImplementations, PlatformTarget
-    # Find the TargetFrameworkVersion to be used to find the parent PropertyGroup node
-    $xpath = &quot;//msb:PropertyGroup/msb:TargetFrameworkVersion&quot;
-    $nodes = @(Select-Xml -xpath $xpath $proj -Namespace $MsbNS | foreach {$_.Node})
-    if ($nodes.Count -gt 0) {
-        [System.XML.XMLElement] $node = $nodes[0]
-        $propertyGroupNode = $node.ParentNode
-        $nodes = @(Select-Xml -xpath &quot;//msb:PropertyGroup/msb:TargetFrameworkProfile&quot; $proj -Namespace $MsbNS | foreach {$_.Node})
-        if($nodes.Count -eq 0){
-            $node = $proj.CreateElement(&quot;TargetFrameworkProfile&quot;, $proj.DocumentElement.NamespaceURI)
-            [void]$propertyGroupNode.AppendChild($node)
-            Write-Output &apos;Adding TargetFrameworkProfile node for PropertyGroup&apos;
-        }
-        #$nodes = @(Select-Xml -xpath &quot;//msb:PropertyGroup/msb:CopyNuGetImplementations&quot; $proj -Namespace $MsbNS | foreach {$_.Node})
-        #if($nodes.Count -eq 0){
-        #    $node = $proj.CreateElement(&quot;CopyNuGetImplementations&quot;, $proj.DocumentElement.NamespaceURI)
-        #    $textnode = $proj.CreateTextNode(&quot;true&quot;)
-        #    $node.AppendChild($textnode)
-        #    [void]$propertyGroupNode.AppendChild($node)
-        #    Write-Output &apos;Adding CopyNuGetImplementations node for PropertyGroup&apos;
-        #}
-        $nodes = @(Select-Xml -xpath &quot;//msb:PropertyGroup/msb:PlatformTarget[not(@*)]&quot; $proj -Namespace $MsbNS | foreach {$_.Node})
-        if($nodes.Count -eq 0){
-            $node = $proj.CreateElement(&quot;PlatformTarget&quot;, $proj.DocumentElement.NamespaceURI)
-            $textnode = $proj.CreateTextNode(&quot;AnyCPU&quot;)
-            $foo = $node.AppendChild($textnode)
-            [void]$propertyGroupNode.AppendChild($node)
-            Write-Output &apos;Adding PlatformTarget node for PropertyGroup&apos;
-        }
-    }
-
-    # replace ToolsVersion with 14.0
-    $attibutes = Select-Xml -xpath &quot;//@ToolsVersion&quot; $proj -Namespace $MsbNS
-    foreach ($attribute in $attibutes){
-
-        $attribute.Node.value = &quot;14.0&quot;
-        Write-Output &apos;Setting ToolsVersion to 14.0&apos;
-    }
-
-    $proj.Save($CsProjFilePath)
- }
-</code></pre><p>Till next time, happy NuGetting!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2016/09/Nugetify-your-Sitecore-References/" data-id="cj94lkg2t004fjgif0lq9inlj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Precompiled-Views-with-Sitecore-8-2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/index.php/2016/09/Precompiled-Views-with-Sitecore-8-2/">Precompiled Views with Sitecore 8.2</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          <div class="article-date">
-  <i class="fa fa-calendar"></i>
-  <a href="/index.php/2016/09/Precompiled-Views-with-Sitecore-8-2/">
-    <time datetime="2016-09-02T19:20:43.000Z" itemprop="datePublished">September 2, 2016</time>
-  </a>
-</div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>A while ago I wrote a post about <a href="/index.php/2016/01/Benchmark-Show-Precompilation/">speeding up your views with precompilation</a>.</p>
-<p>After writing that post I learned about <a href="https://github.com/RazorGenerator/RazorGenerator" target="_blank" rel="external">RazorGenerator</a> which <a href="http://www.chrisvandesteeg.nl/2010/11/22/embedding-pre-compiled-razor-views-in-your-dll/" target="_blank" rel="external">Chris van de Steeg blogged about</a>. RazorGenerator is better in just about every way compared to <code>aspnet_compiler.exe</code>. Whereas the <code>aspnet_compiler</code> just warms the compiler cache for the current machine, RazorGenerator builds the generated classes for your Razor files <em>directly into your assemblies</em>.</p>
-<p>With RazorGenerator you can compile once and deploy everywhere. Getting started with it is almost stupidly simple. Seriously, I described the whole process <a href="https://twitter.com/kamsar/status/684823059082027008" target="_blank" rel="external">in one tweet</a>: Install the <code>RazorGenerator.MsBuild</code> NuGet package. That’s it. So what does that get you?</p>
-<ul>
-<li>Compile-time view syntax checking. Ever deployed a Razor file that broke at runtime after a “successful” build? Well now your builds will <em>fail</em> if your Razor syntax is invalid. Hoorah!</li>
-<li>Your Razor views are compiled into your output assembly (look at it in DotPeek and see the <code>ASP</code> namespace)</li>
-<li>It’s fast. You probably won’t even notice the build time difference.</li>
-</ul>
-<h2 id="But-that’s-not-quite-all"><a href="#But-that’s-not-quite-all" class="headerlink" title="But that’s not quite all"></a>But that’s not quite all</h2><p>Right, so how do you get your precompiled views to actually get loaded? ASP.NET MVC doesn’t understand how to resolve <em>classes</em> instead of <em>files</em> out of the box. With Sitecore 8.1 and earlier, you could use the <code>RazorGenerator.Mvc</code> NuGet package and <a href="https://github.com/RazorGenerator/RazorGenerator/wiki/Using-RazorGenerator.Mvc" target="_blank" rel="external">wire up its <code>PrecompiledViewEngine</code></a> to accomplish this.</p>
-<p>Sitecore 8.2 modernizes a lot of the MVC implementation under the covers, and part of that is that the Sitecore infrastructure now supports precompiled views natively! (Wondering why the experience editor starts up a lot faster in 8.2? That’s why.) It’s really easy to use, in fact: all you have to do is tell Sitecore which assemblies to look for precompiled views in and it does the rest. Behold:</p>
-<pre><code>&lt;configuration xmlns:patch=&quot;http://www.sitecore.net/xmlconfig/&quot;&gt;
-  &lt;sitecore&gt;
-    &lt;mvc&gt;
-      &lt;precompilation&gt;
-        &lt;assemblies&gt;
-          &lt;assemblyIdentity name=&quot;My.Project&quot; /&gt;
-          &lt;assemblyIdentity name=&quot;My.OtherProject&quot; /&gt;
-        &lt;/assemblies&gt;
-      &lt;/precompilation&gt;
-    &lt;/mvc&gt;
-  &lt;/sitecore&gt;
-&lt;/configuration&gt;
-</code></pre><p><strong>CAVEAT</strong>: The Sitecore precompiler is greedy by default. When it is on, if a class exists for your view, <em>the physical file for the view is not checked</em>. You can even delete it. This means that you cannot tweak the cshtml file and have updates be reflected. You can enable timestamp checking if you must by changing this setting:</p>
-<pre><code>&lt;configuration xmlns:patch=&quot;http://www.sitecore.net/xmlconfig/&quot;&gt;
-  &lt;sitecore&gt;
-    &lt;settings&gt;
-      &lt;!--  MVC: Flag for controlling whether Razor View Engine will look at physical view last modified dates 
-        when determining to use a view file from a pre-compiled assembly or from the file system.
-        Default: &quot;false&quot;
-        --&gt;
-        &lt;setting name=&quot;Mvc.UsePhysicalViewsIfNewer&quot; value=&quot;false&quot; /&gt;
-      &lt;/settings&gt;
-  &lt;/sitecore&gt;
-&lt;/configuration&gt;
-</code></pre><p>Because there are (minor) performance implications of doing the timestamp checks, I would advise <em>enabling</em> this setting for development and <em>disabling</em> the setting for production. You should never, ever be changing files on production after a deployment anyway.</p>
-<h2 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h2><p>If you’re on Sitecore 8.2, you can get view performance gains by:</p>
-<ul>
-<li>Installing <code>RazorGenerator.MsBuild</code> on each Visual Studio project that contains Razor views</li>
-<li>Registering each of those assemblies with the Sitecore precompiled view engine so that it uses your precompiled classes for view rendering</li>
-</ul>
-<p>Big thanks to <a href="https://twitter.com/herskinduk" target="_blank" rel="external">Kern</a> for setting up the MVC expert panel, without which this feature might well not exist. And we might still have <a href="https://kamsar.net/index.php/2015/02/sitecore-8-experience-editor-performance-optimization/">1:40 startup times</a> after a compile. :)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kamsar.net/index.php/2016/09/Precompiled-Views-with-Sitecore-8-2/" data-id="cj94lkg2s004djgifghwe4myn" class="article-share-link">Share</a>
+      <a data-url="https://kamsar.net/index.php/2016/10/Become-a-Sitecore-admin-without-a-login/" data-id="cjim7nmtj004i4kiffsriu1km" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1371,6 +982,24 @@ Get-ChildItem -path &apos;.&apos; -Recurse -Include &apos;*.csproj&apos; | ForEa
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/JSS/">JSS</a></p>
+              <p class="item-title"><a href="/index.php/2018/04/Announcing-Sitecore-JSS-XSLT-Support/" class="title">Announcing Sitecore JSS XSLT Support</a></p>
+              <p class="item-date"><time datetime="2018-04-01T07:07:06.000Z" itemprop="datePublished">April 1, 2018</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
+              <p class="item-title"><a href="/index.php/2017/11/The-lazy-way-to-install-Sitecore-9/" class="title">The lazy developer&#39;s way to install Sitecore 9</a></p>
+              <p class="item-date"><time datetime="2017-11-02T00:37:11.000Z" itemprop="datePublished">November 1, 2017</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -1399,24 +1028,6 @@ Get-ChildItem -path &apos;.&apos; -Recurse -Include &apos;*.csproj&apos; | ForEa
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a></p>
-              <p class="item-title"><a href="/index.php/2017/10/Where-to-find-Sitecore-documentation/" class="title">Where to find Sitecore documentation</a></p>
-              <p class="item-date"><time datetime="2017-10-22T19:29:29.000Z" itemprop="datePublished">October 22, 2017</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a></p>
-              <p class="item-title"><a href="/index.php/2017/06/Unicorn-4-Released/" class="title">Unicorn 4 Released</a></p>
-              <p class="item-date"><time datetime="2017-06-22T19:57:43.000Z" itemprop="datePublished">June 22, 2017</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1426,7 +1037,7 @@ Get-ChildItem -path &apos;.&apos; -Recurse -Include &apos;*.csproj&apos; | ForEa
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/JSS/">JSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">39</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1441,7 +1052,7 @@ Get-ChildItem -path &apos;.&apos; -Recurse -Include &apos;*.csproj&apos; | ForEa
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      <p>&copy; 2017 Kam Figy</p>
+      <p>&copy; 2018 Kam Figy</p>
       <p><small>Opinions expressed on this blog are my own, and not necessarily those of my employer.</small></p>
      <p><small>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</small></p>
     </div>
