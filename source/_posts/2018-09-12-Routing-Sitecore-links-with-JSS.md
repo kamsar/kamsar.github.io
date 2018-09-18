@@ -48,7 +48,7 @@ import { Link as RouterLink } from 'react-router-dom';
 /** React component that turns Sitecore link values that start with / into react-router route links */
 const RoutableSitecoreLink = (props) => {
   const hasValidHref = props.field && props.field.value && props.field.value.href;
-  const isEditing = props.editable && props.field.value.editable;
+  const isEditing = props.editable && props.field.editable;
 
   // only want to apply the routing link if not editing (if editing, need to render editable link value)
   if(hasValidHref && !isEditing) {
@@ -106,7 +106,7 @@ class RouteLinkedRichText extends React.Component {
   // fired both on mount and update
   bindRouteLinks() {
     const hasText = this.props.field && this.props.field.value;
-    const isEditing = this.props.editable && this.props.field.value.editable;
+    const isEditing = this.props.editable && this.props.field.editable;
 
     if(hasText && !isEditing) {
       const node = ReactDOM.findDOMNode(this);
