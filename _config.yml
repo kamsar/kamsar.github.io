@@ -75,7 +75,7 @@ theme: icarus
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:kamsar/kamsar.github.io.git
+  repo: https://github.com:kamsar/kamsar.github.io.git
   branch: master
 
 # RSS
