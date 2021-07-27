@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Announcing the release of Synthesis and Blade | Kam&#39;s Idea Log</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="For years at ISITE Design we&#39;ve been inventing ways of making Sitecore development easier and more fun. Today I&#39;m happy to announce that some of those tools we&#39;ve been using internally for ages are no">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Announcing the release of Synthesis and Blade">
+<meta property="og:url" content="https://kamsar.net/index.php/2013/05/announcing-the-release-of-synthesis-and-blade/index.html">
+<meta property="og:site_name" content="Kam&#39;s Idea Log">
+<meta property="og:description" content="For years at ISITE Design we&#39;ve been inventing ways of making Sitecore development easier and more fun. Today I&#39;m happy to announce that some of those tools we&#39;ve been using internally for ages are no">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2013-05-31T06:53:46.000Z">
+<meta property="article:modified_time" content="2021-07-26T23:19:02.429Z">
+<meta property="article:author" content="Kam Figy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@kamsar">
+  
+    <link rel="alternative" href="/index.php/feed" title="Kam&#39;s Idea Log" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-62284328-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo">
+        <span class="site-title">Kam&#39;s Idea Log</span>
+        <span class="subtitle">C#, Jamstack, and Shenanigans</span>
+      </a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div class="profile" id="profile-nav">
+          <a id="profile-anchor" href="javascript:;"><img class="avatar" src="https://www.gravatar.com/avatar/314826f5d569260f26ac9f26f9e38b86?s=40" srcset="https://www.gravatar.com/avatar/314826f5d569260f26ac9f26f9e38b86?s=80 2x" alt="omg the beard"><i class="fa fa-caret-down"></i></a>
+        </div>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="https://kamsar.net"></form>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+      
+        <td><a class="main-nav-link" href="/">Home</a></td>
+      
+        <td><a class="main-nav-link" href="/blog/archives">Archives</a></td>
+      
+      <td>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="https://kamsar.net"></form>
+      </td>
+      </tr>
+    </table>
+  </div>
+  
+</header>
+    <div class="outer">
+      <aside id="profile">
+  <div class="inner profile-inner">
+  	<div class="base-info profile-block">
+		  <img id="avatar" src="https://www.gravatar.com/avatar/314826f5d569260f26ac9f26f9e38b86?s=128" srcset="https://www.gravatar.com/avatar/314826f5d569260f26ac9f26f9e38b86?s=256 2x" alt="#sitecorebeard">
+      <h2 id="name">Kam Figy</h2>
+      <h3 id="title">Principal Platform Architect at</h3>
+      <a class="corp-logo" href="https://uniform.dev" target="_blank"><img src="/css/images/uniform-logo.svg" alt="Uniform" width="180"></a>
+      <span id="location"><i class="fa fa-map-marker"></i>Vancouver, WA USA</span>
+      <a id="follow" target="_blank" rel="noopener" href="https://twitter.com/kamsar">FOLLOW</a>
+  	</div>
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+        
+          <td><a target="_blank" rel="noopener" href="https://github.com/kamsar" title="github"><i class="fa fa-github"></i></a></td>
+        
+          <td><a target="_blank" rel="noopener" href="https://twitter.com/kamsar" title="twitter"><i class="fa fa-twitter"></i></a></td>
+        
+          <td><a href="/index.php/feed" title="rss"><i class="fa fa-rss"></i></a></td>
+        
+        </tr>
+      </table>
+    </div>
+    <div class="article-info profile-block bio">
+      <h2>About</h2>
+      <p>Kam has been making websites since 1996, starting out with a 14.4k modem on a <a href="https://en.wikipedia.org/wiki/Party_line_(telephony)" target="_blank">party line</a> in the Hawaiian rainforest. A veteran developer, architect, and speaker, he's been working in the content management space for well over a decade. Kam is the author of <a href="https://github.com/kamsar/Unicorn" target="_blank">Unicorn</a>, <a href="https://github.com/kamsar/Synthesis" target="_blank">Synthesis</a>, <a href="https://github.com/kamsar/Dianoga" target="_blank">Dianoga</a>, and several other open-source libraries.</p>
+    </div>
+  </div>
+</aside>
+      <section id="main"><article id="post-announcing-the-release-of-synthesis-and-blade" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Announcing the release of Synthesis and Blade
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2013/05/announcing-the-release-of-synthesis-and-blade/">
+    <time datetime="2013-05-31T06:53:46.000Z" itemprop="datePublished">May 30, 2013</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Synthesis/">Synthesis</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>For years at <a target="_blank" rel="noopener" href="http://isitedesign.com/">ISITE Design</a> we've been inventing ways of making Sitecore development easier and more fun. Today I'm happy to announce that some of those tools we've been using internally for ages are now publicly available for everyone to use.<br></p>
+
+<h2>Synthesis</h2>
+
+<p>Synthesis is an object mapping framework that automatically generates strongly typed C# classes to represent your Sitecore templates. While this sort of library <a target="_blank" rel="noopener" href="http://glass.lu/">is</a> <a target="_blank" rel="noopener" href="https://github.com/hermanussen/CompiledDomainModel">nothing</a> <a target="_blank" rel="noopener" href="https://github.com/Velir/Custom-Item-Generator">new</a> in Sitecore circles, Synthesis brings some unique features to the table:</p>
+
+<ul>
+<li>A universal object interface for Sitecore 7. The same generated objects that work in database queries also work great in LINQ against an index. If you access data that isn't in the index, they'll even transparently load the item from the database for you.</li>
+<li>Automatic LINQ query filtering. You won't have to remember to filter by template, language, and version when you query LINQ with Synthesis.</li>
+<li>Generation of an interface hierarchy to represent template inheritance. This brings a whole world of power to you by enabling you to write polymorphic renderings. Nearly all of your interaction can be done by interface.</li>
+<li>Automatic checking to see if your generated classes match what's defined in Sitecore</li>
+<li>Extensible field API allows you to automatically map custom field types onto a strongly typed version of themselves. Ever dealt with custom XML fields before? This makes them awesome.</li>
+</ul>
+
+<p>All of the other expected features of an object mapper are also available, such as:</p>
+
+<ul>
+<li>Full support for Page Editor</li>
+<li>Support for standard field types such as images, multilists, and rich text fields</li>
+</ul>
+
+<h3>In Action</h3>
+
+<p>There are <a target="_blank" rel="noopener" href="https://github.com/kamsar/Synthesis/blob/master/README.md">some examples of using Synthesis</a> on the GitHub page.</p>
+
+<h3>Getting Synthesis</h3>
+
+<p>Synthesis is available now <a target="_blank" rel="noopener" href="https://nuget.org/packages/Synthesis">on NuGet</a> for a one-click install. You can also see <a target="_blank" rel="noopener" href="https://github.com/kamsar/Synthesis">the source</a> on GitHub, or review <a target="_blank" rel="noopener" href="https://github.com/kamsar/Synthesis/wiki">the documentation</a>.</p>
+
+<p><i>Which NuGet package should I download?</i> For installing into a web project, use the Synthesis package - it comes with configuration files. If you're referencing it from a library, use the Synthesis.Core package which is binary only.</p>
+
+<h2>Blade</h2>
+
+<p>
+While Synthesis handles the mapping side, Blade handles making renderings awesome and has some nice integration points with Synthesis.</p>
+
+<p>Blade uses the <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter">MVP pattern</a> to allow you to create very DRY, single-responsibility renderings, allowing you to focus on presentation code and not data access. With Blade, your renderings only request the type of model they expect. For example:</p>
+
+<pre>public partial class SampleSublayout : UserControlView&lt;MyViewModelClass&gt;</pre>
+
+<p>Then Blade steps in and maps the model type onto a Presenter class, which defines how to supply the model type. For example:</p>
+
+<pre>
+public class SamplePresenter : SitecorePresenter&lt;MyViewModelClass&gt;
+{
+    protected override MyViewModelClass GetModel(IView view, Item dataSource)
+    {
+        var model = new MyViewModelClass();
+        model.Example = dataSource.DisplayName;
+
+        return model;
+    }
+}
+</pre>
+
+<p>This enables simple isolation of both views and presenters for writing testable frontends, and looser coupling even if you aren't testing. Don't worry, not every rendering needs a presenter. If you're just using a model type from a Sitecore object mapper such as Synthesis (via the Synthesis.Blade package), Glass, or Compiled Domain Model, you can make that automatically map to the data source item without defining an explicit presenter.</p>
+
+<h3>Ubiquitous Razor 2 Support</h3>
+
+<p>Blade also brings first-class support of the Razor 2 templating language into Sitecore, without using the Sitecore MVC functionality. This is advantageous when developing sites that use modules that are not compatible with the Sitecore MVC rendering technology - you can reap the benefits of MVC-style renderings without the hassle of implementing renderings twice or resorting to XSLT. A Razor rendering with Blade works exactly like a sublayout - only the path is to a cshtml file instead of an ascx. There are also many useful helpers included that simplify things like rendering dates, images, and controlling page editor functionality. For example:</p>
+
+<pre>@inherits RazorRendering&lt;MyProject.MyViewModelClass&gt;
+&lt;div&gt;
+&lt;h1&gt;@Html.Raw(Model.Example)&lt;/h1&gt;
+
+@Html.TextFor(model => model.SitecoreDataField)
+&lt;/div&gt;
+</pre>
+
+<p>Blade does its best to feel as much as possible like Sitecore as well as ASP.NET MVC, so it doesn't require digesting lots of unfamiliar ways of doing things. Sitecore features such as Page Editor are fully supported. MVC conventions like automatic HTML encoding, partial views, anonymous types defining HTML attributes, and relative view referencing are all there.</p>
+
+<h3>Awesome Rendering Diagnostics</h3>
+
+<p>Ever spent an hour figuring out why a rendering was busted, only to realize it was output cached without you realizing it? What about having to find a rendering file for a HTML/CSS dev so they can make markup changes? You'll love Blade then. Blade's rendering types emit HTML comments that indicate where a specific rendering begins and ends, as well as if it was output cached, when, and what the cache criteria were. The comments disappear when dynamic debug compilation is disabled, leaving production sites pristine.</p>
+
+<p>Check this out:</p>
+<pre><!-- Begin Rendering ~/layouts/Sample Inner Sublayout.ascx -->
+&lt;!-- Rendering was output cached at 5/16/2013 9:31:42 PM, ClearOnIndexUpdate, VaryByData, VaryByQueryString --&gt;
+
+<p>&lt;h1&gt;Hello, world!&lt;/h1&gt;<br>&lt;!– End Rendering ~/layouts/Sample Inner Sublayout.ascx, render took 0ms –&gt;</pre></p>
+<h3>Full Sitecore 7 Support</h3>
+
+<p>Blade supports the enhancements made to renderings in Sitecore 7. It supports renderings that decache on index update, have multiple items as data sources, index-query based data sources, and even defining your own data source resolution logic. Even better, it removes boilerplate code by automatically normalizing all kinds of data source specifications back into simple Item (or Item[]) instances.</p>
+
+<h3>Getting Blade</h3>
+
+<p>Blade is available now <a target="_blank" rel="noopener" href="https://nuget.org/packages/Blade">on NuGet</a> (and its <a target="_blank" rel="noopener" href="https://nuget.org/packages/Synthesis.Blade">Synthesis integration package</a>) for a one-click install. Make sure you have <a target="_blank" rel="noopener" href="http://visualstudiogallery.msdn.microsoft.com/44a26c88-83a7-46f6-903c-5c59bcd3d35b">Sitecore Rocks</a> configured and connected before installing Blade as it uses <a target="_blank" rel="noopener" href="http://vsplugins.sitecore.net/Sitecore-NuGet.ashx">Sitecore NuGet</a> to install some supporting items. You can also see <a target="_blank" rel="noopener" href="https://github.com/kamsar/Blade">the source</a> on GitHub, or review <a target="_blank" rel="noopener" href="https://github.com/kamsar/Blade/wiki">the documentation</a>.<br><br><i>Which NuGet package should I download?</i> For installing into a web project, use the Blade (and/or Synthesis.Blade) package - it comes with configuration files. If you're referencing it from a library, use the Blade.Core (and/or Synthesis.Blade.Core) package which is binary only.</p>
+
+<h2>Feedback</h2>
+
+<p>I'd love to hear what you think about these libraries or answer questions about them. Feel free to comment below, submit issues on the GitHub repositories (bonus points if there's a PR attached!), tweet <a target="_blank" rel="noopener" href="https://twitter.com/kamsar">@kamsar</a>, or yell "hey you!" over the back fence.</p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2013/05/announcing-the-release-of-synthesis-and-blade/" data-id="ckrl9emxg000x98q737kn3nyd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/index.php/2013/06/a-subtle-error-using-system-io-path-in-a-http-context/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          A subtle error: using System.IO.Path in a HTTP context
+        
+      </div>
+    </a>
+  
+  
+    <a href="/index.php/2013/05/unicorn-now-available-on-nuget/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Unicorn now available on NuGet</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/JavaScript/">JavaScript</a></p>
+              <p class="item-title"><a href="/index.php/2021/07/Fun-with-async-generators-and-for-await/" class="title">Fun with async generators and for await</a></p>
+              <p class="item-date"><time datetime="2021-07-26T23:30:51.000Z" itemprop="datePublished">July 26, 2021</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/Jamstack/">Jamstack</a></p>
+              <p class="item-title"><a href="/index.php/2020/08/Deploying-multiple-Netlify-sites-from-one-Git-repository/" class="title">Deploying multiple Netlify sites from one monorepo</a></p>
+              <p class="item-date"><time datetime="2020-08-21T03:30:32.000Z" itemprop="datePublished">August 20, 2020</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/JSS/">JSS</a></p>
+              <p class="item-title"><a href="/index.php/2019/09/Running-JSS-headless-mode-in-containers-part-2-Build-containers/" class="title">Running JSS headless mode in containers part 2: Build containers</a></p>
+              <p class="item-date"><time datetime="2019-09-16T02:14:04.000Z" itemprop="datePublished">September 15, 2019</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/JSS/">JSS</a></p>
+              <p class="item-title"><a href="/index.php/2019/09/Running-JSS-headless-mode-in-containers-part-1/" class="title">Running JSS headless mode in containers, part 1</a></p>
+              <p class="item-date"><time datetime="2019-09-08T19:00:36.000Z" itemprop="datePublished">September 8, 2019</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/C/">C#</a></p>
+              <p class="item-title"><a href="/index.php/2019/05/Build-2019-All-the-things/" class="title">Build 2019: All the things</a></p>
+              <p class="item-date"><time datetime="2019-05-10T23:01:11.000Z" itemprop="datePublished">May 10, 2019</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/JSS/">JSS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Jamstack/">Jamstack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">39</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <p>&copy; 2021 Kam Figy</p>
+      <p><small>Opinions expressed on this blog are my own, and not necessarily those of my employer.</small></p>
+     <p><small>This work is licensed under a <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</small></p>
+    </div>
+  </div>
+</footer>
+    
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

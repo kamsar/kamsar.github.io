@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Kam&#39;s Idea Log</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Kam&#39;s Idea Log">
+<meta property="og:url" content="https://kamsar.net/index.php/page/7/index.html">
+<meta property="og:site_name" content="Kam&#39;s Idea Log">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Kam Figy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@kamsar">
+  
+    <link rel="alternative" href="/index.php/feed" title="Kam&#39;s Idea Log" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-62284328-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo">
+        <span class="site-title">Kam&#39;s Idea Log</span>
+        <span class="subtitle">C#, Jamstack, and Shenanigans</span>
+      </a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div class="profile" id="profile-nav">
+          <a id="profile-anchor" href="javascript:;"><img class="avatar" src="https://www.gravatar.com/avatar/314826f5d569260f26ac9f26f9e38b86?s=40" srcset="https://www.gravatar.com/avatar/314826f5d569260f26ac9f26f9e38b86?s=80 2x" alt="omg the beard"><i class="fa fa-caret-down"></i></a>
+        </div>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="https://kamsar.net"></form>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+      
+        <td><a class="main-nav-link" href="/">Home</a></td>
+      
+        <td><a class="main-nav-link" href="/blog/archives">Archives</a></td>
+      
+      <td>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="https://kamsar.net"></form>
+      </td>
+      </tr>
+    </table>
+  </div>
+  
+</header>
+    <div class="outer">
+      <aside id="profile">
+  <div class="inner profile-inner">
+  	<div class="base-info profile-block">
+		  <img id="avatar" src="https://www.gravatar.com/avatar/314826f5d569260f26ac9f26f9e38b86?s=128" srcset="https://www.gravatar.com/avatar/314826f5d569260f26ac9f26f9e38b86?s=256 2x" alt="#sitecorebeard">
+      <h2 id="name">Kam Figy</h2>
+      <h3 id="title">Principal Platform Architect at</h3>
+      <a class="corp-logo" href="https://uniform.dev" target="_blank"><img src="/css/images/uniform-logo.svg" alt="Uniform" width="180"></a>
+      <span id="location"><i class="fa fa-map-marker"></i>Vancouver, WA USA</span>
+      <a id="follow" target="_blank" rel="noopener" href="https://twitter.com/kamsar">FOLLOW</a>
+  	</div>
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+        
+          <td><a target="_blank" rel="noopener" href="https://github.com/kamsar" title="github"><i class="fa fa-github"></i></a></td>
+        
+          <td><a target="_blank" rel="noopener" href="https://twitter.com/kamsar" title="twitter"><i class="fa fa-twitter"></i></a></td>
+        
+          <td><a href="/index.php/feed" title="rss"><i class="fa fa-rss"></i></a></td>
+        
+        </tr>
+      </table>
+    </div>
+    <div class="article-info profile-block bio">
+      <h2>About</h2>
+      <p>Kam has been making websites since 1996, starting out with a 14.4k modem on a <a href="https://en.wikipedia.org/wiki/Party_line_(telephony)" target="_blank">party line</a> in the Hawaiian rainforest. A veteran developer, architect, and speaker, he's been working in the content management space for well over a decade. Kam is the author of <a href="https://github.com/kamsar/Unicorn" target="_blank">Unicorn</a>, <a href="https://github.com/kamsar/Synthesis" target="_blank">Synthesis</a>, <a href="https://github.com/kamsar/Dianoga" target="_blank">Dianoga</a>, and several other open-source libraries.</p>
+    </div>
+  </div>
+</aside>
+      <section id="main">
+  
+    <article id="post-synthesis-7-dot-2-1-released" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2014/11/synthesis-7-dot-2-1-released/">Synthesis 7.2.1 released</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2014/11/synthesis-7-dot-2-1-released/">
+    <time datetime="2014-11-16T21:02:32.000Z" itemprop="datePublished">November 16, 2014</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Synthesis/">Synthesis</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Synthesis 7.2.1 has been released to <a target="_blank" rel="noopener" href="https://www.nuget.org/packages/Synthesis">NuGet</a>.</p>
+<p>This release includes:</p>
+<ul>
+<li>a <a target="_blank" rel="noopener" href="https://github.com/kamsar/Synthesis/issues/7">bug fix</a> from <a target="_blank" rel="noopener" href="https://twitter.com/gobiner">@Gobiner</a> for internal links with query strings, </li>
+<li>a <a target="_blank" rel="noopener" href="https://github.com/kamsar/Synthesis/issues/11">bug fix</a> for content search index issues when the master database has been removed, reported by <a target="_blank" rel="noopener" href="https://twitter.com/GreyGhostStudio">@GreyGhostStudio</a></li>
+<li>the <code>Add&lt;T&gt;()</code> method of Synthesis objects now supports interfaces instead of just concrete types. A suggestion from <a target="_blank" rel="noopener" href="https://twitter.com/ullmark">@ullmark</a></li>
+</ul>
+<p>In addition, Synthesis 7.2.1 has been tested on the Sitecore 8 technical preview and operates without issue.</p>
+<p>Have fun!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2014/11/synthesis-7-dot-2-1-released/" data-id="ckrl9emxy002k98q7arejbexk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-automatic-sitecore-image-optimization-with-dianoga" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2014/07/automatic-sitecore-image-optimization-with-dianoga/">Automatic Sitecore image optimization with Dianoga</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2014/07/automatic-sitecore-image-optimization-with-dianoga/">
+    <time datetime="2014-07-22T02:29:48.000Z" itemprop="datePublished">July 21, 2014</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Dianoga/">Dianoga</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Have you ever run <a target="_blank" rel="noopener" href="https://developers.google.com/speed/pagespeed/">Google PageSpeed</a> or <a target="_blank" rel="noopener" href="http://www.webpagetest.org/">WebPagetest</a> against a Sitecore site and been disappointed with the unoptimized images coming from your Sitecore media library? When I did, I was seeing claims that I could reduce the size of many of my images by 10-30%, simply by removing unnecessary image data and optimizing the image encoding. The tools to accomplish image optimization, such as <a target="_blank" rel="noopener" href="http://jpegclub.org/jpegtran/">jpegtran</a> or <a target="_blank" rel="noopener" href="http://psydk.org/pngoptimizer">PNGOptimizer</a>, operate in a lossless fashion - in other words, your images lose zero fidelity but become smaller. On a big website, any reduction in data transfer is a big cost savings on bandwidth as well as a UX improvement due to improved load times. </p>
+<p>With this in mind I set out to make a tool to automatically optimize the output of the Sitecore media library, and <a target="_blank" rel="noopener" href="https://github.com/kamsar/Dianoga">Dianoga</a> was born. Dianoga sits in the <del>trash compactor</del> <code>getMediaStream</code> pipeline, which Sitecore uses to transform media items before it writes them to its disk cache. When an image gets processed, we complete the processing by transparently optimizing it before it goes in the cache. No changes are ever made to the actual media item in the database, and you never have to explicitly request optimization.</p>
+<p>There are some other <a target="_blank" rel="noopener" href="http://www.roundedcube.com/Blog/2013/building-the-png-optimizer-module">image</a> <a target="_blank" rel="noopener" href="http://mikael.com/2013/08/image-optimizer-module/">optimization</a> modules out there for Sitecore, so how is this one different? First, this one is automatic (no clicking a button in the content editor, or forgetting to). Second, this one optimizes as the media is served to the client, which means that if you’re using Sitecore’s image resizing functionality (which is perfect for modern responsive techniques like <code>srcset</code> and <a target="_blank" rel="noopener" href="https://marketplace.sitecore.net/en/Modules/Sitecore_Adaptive_Images.aspx">Adaptive Images</a> without tons of work) <em>each size of the image is individually optimized</em> - which is important because the act of resizing the image deoptimizes it. </p>
+<p>Sound like fun? Free bandwidth savings for no work other than a really difficult installation process? Just kidding - installation is as simple as a zero-configuration NuGet package that doesn’t even touch your Sitecore databases. You might want to delete <code>App_Data/MediaCache</code> after install so that media is recached with optimizations, but that’s all there is to it.</p>
+<p>Find Dianoga on NuGet (Sitecore 7+), or you can get the source from <a target="_blank" rel="noopener" href="https://github.com/kamsar/Dianoga">GitHub</a> (source works for Sitecore 6.x). There is also a <a target="_blank" rel="noopener" href="https://github.com/kamsar/Dianoga/blob/master/README.md">readme on GitHub</a> with additional details about logging, troubleshooting, and such.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2014/07/automatic-sitecore-image-optimization-with-dianoga/" data-id="ckrl9emxx002f98q70xaeb11x" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-automatic-asp-dot-net-connection-string-encryption" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2014/07/automatic-asp-dot-net-connection-string-encryption/">Automatic ASP.NET connection string encryption</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2014/07/automatic-asp-dot-net-connection-string-encryption/">
+    <time datetime="2014-07-16T00:29:06.000Z" itemprop="datePublished">July 15, 2014</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Encrypting your connection strings is a good practice as it obfuscates your database connection information from an attacker who has gained filesystem access to your web server. It’s a bit of a pain to implement if you’re wanting to keep all of your build happening on a CI server however, as encrypting it requires a executing <code>aspnet_regiis</code> on the target server because the encryption is keyed by the machine key of the destination server.</p>
+<p>The other day I was reading <a target="_blank" rel="noopener" href="http://blog.istern.dk/2014/05/01/encrypting-and-securing-your-sitecore-connenction-strings/">Thomas Stern’s article</a> about encrypting Sitecore connection strings and it got me to thinking of ways to make connection string encryption fully automatic with minimal configuration. Turns out it’s actually quite easy.</p>
+<p>There are actually quite nice <a target="_blank" rel="noopener" href="http://www.codeproject.com/Tips/598863/EncryptionplusDecryptionplusConnectionplusStringpl">C# APIs to encrypt and decrypt</a> so I set to try and make the application self-encrypt on startup using these APIs. That way you can deploy an unencrypted configuration file from CI, and as soon as the app starts up (which is immediately in my case since we run some HTTP calls to it as part of the deploy) it will encrypt itself using the local machine key.</p>
+<p>To use this code example you will need to install the <a target="_blank" rel="noopener" href="https://www.nuget.org/packages/WebActivatorEx/">WebActivator NuGet package</a> that allows it to register itself as an application startup task. You can also just call the <code>AutoEncrypt</code> method in <code>Global.asax</code> for the same effect, but WebActivator makes it completely self-contained.</p>
+<p>This example only runs encryption if <code>&lt;compilation debug=&quot;false&quot;&gt;</code> is in the web.config (so for local debugging you keep yourself decrypted), and the section has not already been encrypted. It is also fully compatible with the default <code>App_Config\ConnectionStrings.config</code> that Sitecore uses as the config reader is smart enough to save the right file.</p>
+<script src="//gist.github.com/ef3a9f3b7ef1f9d491d5.js"></script>
+
+<p>Hope that’s helpful.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2014/07/automatic-asp-dot-net-connection-string-encryption/" data-id="ckrl9emxx002d98q75v9r0x44" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-synthesis-7-dot-2-released" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2014/07/synthesis-7-dot-2-released/">Synthesis 7.2 released</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2014/07/synthesis-7-dot-2-released/">
+    <time datetime="2014-07-08T03:33:57.000Z" itemprop="datePublished">July 7, 2014</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Synthesis/">Synthesis</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Synthesis 7.2 has been released on NuGet. This release includes a number of enhancements to the content search APIs to accomdate more real world situations, as well as several general bug fixes and improvements.</p>
+<p><strong>Synthesis 7.2 only runs on Sitecore 7.2.x due to changes in the content search APIs in 7.2.</strong> It is hypothetically compatible with Sitecore 7.5 as that is supposed to be based on the 7.2 core but I have not tested it. Previous versions of Synthesis are <strong>not</strong> compatible with Sitecore 7.2 because they are compiled against the earlier content search APIs.</p>
+<p>So what’s changed?</p>
+<ul>
+<li>The <code>Uri</code> property on template items has been renamed <code>ItemUri</code> to avoid confusion with the similarly named Url property</li>
+<li>Standard item properties related to searches - namely <code>Statistics</code> and <code>Paths</code> - have been flattened into properties on <code>IStandardTemplateItem</code> itself. This allows you to easily use them in content search queries</li>
+<li>Additional <code>TemplateName</code>, <code>Path</code>, <code>ParentId</code>, <code>AncestorIds</code>, <code>DatabaseName</code>, and <code>SearchableContent</code> properties have been added to <code>IStandardTemplateItem</code> to support content search queries</li>
+<li>Added <code>WhereResultIsValidDatabaseItem()</code> and <code>TakeValidDatabaseItems()</code> LINQ extension methods. These allow you to filter index-based result sets and remove any index entries that do not have valid database-based equivalents. Due to the way Synthesis transparently promotes index-based items to database items, this can avoid runtime exceptions during promotion if the index item has no database equivalent or security denies access to the database equivalent.</li>
+<li>Synthesis no longer requires a global registration of its document type mapper now that Sitecore 7.2 supports overriding the mapper via an <code>ExecutionContext</code></li>
+<li>Multiple <code>ExecutionContext</code> parameters can now be passed to <code>GetSynthesisQueryable</code></li>
+<li>Support for doing OR and AND searches over collections, such as multilist targets, via the <code>ContainsOr</code> and <code>ContainsAnd</code> extension methods (original implementation by <a target="_blank" rel="noopener" href="https://twitter.com/jason_bert">@jason_bert</a>)</li>
+<li>Integrated <a target="_blank" rel="noopener" href="https://twitter.com/jorgelusar">@jorgelusar</a>‘s web test runner to improve visibility of Synthesis’ unit tests. Added a lot of tests to cover and document the content search functionality available.</li>
+<li>Added support for using multilist, datetime, and lookup field values from the index without object promotion, if the value is stored in the index.</li>
+<li>The <code>ignoreStandardFilters</code> parameter on <code>GetSynthesisQueryable()</code> was incorrectly being ignored</li>
+<li>Fixed a bug where <code>StartupRegenerateProjectPath</code> entries starting with ~ were not correctly resolved (thanks <a target="_blank" rel="noopener" href="https://twitter.com/delgadobyron">@delgadobyron</a>!)</li>
+<li>Generating templates whose name starts with a number will now work correctly (prefixed with _), courtesy of <a target="_blank" rel="noopener" href="https://twitter.com/martijn_b0s">@martijn_b0s</a></li>
+<li>Using the <code>SelectSingleItem()</code> and <code>SelectItems()</code> queries on a template item will no longer cause an error if the query returns no results, courtesy of <a target="_blank" rel="noopener" href="https://twitter.com/martijn_b0s">@martijn_b0s</a></li>
+<li>A number of hacks to fix issues in the Sitecore search expression parser that were fixed in Sitecore 7.2 have been removed.</li>
+</ul>
+<p>As always, thanks to the community members who use and contribute to Synthesis - you all rock. Feel free to hit me up on <a target="_blank" rel="noopener" href="https://twitter.com/kamsar">Twitter</a> or report an issue or pull request on <a target="_blank" rel="noopener" href="https://github.com/kamsar/Synthesis">GitHub</a> if you run into problems.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2014/07/synthesis-7-dot-2-released/" data-id="ckrl9emxw002a98q701817t50" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-indexing-subcontent" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2014/05/indexing-subcontent/">Indexing Subcontent</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2014/05/indexing-subcontent/">
+    <time datetime="2014-05-15T03:13:05.000Z" itemprop="datePublished">May 14, 2014</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Often in Sitecore solutions we will utilize the page component architecture, where a page is composed of a base item and one or more “subcontent” items that are data sources for renderings that we have added to the page to customize its layout. This grants editors extreme flexibility to customize what is shown on their pages, but causes a major headache if you’re trying to have your search index contain the full content of a page because now the content is spread across potentially many backend items.</p>
+<p><em>Note: While the code presented in this article is mine, the original idea was my coworker Erik Brown’s. Unfortunately he has no Twitter or blog that I know of, but if he ever gets one you should follow it :)</em></p>
+<p>The solution we came up with utilizes Sitecore 7’s <em>computed index fields</em> (blog posts: <a target="_blank" rel="noopener" href="http://www.sitecore.net/Community/Technical-Blogs/John-West-Sitecore-Blog/Posts/2013/03/Sitecore-7-Computed-Index-Fields.aspx">John West</a>, <a target="_blank" rel="noopener" href="http://www.sitecore.net/Community/Technical-Blogs/Martina-Welander-Sitecore-Blog/Posts/2013/09/Sitecore-7-Search-Tips-Computed-Fields.aspx">Martina Welander</a>), and a handy but less than obvious trick. </p>
+<p>The trick is that the Sitecore indexes can contain more than one value for the same index field. This means that if you want to augment the value of the system <code>_content</code> field (which contains all the indexable text fields on the item), all you have to do is define a computed field that <em>is also named</em> <code>_content</code>. Now the <code>_content</code> index field stores two values: the system value, and your computed value - and it will search on both values when you query it.</p>
+<p>Armed with this knowledge I set out to use the layout field on the base item to find all rendering datasources it points to and use the same code that Sitecore uses to create the <code>_content</code> value for the main item. This turned out to not be all that hard (though I had the advantage of having done a lot of layout field messing around before):</p>
+<script src="//gist.github.com/d6bfcdd2f3ee7163f0f9.js"></script>
+
+<p>Registering the computed field to augment the main <code>_content</code> index field requires a config patch file (note that this targets Lucene; your patch for SOLR or Coveo would be different):</p>
+<script src="//gist.github.com/7b76515efca7a48f8911.js"></script>
+
+<p>Another handy tweak for indexing this kind of item is to use <a target="_blank" rel="noopener" href="https://twitter.com/techphoria414">Nick Wesselman</a>‘s <a target="_blank" rel="noopener" href="http://www.techphoria414.com/Blog/2013/November/Sitecore-7-Computed-Fields-All-Templates-and-Datasource-Content">handy code to cause the main item to be updated in the index whenever any of its datasource items are modified</a>. Nice work!</p>
+<p>Hope you find this helpful :)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2014/05/indexing-subcontent/" data-id="ckrl9emxv002898q7ec916aht" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-using-web-api-2-attribute-routing-with-sitecore" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2014/05/using-web-api-2-attribute-routing-with-sitecore/">Using Web API 2 Attribute Routing with Sitecore</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2014/05/using-web-api-2-attribute-routing-with-sitecore/">
+    <time datetime="2014-05-03T02:25:07.000Z" itemprop="datePublished">May 2, 2014</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>There are a lot of times when developing a Sitecore site that you need to introduce dynamic, API-driven content - such as search autocompletes, single page apps, and other dynamic client-side content. Sitecore itself provides the Item Web API, but sometimes you want a more targeted solution designed for end users to acquire data in a fashion that exposes as little as possible.</p>
+<p>Microsoft provides a technology that does this pretty nicely: the aptly named <a target="_blank" rel="noopener" href="http://www.asp.net/web-api">ASP.NET Web API</a>. Web API uses a ASP.NET MVC-like controller to easily expose REST services over JSON or XML. I set out to make it work with Sitecore. Of course, <a target="_blank" rel="noopener" href="http://patrickdelancy.com/2013/08/sitecore-webapi-living-harmony/">some other folks</a> had already <a target="_blank" rel="noopener" href="http://nttdatasitecore.com/Blog/2013/November/Using-Web-API-with-Sitecore-ASPNET-Web-Forms">got this to work</a>. Unfortunately their work is also in some cases out of date - so let’s untangle things.</p>
+<h2 id="How-to-get-Web-API-working-on-Sitecore-by-version"><a href="#How-to-get-Web-API-working-on-Sitecore-by-version" class="headerlink" title="How to get Web API working on Sitecore, by version"></a>How to get Web API working on Sitecore, by version</h2><h3 id="Sitecore-6-x-or-7-0-without-Sitecore-MVC"><a href="#Sitecore-6-x-or-7-0-without-Sitecore-MVC" class="headerlink" title="Sitecore 6.x or 7.0 (without Sitecore MVC)"></a>Sitecore 6.x or 7.0 (without Sitecore MVC)</h3><p>If you’re using Sitecore 6 or 7.0 without Sitecore MVC enabled, you can use the directions in the previously referenced blog posts to get Web API configured. By default, Sitecore will not respect ASP.NET routing unless Sitecore MVC is enabled so you have to use the solutions these blogs present to make Sitecore ignore routed URLs.</p>
+<h3 id="Sitecore-with-Sitecore-MVC-enabled"><a href="#Sitecore-with-Sitecore-MVC-enabled" class="headerlink" title="Sitecore with Sitecore MVC enabled"></a>Sitecore with Sitecore MVC enabled</h3><p>When Sitecore MVC is enabled (and you cannot turn it off on Sitecore 7.1 and later), you do not need the pipeline handler presented in the existing blog posts about Sitecore and Web API - Sitecore will automatically hand off routed requests to the route handler out of the box.</p>
+<h2 id="Web-API-versioning"><a href="#Web-API-versioning" class="headerlink" title="Web API versioning"></a>Web API versioning</h2><p>At this time there are two versions of Web API: </p>
+<ul>
+<li>v1, which released concurrently with ASP.NET MVC 4.</li>
+<li>v2, which released concurrently with ASP.NET MVC 5. </li>
+</ul>
+<p>If you’re on Sitecore 6 you’ll be using v1, because Sitecore 6 runs on .NET 4.0, and Web API 2 requires .NET 4.5. On Sitecore 7, you have more options. With 7.0 and MVC disabled, you can run v1 or v2. However on Sitecore 7.0 with MVC or 7.1, this adds a dependency on ASP.NET MVC 4 so you are limited to Web API v1 unless you <a href="/index.php/2013/12/using-mvc-5-with-sitecore-7-1/">follow the instructions in this post</a> to add binding redirects and config modifications to enable MVC 5. The landscape thankfully improves with Sitecore 7.2, as that uses ASP.NET MVC 5.1 which easily adapts to Web API 2. <em>Note that attribute routing, the point of this post, requires Web API 2</em></p>
+<h2 id="Attribute-routing"><a href="#Attribute-routing" class="headerlink" title="Attribute routing?"></a>Attribute routing?</h2><p>About time we started talking about the core of this post, eh? Attribute routing is a snazzy new way to register routes for Web API and ASP.NET MVC that was introduced in Web API 2/MVC 5 (and it was adapted from a community developed module for MVC 4). In earlier versions, you had to register routes in a global route table that was generally constructed all in one global class. This made developing relatively ad-hoc data services that provide what amount to an “AJAX backend for a CMS page” somewhat problematic as your dependency of a small part of the site now has to stick its fingers in everyone else’s pie by adding a global route.</p>
+<p>Attribute routing solves this issue by allowing you to use standard .NET attributes (you know, like <code>[HttpPost]</code> on a MVC action method) to define the route to the code. This makes a lot more sense to my way of thinking. Here’s an example attribute-routed Web API 2 controller:</p>
+<script src="//gist.github.com/41b36cbf412b81c1d75a.js"></script>
+
+<p><a target="_blank" rel="noopener" href="http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2">Microsoft has written pretty detailed documentation</a> about Web API 2 attribute routing, which I suggest you review before getting serious about using this stuff.</p>
+<h2 id="Enabling-attribute-routing-in-Sitecore"><a href="#Enabling-attribute-routing-in-Sitecore" class="headerlink" title="Enabling attribute routing in Sitecore"></a>Enabling attribute routing in Sitecore</h2><p>If you read the aforementioned documentation, you’re probably already well on your way to enabling attribute routing in Sitecore since it’s the same as any other site - all you have to do is register the attribute routes.</p>
+<p>The question then becomes how to do that in Sitecore. I’d say the official route is to add a pipeline handler to the <code>initialize</code> pipeline that does the registration. I decided to go with a more pure .NET approach, and register it using <a target="_blank" rel="noopener" href="https://github.com/davidebbo/WebActivator">WebActivator</a> - look ma, no config file! I created <code>App_Start\WebApiConfig.cs</code> - a pattern which may seem familiar to folks who’ve recently worked on ASP.NET MVC sites - and registered my attribute routes:</p>
+<script src="//gist.github.com/d7f47ff20e59d8fdd4f5.js"></script>
+
+<p>So now all I have to do is:</p>
+<ul>
+<li>Install WebActivatorEx from NuGet</li>
+<li>Copy WebApiConfig.cs into my project</li>
+<li>Create an attribute-routed controller to do stuff</li>
+</ul>
+<p>Pretty simple, and - if you’re using Sitecore 7.2 - easy to get set up on as well. For Sitecore before 7.2 there are some potential hoops to jump through to get attribute routing.</p>
+<p>Anyhow, I hope this was helpful to someone.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2014/05/using-web-api-2-attribute-routing-with-sitecore/" data-id="ckrl9emxu002598q7dk1s51nn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-migrating-to-a-superior-cms" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2014/04/migrating-to-a-superior-cms/">Project Platypus: A content migration solution</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2014/04/migrating-to-a-superior-cms/">
+    <time datetime="2014-04-01T08:22:01.000Z" itemprop="datePublished">April 1, 2014</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/April-1/">April 1</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Every so often as a developer we discover new and awesome things. Sitecore is a fairly capable enterprise CMS, but there’s another one that is simply better.</p>
+<p>It all started when I started working with a beautifully designed, very consistent programming language: PHP. PHP has so many things that .NET could never imagine having, and it’s so easy to use. No more pesky ORMs and other silly tools adding layers of complexity on your CMS - with PHP this is all built in and wonderfully easy. </p>
+<p>Once I got started with PHP it was only a short while until I started working with WordPress. I quickly realized that it was perfectly suited to extremely large enterprise multilingual and multisite sites, and that its easy to use page-based model makes it so much easier to develop and maintain than overcomplex and expensive competitors like Sitecore.</p>
+<p>Now I set out to design a way to migrate content out of legacy Sitecore sites and into new WordPress instances. Enter Project Platypus. All you have to do is install it on your Sitecore instance, and a few clicks later you’ll have a brand new WordPress site with all your content migrated over. It’ll even transfer markup and Lucene indexes that are using scSearchContrib - all without any developer intervention.</p>
+<p>In order to get people started using Project Platypus, I’ve made <a target="_blank" rel="noopener" href="http://www.youtube.com/watch?v=oHg5SJYRHA0">this short video demonstrating it in action</a>. I’ll be posting the source code to GitHub in the next couple days.</p>
+<p>Oh, and happy April Fool’s Day.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2014/04/migrating-to-a-superior-cms/" data-id="ckrl9emxu002398q75p361iyf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-unicorn-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2014/03/unicorn-2/">Now available: Unicorn 2</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2014/03/unicorn-2/">
+    <time datetime="2014-03-29T02:59:49.000Z" itemprop="datePublished">March 28, 2014</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Unicorn/">Unicorn</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I’m happy to announce that the second major version of <a target="_blank" rel="noopener" href="https://github.com/kamsar/Unicorn">Unicorn</a> has been released. Unicorn is a free and open source tool to automatically synchronize item changes between Sitecore instances. If you’re new to Unicorn, the <a target="_blank" rel="noopener" href="https://github.com/kamsar/Unicorn#unicorn">README</a> describes what it is in more detail.</p>
+<p>Unicorn, like many projects, evolved out of a proof of concept. Like most proof of concept projects, Unicorn suffered from a lack of flexibility because it did just enough to prove that it worked. Almost as soon as the first public version was released, work started on the refactoring that would become Unicorn 2. This second major revision of Unicorn is the result of more than 100 hours of work. Both code and UX have been refactored, decoupled, fixed, and improved. Many of the improvements are due to the input of the Sitecore community. Thank you to the folks who have sent issues, questions, and chatted about Unicorn since it was released. You all are awesome.</p>
+<h2 id="What’s-new-in-Unicorn-2"><a href="#What’s-new-in-Unicorn-2" class="headerlink" title="What’s new in Unicorn 2"></a>What’s new in Unicorn 2</h2><ul>
+<li><strong>More reliable change detection.</strong> Instead of detecting changes using event handlers, a data provider is now used. This makes Unicorn immune to <code>EventDisabler</code> and thus missing changes to content.</li>
+<li><strong>Support for multiple <em>configurations</em></strong>. A configuration is a set of dependencies, such as a predicate, serialization provider, and evaluator. These allow you to configure sets of content to serialize differently.</li>
+<li>A <strong>built-in control panel</strong> that walks you through common configuration issues and initial setup, and allows executing sync and reserialize operations once setup.</li>
+<li><strong>Greatly improved logging.</strong> All operations are logged to the Sitecore logs, and the formatting has been streamlined to be terse and relevant.</li>
+<li><strong>Consistency checking during a sync</strong> that finds common merge errors and flags them as errors.</li>
+<li><strong>Better item comparison.</strong> All item fields are now compared when deciding whether to update an item, whereas v1 only evaluated the <em>updated</em> and <em>revision</em> fields.</li>
+<li><strong>Field-level exclusion.</strong> You can now have certain fields be ignored when checking for updates or deserializing an item.</li>
+<li>Supports syncing <strong>media items</strong> (such as rendering thumbnails for page editor)</li>
+<li>Tons of <strong>bug fixes</strong> for unusual situations (for example, moving and copying items between included and not included paths)</li>
+<li><strong>Compatible with Sitecore 6.5 and later</strong>. The original version was for Sitecore 7 only.</li>
+</ul>
+<h2 id="How-do-I-get-it-and-install-it"><a href="#How-do-I-get-it-and-install-it" class="headerlink" title="How do I get it and install it?"></a>How do I get it and install it?</h2><ul>
+<li>Upgrading from 1.x? <a target="_blank" rel="noopener" href="https://github.com/kamsar/Unicorn/wiki/Upgrading-to-Unicorn-2">Read this</a></li>
+<li>You’ll need Sitecore 6.5.0 (121009) or later. Tested with Sitecore through 7.1 Update-1.</li>
+<li>Install Unicorn. This is as simple as adding the Unicorn NuGet package to your project.</li>
+<li>Configure what to serialize in the example configuration’s <em>Predicate</em> registration. There will be an <code>App_Config/Include/Serialization.config</code> file installed, which has a commented example of this syntax.</li>
+<li>Run a build in Visual Studio to make sure the output files are up to date.</li>
+<li>Visit $yoursite/unicorn.aspx and it will walk you through initial serialization. This will take the preset you configured and serialize all of the included items in it to disk. <ul>
+<li>NOTE: make sure to serialize an authoritative database with all items present. Other databases will be made to look just like this one when sync occurs.</li>
+<li>NOTE: if you’re using Git, you need to make sure that Git doesn’t fool with the line endings of your serialized files. Add <code>*.item -text</code> to a <code>.gitattributes</code> file in the repo root. See <a target="_blank" rel="noopener" href="http://seankearney.com/post/Using-Team-Development-for-Sitecore-with-GitHub">this blog post</a> for details.</li>
+</ul>
+</li>
+<li>Commit your serialized items to source control.</li>
+</ul>
+<p>If you want to install Unicorn from source, the procedure is quite easy. The README has <a target="_blank" rel="noopener" href="https://github.com/kamsar/Unicorn#manual-installationinstall-from-source">directions for this</a>.</p>
+<h2 id="Neat-things-you-can-do-with-Unicorn"><a href="#Neat-things-you-can-do-with-Unicorn" class="headerlink" title="Neat things you can do with Unicorn"></a>Neat things you can do with Unicorn</h2><h3 id="Code-Review-and-Branching"><a href="#Code-Review-and-Branching" class="headerlink" title="Code Review and Branching"></a>Code Review and Branching</h3><p>Recently I’ve started doing a lot more code review using GitHub <a target="_blank" rel="noopener" href="https://help.github.com/articles/using-pull-requests">pull requests</a>. Unicorn makes Sitecore code review very easy - all you have to do is switch to the branch under review and sync Unicorn. Now your Sitecore has all the templates and renderings from that branch. When you’re done you checkout the original branch and sync again - and you’re back where you started. Very convenient.</p>
+<h3 id="Syncing-test-content-between-developers"><a href="#Syncing-test-content-between-developers" class="headerlink" title="Syncing test content between developers"></a>Syncing test content between developers</h3><p>If your site’s information architecture allows it, you can include a path under the site’s home item, such as ‘Samples’ to be synced using Unicorn. This content can be used by developers to create examples of content types under development to share for QA. The same technique can also be used to share rendering thumbnails in the media library.</p>
+<h3 id="Integrating-with-continuous-integration"><a href="#Integrating-with-continuous-integration" class="headerlink" title="Integrating with continuous integration"></a>Integrating with continuous integration</h3><p>Unicorn is very simple to run using any CI server or script that can make HTTP requests. Once that is set up, your integration server - or even live - will never have outdated templates again. Example scripts for this <a target="_blank" rel="noopener" href="https://github.com/kamsar/Unicorn#automated-deployment">can be found here</a></p>
+<h3 id="Integrate-with-deployment-tools"><a href="#Integrate-with-deployment-tools" class="headerlink" title="Integrate with deployment tools"></a>Integrate with deployment tools</h3><p>Several people have integrated Unicorn with tools such as <a target="_blank" rel="noopener" href="https://github.com/adoprog/Sitecore-Courier">Sitecore Courier</a> and <a target="_blank" rel="noopener" href="https://github.com/kevinobee/Sitecore.Ship">Sitecore.Ship</a> to create update packages to deploy to remote environments.</p>
+<h2 id="What’s-new-in-the-backend"><a href="#What’s-new-in-the-backend" class="headerlink" title="What’s new in the backend"></a>What’s new in the backend</h2><p>The largest change in the backend is having it be a modular dependency-based system. Unlike v1 which had issues like the inability to use anything but the default preset, v2 allows you to reconfigure nearly all aspects of the system by changing the classes registered in the <code>Serialization.config</code> file. Multiple configurations also allow for multiple configurations of the dependencies, so you can have more than one implementation of these extension points in any given project. This allows you to not only have different behavior per configuration but also to sync configurations separately if you wish to.</p>
+<p>There is a <a target="_blank" rel="noopener" href="https://github.com/kamsar/Unicorn/blob/master/README.md#advanced-usage-and-customization">rather long description</a> of customization in the repository’s README file on GitHub if you’re interested.</p>
+<h2 id="Should-I-use-this-now"><a href="#Should-I-use-this-now" class="headerlink" title="Should I use this now?"></a>Should I use this now?</h2><p>That’s up to you. I am using it for my daily team development tasks, and consider it to be generally <em>more</em> stable than v1 because of the safety improvements (data provider, syncing all fields, consistency checking, better log messages).</p>
+<p>Hope you enjoy it, and as always you can get ahold of me on <a target="_blank" rel="noopener" href="https://twitter.com/kamsar">Twitter</a> or <a target="_blank" rel="noopener" href="https://github.com/kamsar/Unicorn/issues/new">GitHub</a> if you run across issues or have ideas.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2014/03/unicorn-2/" data-id="ckrl9emxt002098q7f2e942xf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-have-two-web-databases-dont-forget-the-indexupdatestrategy" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2014/01/have-two-web-databases-dont-forget-the-indexupdatestrategy/">Have two web databases? Don&#39;t forget the IndexUpdateStrategy</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2014/01/have-two-web-databases-dont-forget-the-indexupdatestrategy/">
+    <time datetime="2014-01-14T04:12:03.000Z" itemprop="datePublished">January 13, 2014</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/index.php/category/Sitecore/Search/">Search</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>If you have two web databases in a Sitecore 7 site (e.g. for a pre-production preview or staging site) and you’re using Lucene here’s something to be aware of:</p>
+<p>Simply copying the <code>Sitecore.ContentSearch.Lucene.Index.Web.config</code> file, renaming the index and changing the <code>&lt;locations&gt;</code> entr(ies) is not sufficient to make your new index work correctly! You’ll  notice that if you publish items to that database that the updates don’t make it into the index. Why not?</p>
+<p>Simply put, the default <a target="_blank" rel="noopener" href="http://www.sitecore.net/Community/Technical-Blogs/John-West-Sitecore-Blog/Posts/2013/04/Sitecore-7-Index-Update-Strategies.aspx"><code>IndexUpdateStrategies</code></a> are confusingly named. The web index defaults to the <code>onPublishEndAsync</code> strategy, which makes sense to use for our staging database as well - we want the index to get updated by the event queue after a publish completes. But there’s one minor detail: the <code>onPublishEndAsync</code> strategy should really be called <code>onPublishEndAsyncWebdb</code> or something similar. Let’s look at how the strategy is defined:</p>
+<pre><code>&lt;onPublishEndAsync type=&quot;Sitecore.ContentSearch.Maintenance.Strategies.OnPublishEndAsynchronousStrategy, Sitecore.ContentSearch&quot;&gt;
+    &lt;param desc=&quot;database&quot;&gt;web&lt;/param&gt;
+    &lt;CheckForThreshold&gt;true&lt;/CheckForThreshold&gt;
+&lt;/onPublishEndAsync&gt;
+</code></pre>
+<p>Derp - that <code>&lt;param desc=&quot;database&quot;&gt;web&lt;/param&gt;</code>! The strategy actually is only watching the event queue for updates from a single database - and that database is not our staging database. The solution is to define a copy of the <code>onPublishEndAsync</code> strategy for your staging index and change the database parameter, then change your index declaration to reference that strategy instead:</p>
+<p>In app_config\include\sitecore.contentsearch.lucene.defaultindexconfiguration.config (or a patch thereof):</p>
+<pre><code>&lt;onPublishEndAsyncStaging type=&quot;Sitecore.ContentSearch.Maintenance.Strategies.OnPublishEndAsynchronousStrategy, Sitecore.ContentSearch&quot;&gt;
+  &lt;param desc=&quot;database&quot;&gt;web_staging&lt;/param&gt;
+  &lt;CheckForThreshold&gt;true&lt;/CheckForThreshold&gt;
+&lt;/onPublishEndAsyncStaging&gt;
+</code></pre>
+<p>In App_Config\Include\Sitecore.ContentSearch.Lucene.Index.Web_Staging.config (or wherever you’re defining your staging index), reference the new strategy instead of the existing strategy:</p>
+<pre><code>&lt;strategy ref=&quot;contentSearch/indexUpdateStrategies/onPublishEndAsyncStaging&quot; /&gt;
+</code></pre>
+<p>Note that if you defined an index that spanned multiple databases you’d need to define multiple strategies for its updates, and reference all of them from the index config - an index can have multiple update strategies.</p>
+<p>Hope this is helpful :)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2014/01/have-two-web-databases-dont-forget-the-indexupdatestrategy/" data-id="ckrl9emxt001y98q77oxc6e7e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-using-mvc-5-with-sitecore-7-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/index.php/2013/12/using-mvc-5-with-sitecore-7-1/">Using MVC 5 with Sitecore 7.1</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/index.php/2013/12/using-mvc-5-with-sitecore-7-1/">
+    <time datetime="2013-12-27T04:52:05.000Z" itemprop="datePublished">December 26, 2013</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/index.php/category/Sitecore/">Sitecore</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/index.php/category/Sitecore/MVC/">MVC</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>If you’re using something that is already on ASP.NET MVC 5, for example the latest release of Blade, and want to upgrade to Sitecore 7.1 you may be worried that as of 7.1 Sitecore takes a dependency on ASP.NET MVC 4. Thankfully that’s actually pretty simple to work around in such a way that both your MVC5 code and Sitecore’s MVC4 code can work together.</p>
+<h2 id="Tell-Sitecore-to-use-MVC5"><a href="#Tell-Sitecore-to-use-MVC5" class="headerlink" title="Tell Sitecore to use MVC5"></a>Tell Sitecore to use MVC5</h2><p>First you need to redirect bindings to MVC4 to MVC5. You accomplish this by adding a <em>binding redirect</em> to your Web.config file like so:</p>
+<pre><code>&lt;runtime&gt;
+&lt;assemblyBinding xmlns=&quot;urn:schemas-microsoft-com:asm.v1&quot;&gt;
+  &lt;dependentAssembly&gt;
+    &lt;assemblyIdentity name=&quot;System.Web.Mvc&quot; publicKeyToken=&quot;31bf3856ad364e35&quot; /&gt;
+    &lt;bindingRedirect oldVersion=&quot;1.0.0.0-4.0.0.0&quot; newVersion=&quot;5.0.0.0&quot; /&gt;
+  &lt;/dependentAssembly&gt;
+ &lt;/assemblyBinding&gt;
+ &lt;/runtime&gt;
+</code></pre>
+<p>Once you’ve done this, the new SPEAK backend will actually be making calls to the MVC5 <code>System.Web.Mvc</code> library - which it appears to be quite happy doing.</p>
+<h2 id="Comment-out-the-extra-Razor-section-definition"><a href="#Comment-out-the-extra-Razor-section-definition" class="headerlink" title="Comment out the extra Razor section definition"></a>Comment out the extra Razor section definition</h2><p>In Sitecore 7.1, there is a Web.config added to sitecore/shell/client that contains a definition of the Razor config section. If you’re defining the Razor config section yourself on the Web.config - like Blade does - then this is a duplicate declaration and will throw an exception. All you need to do is comment out this duplicate definition and it will fix the issue:</p>
+<pre><code>&lt;!--   &lt;configSections&gt;       
+    &lt;sectionGroup name=&quot;system.web.webPages.razor&quot; type=&quot;System.Web.WebPages.Razor.Configuration.RazorWebSectionGroup, System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35&quot;&gt;
+        &lt;section name=&quot;host&quot; type=&quot;System.Web.WebPages.Razor.Configuration.HostSection, System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35&quot; requirePermission=&quot;false&quot; /&gt;
+        &lt;section name=&quot;pages&quot; type=&quot;System.Web.WebPages.Razor.Configuration.RazorPagesSection, System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35&quot; requirePermission=&quot;false&quot; /&gt;       
+    &lt;/sectionGroup&gt;        
+&lt;/configSections&gt; --&gt;
+</code></pre>
+<p>That’s all you need to do to get MVC5 running with Sitecore 7.1. The Web.config in the shell will automatically override whatever Razor settings you may have in your Web.config file and keep SPEAK running when it needs to.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kamsar.net/index.php/2013/12/using-mvc-5-with-sitecore-7-1/" data-id="ckrl9emxs001w98q7be6p67z8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/index.php/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/index.php/page/5/">5</a><a class="page-number" href="/index.php/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/index.php/page/8/">8</a><a class="page-number" href="/index.php/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/index.php/page/11/">11</a><a class="extend next" rel="next" href="/index.php/page/8/">Next &amp;raquo;</a>
+    </nav>
+  
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/JavaScript/">JavaScript</a></p>
+              <p class="item-title"><a href="/index.php/2021/07/Fun-with-async-generators-and-for-await/" class="title">Fun with async generators and for await</a></p>
+              <p class="item-date"><time datetime="2021-07-26T23:30:51.000Z" itemprop="datePublished">July 26, 2021</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/Jamstack/">Jamstack</a></p>
+              <p class="item-title"><a href="/index.php/2020/08/Deploying-multiple-Netlify-sites-from-one-Git-repository/" class="title">Deploying multiple Netlify sites from one monorepo</a></p>
+              <p class="item-date"><time datetime="2020-08-21T03:30:32.000Z" itemprop="datePublished">August 20, 2020</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/JSS/">JSS</a></p>
+              <p class="item-title"><a href="/index.php/2019/09/Running-JSS-headless-mode-in-containers-part-2-Build-containers/" class="title">Running JSS headless mode in containers part 2: Build containers</a></p>
+              <p class="item-date"><time datetime="2019-09-16T02:14:04.000Z" itemprop="datePublished">September 15, 2019</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/JSS/">JSS</a></p>
+              <p class="item-title"><a href="/index.php/2019/09/Running-JSS-headless-mode-in-containers-part-1/" class="title">Running JSS headless mode in containers, part 1</a></p>
+              <p class="item-date"><time datetime="2019-09-08T19:00:36.000Z" itemprop="datePublished">September 8, 2019</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/index.php/category/C/">C#</a></p>
+              <p class="item-title"><a href="/index.php/2019/05/Build-2019-All-the-things/" class="title">Build 2019: All the things</a></p>
+              <p class="item-date"><time datetime="2019-05-10T23:01:11.000Z" itemprop="datePublished">May 10, 2019</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/April-1/">April 1</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Blade/">Blade</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Build-Scripts/">Build Scripts</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/C/">C#</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Dianoga/">Dianoga</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/JSS/">JSS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Jamstack/">Jamstack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Node-js/">Node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/">Sitecore</a><span class="category-list-count">39</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Crypto/">Crypto</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Lucene/">Lucene</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/MVC/">MVC</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/Search/">Search</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Sitecore/xDB/">xDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Synthesis/">Synthesis</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/Unicorn/">Unicorn</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/index.php/category/WebConsole/">WebConsole</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <p>&copy; 2021 Kam Figy</p>
+      <p><small>Opinions expressed on this blog are my own, and not necessarily those of my employer.</small></p>
+     <p><small>This work is licensed under a <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</small></p>
+    </div>
+  </div>
+</footer>
+    
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>
